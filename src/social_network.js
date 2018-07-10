@@ -1,3 +1,15 @@
+// BOTONES DEL HTML  **************************************
+let btnIngresaWeb=document.getElementById("ingresa-a-web");
+const divRegisterUser=document.getElementById("registra-usuario");
+const divPrincipal=document.getElementById('div-principal');
+
+btnIngresaWeb.addEventListener('click', () => { 
+    divRegisterUser.classList.replace('none', 'block');
+    divPrincipal.classList.replace('block','none');
+});
+
+
+// FUNCIONES DE FIREBASE **********************************
 function registrar() {
     const email = document.getElementById('email').value;
     const password = document.getElementById('contrasena').value;
@@ -73,7 +85,7 @@ function aparecer(user) {
     <div class="container mt-5">
         <div class="alert alert-success" role="alert">
         <h4 class="alert-heading">Bienvenido! ${user.email}</h4>
-        <p>Aww yeah, you successfully read this important alert message. This example text is going to run a bit longer so that you can see how spacing within an alert works with this kind of content.</p>
+        <p>Bienvenida, ahora puedes empezar a compartir tu experiencia y ver las experiencias de otros usuarios. Recuerda, COMER RICO! es sinonimo de COMER SANO!</p>
         <hr>
         <p class="mb-0">Whenever you need to, be sure to use margin utilities to keep things nice and tidy.</p>
         </div>
@@ -106,3 +118,6 @@ function verificar() {
 }
       // luz@hotmail.com 
       //  123@hotmail.com     123456
+
+
+

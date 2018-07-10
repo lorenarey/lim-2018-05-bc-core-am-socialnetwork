@@ -1,0 +1,50 @@
+body{
+    background: burlywood;
+    align-self: auto;
+}
+
+.title-main{
+    font-family: fantasy;
+    text-align: center;
+}
+
+h2
+{
+color:#fff;  /*Genera color blanco */
+text-align: center;
+font-size: 30px;
+margin-bottom: 20px;     
+}
+
+.block{
+    display: block;
+}
+
+.none{
+    display: none;
+}
+
+.main-card{
+    width: 18rem;
+}
+
+form
+{
+width:450px;
+margin: auto;  /* para centrar el formulario */    
+background: black; 
+padding: 10px 20px;  
+box-sizing: border-box;    
+margin-top: 20px;
+border-radius: 7px;  /* ESQUINAS REDONDAS */
+}
+
+input
+{
+width: 100%;
+margin-bottom: 20px;
+padding: 7px;
+box-sizing: border-box;
+font-size: 17px;
+border: none;    
+}
