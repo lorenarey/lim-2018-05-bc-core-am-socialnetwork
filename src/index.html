@@ -1,98 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Document</title>
-   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB"
-    crossorigin="anonymous">
-    <link rel="stylesheet" href="social_network.css" />
-  <script src="https://www.gstatic.com/firebasejs/5.2.0/firebase.js"></script>
-  <script>
-    // Initialize Firebase
-    var config = {
-      apiKey: "AIzaSyDfyJ-7jBUjMH1zE7sCopkci1_5djmtwf4",
-      authDomain: "project1-272727.firebaseapp.com",
-      databaseURL: "https://project1-272727.firebaseio.com",
-      projectId: "project1-272727",
-      storageBucket: "project1-272727.appspot.com",
-      messagingSenderId: "984818879513"
-    };
-    firebase.initializeApp(config);
-  </script>
+  <title>Social Network - Q.Nutrition</title>
+  <link rel="icon" href="img/icono_frutas_verduras.png">
 </head>
-
-
 <body>
-  <header>
-    <h2 class="title-main"> COMIDADELICIOSA.COM</h2>
-  </header>
+  <div id="main-container">
+    <header>
+      <h1>Bienvenidos a Q-Nutrition Center</h1>
+    </header>
 
+    <section>
+      <div id="formButton">
+        <form>
+          <h3>Inicio de Sesión</h3>
+          <input id="emailButton" type="button" value="Regístrate con e-mail y contraseña"><br>
 
-
-  <div class="card main-card block" id="div-principal">
-    <img class="card-img-top" src="https://restaurant-dieguito.webnode.es/_files/200000000-01648025d3/lomo-saltado-receta-peruana.jpg"
-      alt="Card image cap">
-    <div class="card-body">
-      <h5 class="card-title">ComidaDeliciosa.com</h5>
-      <p class="card-text text-justify">En este sitio web encontrarás los mejores Tips y recomendaciones para comer sano. Comparte tu experiencia y aprende
-        de otros. Contamos con Nutricionistas profesionales que estarán dispuestos a ayudarte en tu consulta.</p>
-      <input type="button" class="btn btn-primary" id="ingresa-a-web" value="Ingresar a la Web">
-    </div>
-  </div>
-
-
-  <div class="container mt-3 none" id="registra-usuario">
-    <nav class="navbar navbar-dark bg-primary">
-      <a class="navbar-brand">Registro de Usuarios</a>
-      <div class="form-inline">
-        <input type="email" id="email2" placeholder="Ingresa Email" class="form-control-sm mr-sm-2">
-        
-        <input type="password" id="contrasena2" placeholder="Ingresa contraseña" class="form-control-sm mr-sm-2">
-        <button class="btn btn-dark my-2 my-sm-0 btn-sm" onclick="ingresar()">Acceder</button>
-        <button class="btn btn-danger my-2 my-sm-0 btn-sm ml-2" data-toggle="modal" data-target="#exampleModal">Registrar</button>
+          <input id="faceButton" type="button" value="Registro y acceso con Facebook"><br>
+          
+          <input id="googleButton" type="button" value="Registro y acceso con Google">
+        </form>
       </div>
-    </nav>
-  </div>
 
+      <!-- <div id="optionEmail">
+        <form>
+          <label>Acción a realizar:</label>
+          <button id="optionR" type="button">Registrarme</button>
+          <button id="optionS" type="button">Iniciar Sesión</button>
+        </form>
+      </div> -->
 
-  <!-- Modal -->
-  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Registro de Nuevo Usuario</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          <input type="email" id="email" placeholder="Ingresa Email" class="form-control">
-          <div class="mt-2"> </div>
-          <input type="password" id="contrasena" placeholder="Ingresa contraseña" class="form-control">
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-          <!-- El boton Guardar: Guarda datos del Usuario Nuevo -->
-          <button type="button" class="btn btn-primary" onclick="registrar()">Guardar</button>
-        </div>
+      <div id="formRegister">
+        <form>
+          <h2>Registro de Usuario</h2>
+          <input id="email" type="email" placeholder="Ingresa e-mail">
+          <p id="error-email"></p>
+          <input id="password" type="password" placeholder="Ingresa contraseña">
+          <p id="error-password"></p>
+          <button id="register" type="button">Registrar</button>
+        </form>
       </div>
-    </div>
+
+      <div id="formSesion">
+          <form>
+            <h2>Inicio de Sesión</h2>
+            <input id="email2" type="email" placeholder="Ingresa e-mail">
+            <p id="error-email"></p>
+            <input id="password2" type="password" placeholder="Ingresa contraseña">
+            <p id="error-password"></p>
+            <button id="loginButton" type="button">Acceder</button>
+          </form>
+        </div>
+    </section>
   </div>
-  <div id="contenido"> </div>
-
-
-  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-    crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
-    crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
-    crossorigin="anonymous"></script>
-  <script src="social_network.js">  </script>
-
-
+  <script src="https://www.gstatic.com/firebasejs/5.2.0/firebase.js"></script> <!-- Inicio de firebase -->
+  <script src="firebase.js"></script>
+  <script src="social_network.js"></script>
+  <script src="main.js"></script>
 </body>
-
 </html>
