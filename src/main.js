@@ -8,7 +8,6 @@ const formRegister = document.getElementById('formRegister');
 const formSesion = document.getElementById('formSesion');
 const errorEmail = document.getElementById('error-email');
 const errorPassword = document.getElementById('error-password');
-const outButton = document.getElementById('signOut');
 const optionEmail = document.getElementById('optionEmail');
 const rButton = document.getElementById('optionR');
 const sButton = document.getElementById('optionS');
@@ -16,19 +15,25 @@ const sButton = document.getElementById('optionS');
 
 formRegister.style.display = 'none';
 formSesion.style.display = 'none';
-//optionEmail.style.display = 'none';
+optionEmail.style.display = 'none';
 
 emailButton.addEventListener('click', () => {
-    formRegister.style.display = 'block';
     formButton.style.display = 'none';
-    //optionEmail.style.display = 'none';
+    optionEmail.style.display = 'block';
 })
 
+rButton.addEventListener('click', () => {
+    formRegister.style.display = 'block';
+    optionEmail.style.display = 'none';
+})
 
-
-
+sButton.addEventListener('click', () => {
+    formSesion.style.display = 'block';
+    optionEmail.style.display = 'none';
+})
 
 registerButton.addEventListener('click', () => {
+    let nameUser = document.getElementById('nameUser').value;
     let email = document.getElementById('email').value;
     let password = document.getElementById('password').value;
     
@@ -52,10 +57,6 @@ loginButton.addEventListener('click', () => {
     let password2 = document.getElementById('password2').value;
     let userLogin = login(email2, password2);
     validation();
-    window.location.href = 'timeline.html';
 })
 
-// outButton.addEventListener('click', () =>{
-//     signOut();
-//     window.location.href = 'index.html';
-// })
+googleButton.addEventListener('click', loginGoogle);

@@ -25,21 +25,24 @@
         </form>
       </div>
 
-      <!-- <div id="optionEmail">
+      <div id="optionEmail">
         <form>
           <label>Acción a realizar:</label>
           <button id="optionR" type="button">Registrarme</button>
           <button id="optionS" type="button">Iniciar Sesión</button>
         </form>
-      </div> -->
+      </div>
 
       <div id="formRegister">
         <form>
           <h2>Registro de Usuario</h2>
+          <input id="nameUser" type="text" placeholder="Ingresa tu nombre">
+          <p></p>
           <input id="email" type="email" placeholder="Ingresa e-mail">
           <p id="error-email"></p>
           <input id="password" type="password" placeholder="Ingresa contraseña">
           <p id="error-password"></p>
+          <input id="confirPassword" type="password" placeholder="Confirmar contraseña">
           <button id="register" type="button">Registrar</button>
         </form>
       </div>
@@ -56,7 +59,8 @@
         </div>
     </section>
   </div>
-  <script src="https://www.gstatic.com/firebasejs/5.2.0/firebase.js"></script> <!-- Inicio de firebase -->
+  <script src="https://www.gstatic.com/firebasejs/5.2.0/firebase.js"></script> 
+  <!--<script src="initFirebase.js"></script>-->
   <script src="firebase.js"></script>
   <script src="social_network.js"></script>
   <script src="main.js"></script>

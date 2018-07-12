@@ -1,5 +1,4 @@
-// Iniciando Firebase
-let config = {
+const config = {
     apiKey: "AIzaSyDfyJ-7jBUjMH1zE7sCopkci1_5djmtwf4",
     authDomain: "project1-272727.firebaseapp.com",
     databaseURL: "https://project1-272727.firebaseio.com",
@@ -7,12 +6,16 @@ let config = {
     storageBucket: "project1-272727.appspot.com",
     messagingSenderId: "984818879513"
 };
-
 firebase.initializeApp(config);
+
 
 // Registro de Usuarios Nuevos
 let registerNew = (email, password) => {
-    firebase.auth().createUserWithEmailAndPassword(email, password).catch(function(error) {
+    firebase.auth().createUserWithEmailAndPassword(email, password)
+    .then(() => {
+        check();
+    })
+    .catch(function(error) {
         let errorCode = error.code;
         let errorMessage = error.message;
         console.log(errorCode);
@@ -47,19 +50,57 @@ let validation = () => {
     firebase.auth().onAuthStateChanged(function(user) {
         if (user) {
           let displayName = user.displayName;
+          console.log(user);
           let email = user.email;
           let emailVerified = user.emailVerified;
+          console.log(emailVerified);
           let photoURL = user.photoURL;
           let isAnonymous = user.isAnonymous;
           let uid = user.uid;
           let providerData = user.providerData;
-          console.log('Usuario inicio sesión');
-          // ...
+        } 
+        if (user.emailVerified) {
+            //console.log('usuario validó email');
+            window.location.href = 'timeline.html';
         } else {
-          // User is signed out.
-          console.log('No inició sesión');
-        }
-      });
+            alert('Por favor valida tu correo');
+        }   
+    });
+}
+
+
+// Login con Google
+const loginGoogle = () => {
+    const provider = new firebase.auth.GoogleAuthProvider();
+    provider.addScope('https://www.googleapis.com/auth/contacts.readonly');
+    firebase.auth().languageCode = 'pt';
+    
+    firebase.auth().signInWithPopup(provider).then(function(result) {
+        const token = result.credential.accessToken;
+        // Información de usuario
+        const userData = result.user;
+        console.log(userData)
+      })
+    //   .catch(function(error) {
+    //     const errorCode = error.code;
+    //     const errorMessage = error.message;
+    //     const email = error.email;
+    //     const credential = error.credential;
+    
+    //   });
+}
+
+
+
+
+// Validación de correo al usuario
+const check = () => {
+    var user = firebase.auth().currentUser;
+    user.sendEmailVerification().then(function() {
+        console.log('Enviando correo')
+    }).catch(function(error) {
+    // An error happened.
+    });
 }
 
 
