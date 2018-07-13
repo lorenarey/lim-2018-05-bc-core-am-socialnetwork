@@ -1,5 +1,7 @@
 # Q-Nutrition Social Network 
 
+![Logo Q-nutrition red social sobre alimentación saludable](https://github.com/lorenarey/lim-2018-05-bc-core-am-socialnetwork/blob/dev/img/logo1-normal.png)
+
 
 ## INTRODUCCIÓN
 
