@@ -13,23 +13,25 @@ const rButton = document.getElementById('optionR');
 const sButton = document.getElementById('optionS');
 //const welcomeArea = document.getElementById('post-container');
 
-formRegister.style.display = 'none';
-formSesion.style.display = 'none';
-optionEmail.style.display = 'none';
+formButton.classList.remove('hidden');
+optionEmail.classList.add('hidden');
+formRegister.classList.add('hidden');
+formSesion.classList.add('hidden');
+
 
 emailButton.addEventListener('click', () => {
-  formButton.style.display = 'none';
-  optionEmail.style.display = 'block';
+  formButton.classList.add('hidden');
+  optionEmail.classList.remove('hidden');
 })
 
 rButton.addEventListener('click', () => {
-  formRegister.style.display = 'block';
-  optionEmail.style.display = 'none';
+  formRegister.classList.remove('hidden');
+  optionEmail.classList.add('hidden');
 })
 
 sButton.addEventListener('click', () => {
-  formSesion.style.display = 'block';
-  optionEmail.style.display = 'none';
+  formSesion.classList.remove('hidden');
+  optionEmail.classList.add('hidden');
 })
 
 registerButton.addEventListener('click', () => {
@@ -57,4 +59,8 @@ loginButton.addEventListener('click', () => {
   validation();
 })
 
-googleButton.addEventListener('click', loginGoogle());
+googleButton.addEventListener('click', (e) => {
+  if (e.target) {
+    loginGoogle()
+  }
+});

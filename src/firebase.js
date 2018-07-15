@@ -55,26 +55,26 @@ const validation = () => {
 }
 
 
-// // Login con Google
-// const loginGoogle = () => {
-//   const provider = new firebase.auth.GoogleAuthProvider();
-//   provider.addScope('https://www.googleapis.com/auth/contacts.readonly');
+// Login con Google
+const loginGoogle = () => {
+  const provider = new firebase.auth.GoogleAuthProvider();
+  provider.addScope('https://www.googleapis.com/auth/contacts.readonly');
   
-//   firebase.auth().signInWithPopup(provider).then(function(result) {
-//     const token = result.credential.accessToken;
-//     // Información de usuario
-//     const userData = result.user;
-//     console.log(userData)
-//     })
-//     .catch(function(error) {
-//       const errorCode = error.code;
-//       const errorMessage = error.message;
-//       const email = error.email;
-//       const credential = error.credential;
-//       console.log(errorMessage);
-//   });
-// }
-
+  firebase.auth().signInWithPopup(provider).then(function(result) {
+    const token = result.credential.accessToken;
+    // Información de usuario
+    const userData = result.user;
+    console.log(userData)
+    window.location.href = 'timeline.html';
+    })
+    .catch(function(error) {
+      const errorCode = error.code;
+      const errorMessage = error.message;
+      const email = error.email;
+      const credential = error.credential;
+      console.log(errorMessage);  
+  });
+}
 
 
 // Validación de correo al usuario
@@ -96,3 +96,5 @@ const signOut = () => {
       // An error happened.
   });
 }
+
+
