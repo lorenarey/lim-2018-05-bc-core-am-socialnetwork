@@ -1,10 +1,10 @@
 const config = {
-    apiKey: "AIzaSyDfyJ-7jBUjMH1zE7sCopkci1_5djmtwf4",
-    authDomain: "project1-272727.firebaseapp.com",
-    databaseURL: "https://project1-272727.firebaseio.com",
-    projectId: "project1-272727",
-    storageBucket: "project1-272727.appspot.com",
-    messagingSenderId: "984818879513"
+  apiKey: "AIzaSyDfyJ-7jBUjMH1zE7sCopkci1_5djmtwf4",
+  authDomain: "project1-272727.firebaseapp.com",
+  databaseURL: "https://project1-272727.firebaseio.com",
+  projectId: "project1-272727",
+  storageBucket: "project1-272727.appspot.com",
+  messagingSenderId: "984818879513"
 };
 firebase.initializeApp(config);
 
@@ -15,7 +15,7 @@ let registerNew = (email, password) => {
   .then(() => {
     check();
   })
-  .catch(function(error) {
+  .catch((error) => {
     let errorCode = error.code;
     let errorMessage = error.message;
     console.log(errorCode);
@@ -25,7 +25,7 @@ let registerNew = (email, password) => {
 
 // Inicio de sesión de usuario existente
 let login = (email, password) => {
-  firebase.auth().signInWithEmailAndPassword(email, password).catch(function(error) {
+  firebase.auth().signInWithEmailAndPassword(email, password).catch((error) => {
     let errorCode = error.code;
     let errorMessage = error.message;
   })
@@ -33,7 +33,7 @@ let login = (email, password) => {
 
 // Validación de autenticación de usuarios
 const validation = () => {
-  firebase.auth().onAuthStateChanged(function(user) {
+  firebase.auth().onAuthStateChanged((user) => {
     if (user) {
       let displayName = user.displayName;
       console.log(user);
@@ -60,14 +60,14 @@ const loginGoogle = () => {
   const provider = new firebase.auth.GoogleAuthProvider();
   provider.addScope('https://www.googleapis.com/auth/contacts.readonly');
   
-  firebase.auth().signInWithPopup(provider).then(function(result) {
+  firebase.auth().signInWithPopup(provider).then((result) => {
     const token = result.credential.accessToken;
     // Información de usuario
     const userData = result.user;
-    console.log(userData)
+    console.log(userData);
     window.location.href = 'timeline.html';
     })
-    .catch(function(error) {
+    .catch((error) => {
       const errorCode = error.code;
       const errorMessage = error.message;
       const email = error.email;
@@ -80,20 +80,20 @@ const loginGoogle = () => {
 // Validación de correo al usuario
 const check = () => {
   const user = firebase.auth().currentUser;
-  user.sendEmailVerification().then(function() {
-    console.log('Enviando correo')
-  }).catch(function(error) {
-    // An error happened.
+  user.sendEmailVerification().then(() => {
+    console.log('Enviando correo');
+  }).catch((error) => {
+    console.log(error);
   });
 }
 
 
 // funcion para cerrar sesion
 const signOut = () => {
-  firebase.auth().signOut().then(function() {
+  firebase.auth().signOut().then(() => {
     console.log('Sesión finalizada')
-    }).catch(function(error) {
-      // An error happened.
+    }).catch((error) => {
+     console.log(error);
   });
 }
 
@@ -107,20 +107,16 @@ const loginFacebook = () => {
   firebase.auth().signInWithPopup(provider)
     .then((result) => { 
       console.log('Login con facebook')
-    
-    // // This gives you a Facebook Access Token. You can use it to access the Facebook API.
-    const token = result.credential.accessToken;
-    const user = result.user;
-    console.log(user)
-    window.location.href = 'timeline.html';   
-
-  })
-  .catch((error) => {
-    // Handle Errors here.
-    console.log(error.code);
-    console.log(error.message);
-    console.log(error.email);
-    console.log(error.credential);
+      const token = result.credential.accessToken;
+      const user = result.user;
+      console.log(user)
+      window.location.href = 'timeline.html';   
+    })
+    .catch((error) => {
+      console.log(error.code);
+      console.log(error.message);
+      console.log(error.email);
+      console.log(error.credential);
   });
   
 }

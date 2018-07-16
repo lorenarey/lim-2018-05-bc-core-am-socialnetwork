@@ -11,7 +11,6 @@ const errorPassword = document.getElementById('error-password');
 const optionEmail = document.getElementById('optionEmail');
 const rButton = document.getElementById('optionR');
 const sButton = document.getElementById('optionS');
-//const welcomeArea = document.getElementById('post-container');
 
 formButton.classList.remove('hidden');
 optionEmail.classList.add('hidden');
@@ -38,6 +37,8 @@ registerButton.addEventListener('click', () => {
   let nameUser = document.getElementById('nameUser').value;
   let email = document.getElementById('email').value;
   let password = document.getElementById('password').value;
+
+  
     
   if (email == ''){
     errorEmail.textContent = "Ingrese Correo";
