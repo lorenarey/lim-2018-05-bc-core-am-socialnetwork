@@ -64,3 +64,10 @@ googleButton.addEventListener('click', (e) => {
     loginGoogle()
   }
 });
+
+
+faceButton.addEventListener('click', (e) => {
+  if (e.target) {
+    loginFacebook()
+  }
+});

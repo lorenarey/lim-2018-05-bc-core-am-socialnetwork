@@ -97,4 +97,33 @@ const signOut = () => {
   });
 }
 
+// Login con Facebook
+const loginFacebook = () => {
+  const provider = new firebase.auth.FacebookAuthProvider();
+  provider.setCustomParameters({
+    'display' : 'popup'
+  });
+ 
+  firebase.auth().signInWithPopup(provider)
+    .then((result) => { 
+      console.log('Login con facebook')
+    
+    // // This gives you a Facebook Access Token. You can use it to access the Facebook API.
+    const token = result.credential.accessToken;
+    const user = result.user;
+    console.log(user)
+    window.location.href = 'timeline.html';   
+
+  })
+  .catch((error) => {
+    // Handle Errors here.
+    console.log(error.code);
+    console.log(error.message);
+    console.log(error.email);
+    console.log(error.credential);
+  });
+  
+}
+
+
 
