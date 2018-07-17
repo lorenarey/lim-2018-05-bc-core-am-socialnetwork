@@ -76,7 +76,6 @@ loginButton.addEventListener('click', () => {
   }else if (email2 != '' && password2 != '') {
     validation();
   }   
-
 });
 
 googleButton.addEventListener('click', (e) => {
