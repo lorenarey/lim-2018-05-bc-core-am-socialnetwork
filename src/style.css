@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-.block {
-    display: block;
-}
-
-.none {
-    display: none;
-}
-=======
 .hidden {
     display: none;
 }
@@ -128,4 +119,3 @@ button:hover {
     border-radius: 7px;
     margin: 0em 0em 3.5em 0em;
 } */
->>>>>>> 4c4933c08fe7ef37c89cfce901d6ee73e530cc56
