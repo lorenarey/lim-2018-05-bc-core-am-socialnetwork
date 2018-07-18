@@ -20,6 +20,9 @@ let registerNew = (email, password) => {
     let errorMessage = error.message;
     console.log(errorCode);
     console.log(errorMessage);
+    alert('Error al Registrar! verifica que los datos ingresados sean válidos')
+    alert(errorCode);
+    alert(errorMessage);
   })
 }
 
@@ -46,10 +49,11 @@ const validation = () => {
       let providerData = user.providerData;
     } 
     if (user.emailVerified) {
-      //console.log('usuario validó email');
+      console.log('usuario validó email correctamente');
       window.location.href = 'timeline.html';
     } else {
       alert('Por favor valida tu correo');
+      //hacer un modal
     }   
   });
 }
@@ -58,7 +62,8 @@ const validation = () => {
 // Login con Google
 const loginGoogle = () => {
   const provider = new firebase.auth.GoogleAuthProvider();
-  provider.addScope('https://www.googleapis.com/auth/contacts.readonly');
+  // provider.addScope('https://www.googleapis.com/auth/contacts.readonly');
+  provider.addScope('https://www.googleapis.com/auth/plus.login');
   
   firebase.auth().signInWithPopup(provider).then((result) => {
     const token = result.credential.accessToken;
@@ -76,7 +81,6 @@ const loginGoogle = () => {
   });
 }
 
-
 // Validación de correo al usuario
 const check = () => {
   const user = firebase.auth().currentUser;
@@ -86,7 +90,6 @@ const check = () => {
     console.log(error);
   });
 }
-
 
 // funcion para cerrar sesion
 const signOut = () => {
@@ -118,8 +121,52 @@ const loginFacebook = () => {
       console.log(error.email);
       console.log(error.credential);
   });
-  
 }
 
 
+// ***************************************************
+// ***************************************************
 
+// // Agregamos un registro en formato JSON para nuestro directorio.
+// function agregarUserBD(uid, name) {
+//   const conectados = userConect.push({
+//     uid: uid,
+//     name: name
+//   });
+//   conectKey= conectado.key;
+// }
+
+// function eliminarUserBD(){
+//   database.ref("/user/"+conectKey).remove();
+// }
+
+// cerrarSesion.addEventListener('click',eliminarUserBD);
+
+// function inicializarFire() {
+//   // body...
+//   firebase.auth().onAuthStateChanged(function (userData) {
+//     if (userData) {
+//       const displayName = userData.displayName;
+//       const userPhoto = userData.photoURL;
+//       const userEmail = userData.email;
+//       userName.textContent = displayName;
+//       if (userPhoto) {
+//         userImage.style.backgroundImage = "url(" + userPhoto + ")";
+//       } else {
+//         userImage.style.backgroundImage = "url(https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/User_icon_2.svg/2000px-User_icon_2.svg.png)";
+//       }
+//       userConect = database.ref("/user");
+//       agregarUserBD(userData.uid.userData.displayName);
+
+//       userConect.on('child_added', function (data) {
+//         console.log("Ha ingresado a la sala " + data.val().name);
+//       });
+//       userConect.on('child_removed', function(data){
+//         console.log(data.val().name+" Ha Cerrado Sesion");
+//       })
+//       userName.textContent = displayName;
+//       userNameEmail.textContent = userEmail;
+//       console.log(userData);
+//     }
+//   });
+// }
