@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -48,13 +49,13 @@
           <button id="optionR" type="button">Registrarme</button>
           <button id="optionS" type="button">Iniciar Sesión</button>
         </form>
-      </div>
+      </div> -->
 
       <div id="formRegister" class="hidden">
         <form>
           <h2>Registro de Usuario</h2>
           <input id="nameUser" type="text" placeholder="Ingresa tu nombre">
-          <p></p>
+          <span id="error-nameUser"></span>
           <input id="email" type="email" placeholder="Ingresa e-mail">
           <span id="error-email"></span>
           <input id="password" type="password" placeholder="Ingresa contraseña" onkeyup="validatePassword(this.value);"/><span id="msg"></span>
@@ -64,7 +65,7 @@
         </form>
       </div>
 
-      <div id="formSesion" class="hidden">
+      <!-- <div id="formSesion" class="hidden">
           <form>
             <h2>Inicio de Sesión</h2>
             <input id="email2" type="email" placeholder="Ingresa e-mail">
@@ -92,4 +93,5 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.min.js" integrity="sha384-o+RDsa0aLu++PJvFqy8fFScvbHFLtbvScb8AjopnFD+iEQ7wo/CG0xlczd+2O/em"
     crossorigin="anonymous"></script>
 </body>
+
 </html>
