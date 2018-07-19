@@ -14,33 +14,40 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 
-<body class="body-index">
+<body>
   <div id="main-container">
-    <header>
-
+    <header class="header">
+    <figure class="content-back">
+      <img src="img/fondo-prueba-1.png">
+    </figure>
     </header>
+    <figure class="content-frontd">
+      <img src="img/logo-q-nutrition.png" alt="">
+    </figure>
 
-    <section>
+    <section class="section-forms">
       <div id="formButton" class="show">
         <form>
-          <h2>Bienvenidos a
-            <br> Q-Nutrition Center</h2>
+         <a href="#"class:"icon-Qnutrition"></a>
           <!-- <h3>Inicio de Sesión</h3> -->
 
-          <input id="email2" type="email" placeholder="Ingresa e-mail">
+          <input id="email2" class="inputInd" type="email" placeholder="Ingresa e-mail">
           <span id="error-email2"></span>
-          <input id="password2" type="password" placeholder="Ingresa contraseña">
+          <input id="password2" class="inputInd" type="password" placeholder="Ingresa contraseña">
           <span id="error-password2"></span>
           <input type="button" id="loginButton" class="boton" value="Acceder">
-          <p>
-            <img src="img/ggg.png" id="googleButton" class="icon-login" alt="icono-google">
+          <section class="section-option2">
+            <p> o </p>
             <img src="img/fff.png" id="faceButton" class="icon-login" alt="icono-facebook">
-         
+            <img src="img/ggg.png" id="googleButton" class="icon-login" alt="icono-google">
+          </form>
+        </div>
+        <footer class="nav-links">
             <!-- <button id="optionR" type="button">Registrarse</button> -->
-            <a href="#" id="optionR" type="button">Registrarse</a>
-          </p>
-        </form>
-      </div>
+            <a href="#" id="optionR" type="button" class="links-footer" >Registrarse</a>
+          </footer>
+          
+       
 
 
       <!-- <div id="optionEmail" class="hidden">
@@ -54,14 +61,14 @@
       <div id="formRegister" class="hidden">
         <form>
           <h2>Registro de Usuario</h2>
-          <input id="nameUser" type="text" placeholder="Ingresa tu nombre">
+          <input id="nameUser" type="text" class="inputInd" placeholder="Ingresa tu nombre">
           <span id="error-nameUser"></span>
-          <input id="email" type="email" placeholder="Ingresa e-mail">
+          <input id="email" type="email" class="inputInd" placeholder="Ingresa e-mail">
           <span id="error-email"></span>
-          <input id="password" type="password" placeholder="Ingresa contraseña" onkeyup="validatePassword(this.value);"/><span id="msg"></span>
+          <input id="password" type="password" class="inputInd" placeholder="Ingresa contraseña" onkeyup="validatePassword(this.value);"/><span id="msg"></span>
           <span id="error-password"></span>  	<span id="msg">  </span>
-          <input id="confirPassword" type="password" placeholder="Confirmar contraseña"> <span id="msg2">  </span> 
-           <button id="register" type="button">Guardar</button>
+          <input id="confirPassword" type="password" class="inputInd" placeholder="Confirmar contraseña"> <span id="msg2">  </span> 
+           <button id="register" type="button" class="boton">Registrar</button>
         </form>
       </div>
 
