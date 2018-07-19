@@ -19,18 +19,19 @@
   </header>
   <hr>
   <section>
-    <div id="post-container">
+    <div id="writePost">
       <form>
         <textarea id="post" autofocus placeholder="¿Qué estás pensando?" rows="5" cols="50"></textarea>
         <input type="button" id="buttonPost" value="Publicar">
         <select id="privacy">
-          <option id="friends">Amigos</option>
-          <option id="public">Público</option>
+            <option value="0">Selecciona Privacidad</option>
+          <option id="friends" value="amigos">Amigos</option>
+          <option id="public" value="publico">Público</option>
         </select>
       </form>
 
       <div id="publications">
-
+        
       </div>
     </div>
   </section>

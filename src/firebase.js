@@ -134,4 +134,21 @@ const saveData = (userId, name, email, imageUrl) => {
   });
 }
 
-
+// Función para escribir nuevo post
+const writeNewPost = (uid, name, textPost, state ) => {
+  let postData = {
+    author: name,
+    id: uid,
+    newPost: textPost,
+    privacy: state,
+    starCount: 0,
+  };
+  
+  // Key para nueva publicación
+  let postKey = firebase.database().ref().child('posts').push().key;
+        
+  let updates = {};
+  updates['/posts/' + postKey] = postData;
+  updates['/users/' + uid + '/' + postKey] = postData;
+  return firebase.database().ref().update(updates);
+}
