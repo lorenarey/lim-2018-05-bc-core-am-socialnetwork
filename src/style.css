@@ -1,13 +1,99 @@
+/* index (login y register) */
+.hidden {
+  display: none;
+}
+.section-forms
+{
+  max-width: 400px;
+  text-align: center;
+  background-color: #ffffff;
+  margin: auto;
+  box-sizing: border-box;
+  padding: 30 px;
+}
+
+img {
+  width: 100%;
+  height: 80%;
+}
+
+@media (min: 1200px) {
+  img {
+    width: 50%
+  }
+}
+
+.show{     
+  margin: 0.5em auto;
+}
+
+.boton
+{
+  width:97%;
+  background-color:#C6DE3E;  
+  border: 0px;
+  box-shadow: 0 0 10px rgba(83, 83, 83, 0.2);
+  color: #ffffff;  
+  padding: 15px;
+}
+
+.boton:hover
+{
+  background-color:#99CC33;  
+}
+
+.inputInd
+{
+  width:100% ;
+  padding: 10px;  
+  box-sizing: border-box;
+  margin-bottom: 30px;
+  border:  0px;
+  border-bottom: solid #ccc 1px;
+}
+
+.section-option2
+{
+  width: 40px;
+  height: auto;
+  border-image: 0px;
+  box-sizing: border-box;
+  margin: auto;
+  padding: 5px; 
+}
+
+.links-footer
+{  
+  background-color: #ffa42d;
+  padding: 10px;  
+  box-sizing: border-box;
+  margin: 30px;
+  border: 0px;
+}
+  
+.nav-links
+{
+  width: 100%;
+  background-color: black;
+  color: white;
+  height: 50px;
+}
+
+/*
 .hidden {
     display: none;
 }
 .show{
-    display: block;
+background-color: #ffffff;
+margin: 0.5em auto;
+max-width: 400px;
+padding: 30px;
+text-align: center;
 }
 
 .body-index
 {
-background-image:url(img/veg3.jpg);
+background-image:url(img/fondo-prueba-1.png);
 background-size: 100vw 100vh; 
 }
 
@@ -19,7 +105,7 @@ opacity: initial;
   
 h2
 {
-color:#000000;  /*Genera color blanco */
+color:#000000; 
 text-align: center;
 font-size: 30px;
 margin-bottom: 20px;     
@@ -38,7 +124,7 @@ align-content: center;
 
 h3
 {
-color:#fff;  /*Genera color blanco */
+color:#fff;  
 text-align: center;
 margin-bottom: 20px;     
 }
@@ -46,15 +132,12 @@ margin-bottom: 20px;
 form 
 {
 width:350px;
-margin: auto;  /* para centrar el formulario */    
-background: #F6D981; 
+margin: auto;  
 padding: 10px 20px;  
 box-sizing: border-box;    
 margin-top: 20px;
-border-radius: 7px;  /* ESQUINAS REDONDAS */
+border-radius: 7px;  
 }
-
-
 
 input, .textarea 
 {
@@ -66,8 +149,4 @@ font-size: 12px;
 border: none;    
 }
 
-.boton
-{
-background: rgb(57, 114, 55);    
-padding: 15px;    
-}
+*/ 
