@@ -1,19 +1,37 @@
-const config = {
-  apiKey: "AIzaSyDfyJ-7jBUjMH1zE7sCopkci1_5djmtwf4",
-  authDomain: "project1-272727.firebaseapp.com",
-  databaseURL: "https://project1-272727.firebaseio.com",
-  projectId: "project1-272727",
-  storageBucket: "project1-272727.appspot.com",
-  messagingSenderId: "984818879513"
+// Initialize Firebase projecto2
+// ********************************
+// const config = {
+//   apiKey: "AIzaSyDfyJ-7jBUjMH1zE7sCopkci1_5djmtwf4",
+//   authDomain: "project1-272727.firebaseapp.com",
+//   databaseURL: "https://project1-272727.firebaseio.com",
+//   projectId: "project1-272727",
+//   storageBucket: "project1-272727.appspot.com",
+//   messagingSenderId: "984818879513"
+// };
+// firebase.initializeApp(config);
+
+
+// Initialize Firebase projecto1
+// ********************************
+var config = {
+  apiKey: "AIzaSyBt7Ap6YvpAzIXc3UNihWlWomZfrHVBOOE",
+  authDomain: "projecto2-272727.firebaseapp.com",
+  databaseURL: "https://projecto2-272727.firebaseio.com",
+  projectId: "projecto2-272727",
+  storageBucket: "projecto2-272727.appspot.com",
+  messagingSenderId: "1040741679215"
 };
 firebase.initializeApp(config);
 
 
-// Registro de Usuarios Nuevos
+
+// ************************************************
+// Registro de Usuarios Nuevos 
 let registerNew = (email, password) => {
   firebase.auth().createUserWithEmailAndPassword(email, password)
   .then(() => {
     check();
+     alert('Tu usuario ha sido registrado! \nConfirma el mensaje de verificación en tu correo y seguidamente puedes Iniciar Sesión')
   })
   .catch((error) => {
     let errorCode = error.code;
@@ -31,6 +49,10 @@ let login = (email, password) => {
   firebase.auth().signInWithEmailAndPassword(email, password).catch((error) => {
     let errorCode = error.code;
     let errorMessage = error.message;
+    let error1 = 'Falta validar su email, o los DATOS ingresados son incorrectos.';
+    let error2 = 'La dirección de correo electrónico es inválida.';
+    alert(error1);
+    alert(error2);
   })
 }
 
@@ -49,10 +71,13 @@ const validation = () => {
       let providerData = user.providerData;
     } 
     if (user.emailVerified) {
-      console.log('usuario validó email correctamente');
-      window.location.href = 'timeline.html';
+      console.log(emailVerified);
+      console.log('***usuario validó email correctamente***');
+      //  alert('usuario validó email correctamente');
+       window.location.href = 'timeline.html';
+    
     } else {
-      alert('Por favor valida tu correo');
+      alert('Por favor valida o verifica tu correo');
       //hacer un modal
     }   
   });
@@ -123,50 +148,3 @@ const loginFacebook = () => {
   });
 }
 
-
-// ***************************************************
-// ***************************************************
-
-// // Agregamos un registro en formato JSON para nuestro directorio.
-// function agregarUserBD(uid, name) {
-//   const conectados = userConect.push({
-//     uid: uid,
-//     name: name
-//   });
-//   conectKey= conectado.key;
-// }
-
-// function eliminarUserBD(){
-//   database.ref("/user/"+conectKey).remove();
-// }
-
-// cerrarSesion.addEventListener('click',eliminarUserBD);
-
-// function inicializarFire() {
-//   // body...
-//   firebase.auth().onAuthStateChanged(function (userData) {
-//     if (userData) {
-//       const displayName = userData.displayName;
-//       const userPhoto = userData.photoURL;
-//       const userEmail = userData.email;
-//       userName.textContent = displayName;
-//       if (userPhoto) {
-//         userImage.style.backgroundImage = "url(" + userPhoto + ")";
-//       } else {
-//         userImage.style.backgroundImage = "url(https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/User_icon_2.svg/2000px-User_icon_2.svg.png)";
-//       }
-//       userConect = database.ref("/user");
-//       agregarUserBD(userData.uid.userData.displayName);
-
-//       userConect.on('child_added', function (data) {
-//         console.log("Ha ingresado a la sala " + data.val().name);
-//       });
-//       userConect.on('child_removed', function(data){
-//         console.log(data.val().name+" Ha Cerrado Sesion");
-//       })
-//       userName.textContent = displayName;
-//       userNameEmail.textContent = userEmail;
-//       console.log(userData);
-//     }
-//   });
-// }

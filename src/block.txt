@@ -119,4 +119,48 @@ Mensaje al registrar contraseña:
 Utiliza ocho caracteres como mínimo con una combinación de letras, números y símbolos
 
 
+****************************************************
+
+registerButton.addEventListener('click', () => { 
+  if (email == "") {
+    errorEmail.textContent = "Ingrese Correo";
+    alert('Debe ingresar su correo');
+
+  }else if (nameUser == ''){
+    errorNameUser.textContent = "Ingrese su nombre";
+    alert('Debe ingresar su nombre');
+
+  }else if (password == ''){
+    errorPassword.textContent = "IngresePassword";
+    alert('Debe ingresar su contraseña');
+
+  }else if (confirPassword == ''){
+    confirPassword.textContent = "Por favor confirmar Password";
+    alert('Debe confirmar su contraseña');
+
+  }else if (password != confirPassword){
+    alert('Las contraseñas no coinciden');  
+
+  } else if (errorEmail == 'incorrecto'){
+    alert('por favor ingrese un email válido'); 
+    
+  } else {
+    errorNameUser.textContent = "";
+    errorEmail.textContent = "";
+    errorPassword.textContent = "";
+    confirPassword.textContent = "";
+    let newsUser = registerNew(email, password);
+    alert('Tu usuario ha sido registrado! \nConfirma el mensaje de verificación en tu correo y seguidamente puedes Iniciar Sesión')
+    console.log(email);
+    console.log(password);
+    formRegister.style.display = 'none';
+    formButton.style.display = 'block';  
+  }  
+});
+
+*****************************************
+
+
+
+
 
