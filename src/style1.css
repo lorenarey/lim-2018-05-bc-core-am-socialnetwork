@@ -1,6 +1,6 @@
 /* index (login y register) */
 .hidden {
-  /* display: none; */
+  display: none; 
   padding-top: 30px;
 } 
 
@@ -8,7 +8,7 @@ body {
   background-image: url(img/fondo-header-social-qnut.png);  
   background-repeat: no-repeat;
   background-position: top center;
-  font-family: roboto;
+  
 }
 
 
@@ -88,6 +88,11 @@ footer {
   border: 0px;
   float: left;
 }
+
+
+
+
+/* aqui lo de muro*/
 
 
 
