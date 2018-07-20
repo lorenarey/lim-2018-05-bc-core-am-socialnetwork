@@ -6,26 +6,16 @@ const loginButton = document.getElementById('loginButton');
 const formButton = document.getElementById('formButton');
 const formRegister = document.getElementById('formRegister');
 const formSesion = document.getElementById('formSesion');
-let errorEmail = document.getElementById('error-email');
-let errorEmail2 = document.getElementById('error-email2');
-let errorPassword = document.getElementById('error-password');
-let errorPassword2 = document.getElementById('error-password2');
+const errorEmail = document.getElementById('error-email');
+const errorPassword = document.getElementById('error-password');
 const optionEmail = document.getElementById('optionEmail');
 const rButton = document.getElementById('optionR');
 const sButton = document.getElementById('optionS');
-const outButton = document.getElementById('signOut');
-const formTimeline = document.getElementById('formTimeline');
-// *******************************************************
-let email2 = document.getElementById('email2');
-let password2 = document.getElementById('password2');
-const cerrarSesion=document.getElementById('cerrar');
-let nameUser = document.getElementById('nameUser');
-let email = document.getElementById('email');
-let password = document.getElementById('password');
-let confirPassword = document.getElementById('confirPassword');
 
-// cerrarSesion.addEventListener('click',eliminarUserBD);
-// const errorNameUser = document.getElementById('error-nameUser');
+formButton.classList.remove('hidden');
+optionEmail.classList.add('hidden');
+formRegister.classList.add('hidden');
+formSesion.classList.add('hidden');
 
 emailButton.addEventListener('click', () => {
   formButton.classList.add('hidden');
@@ -79,4 +69,3 @@ faceButton.addEventListener('click', (e) => {
     loginFacebook()
   }
 });
-
