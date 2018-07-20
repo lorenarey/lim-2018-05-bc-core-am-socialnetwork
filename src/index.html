@@ -12,42 +12,43 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B"
     crossorigin="anonymous">
   <link rel="stylesheet" href="style.css" />
-</head>
+</head> 
 
-<body>
+<body class="body-index">
   <div id="main-container">
-    <header class="header">
-    <figure class="content-back">
-      <img src="img/fondo-prueba-1.png">
-    </figure>
-    </header>
-    <figure class="content-frontd">
-      <img src="img/logo-q-nutrition.png" alt="">
-    </figure>
 
-    <section class="section-forms">
+    <header class="header">
+        <!-- <figure class="content-back">
+          <img src="img/fondo-prueba-1.png">
+        </figure>
+        </header>
+        <figure class="content-frontd">
+          <img src="img/logo-q-nutrition.png" alt="">
+        </figure> -->
+
+    </header>
+
+    <section>
       <div id="formButton" class="show">
         <form>
-         <a href="#"class:"icon-Qnutrition"></a>
+          <h2>Bienvenidos a
+            <br> Q-Nutrition Center</h2>
           <!-- <h3>Inicio de Sesión</h3> -->
 
-          <input id="email2" class="inputInd" type="email" placeholder="Ingresa e-mail">
+          <input id="email2" type="email" placeholder="Ingresa e-mail">
           <span id="error-email2"></span>
-          <input id="password2" class="inputInd" type="password" placeholder="Ingresa contraseña">
+          <input id="password2" type="password" placeholder="Ingresa contraseña">
           <span id="error-password2"></span>
           <input type="button" id="loginButton" class="boton" value="Acceder">
-          <section class="section-option2">
-            <p> o </p>
-            <img src="img/fff.png" id="faceButton" class="icon-login" alt="icono-facebook">
+         
             <img src="img/ggg.png" id="googleButton" class="icon-login" alt="icono-google">
-          </form>
-        </div>
-        <footer class="nav-links">
+            <img src="img/fff.png" id="faceButton" class="icon-login" alt="icono-facebook">
+         
             <!-- <button id="optionR" type="button">Registrarse</button> -->
-            <a href="#" id="optionR" type="button" class="links-footer" >Registrarse</a>
-          </footer>
-          
-       
+            <a href="#" id="optionR" type="button">Registrarse</a>
+         
+        </form>
+      </div>
 
 
       <!-- <div id="optionEmail" class="hidden">
@@ -61,14 +62,14 @@
       <div id="formRegister" class="hidden">
         <form>
           <h2>Registro de Usuario</h2>
-          <input id="nameUser" type="text" class="inputInd" placeholder="Ingresa tu nombre">
+          <input id="nameUser" type="text" placeholder="Ingresa tu nombre">
           <span id="error-nameUser"></span>
-          <input id="email" type="email" class="inputInd" placeholder="Ingresa e-mail">
+          <input id="email" type="email" placeholder="Ingresa e-mail">
           <span id="error-email"></span>
-          <input id="password" type="password" class="inputInd" placeholder="Ingresa contraseña" onkeyup="validatePassword(this.value);"/><span id="msg"></span>
+          <input id="password" type="password" placeholder="Ingresa contraseña" onkeyup="validatePassword(this.value);"/><span id="msg"></span>
           <span id="error-password"></span>  	<span id="msg">  </span>
-          <input id="confirPassword" type="password" class="inputInd" placeholder="Confirmar contraseña"> <span id="msg2">  </span> 
-           <button id="register" type="button" class="boton">Registrar</button>
+          <input id="confirPassword" type="password" placeholder="Confirmar contraseña"> <span id="msg2">  </span> 
+           <button id="register" type="button">Guardar</button>
         </form>
       </div>
 
@@ -90,8 +91,11 @@
   <script src="https://apis.google.com/js/platform.js" async defer></script>
   <!--<script src="initFirebase.js"></script>-->
   
+ 
   <script src="social_network.js"></script>
   <script src="main.js"></script>
+  <script src="validaciones.js"></script>
+ 
   <script src="firebase.js"></script>
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
     crossorigin="anonymous"></script>
