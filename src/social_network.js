@@ -20,7 +20,7 @@ publicButton.addEventListener('click', () => {
       writeNewPost(userId, nameUser, newPost, state);
       document.getElementById('post').value = '';
       document.getElementById('privacy').value = '0';
-      publications.innerHTML += `
+      publications.innerHTML = `
         <div>
           <p>Nombre: ${nameUser}</p>
           <p>${newPost}</p>
