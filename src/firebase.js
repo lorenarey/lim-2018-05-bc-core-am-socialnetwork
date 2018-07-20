@@ -1,15 +1,16 @@
-const config = {
-  apiKey: "AIzaSyDfyJ-7jBUjMH1zE7sCopkci1_5djmtwf4",
-  authDomain: "project1-272727.firebaseapp.com",
-  databaseURL: "https://project1-272727.firebaseio.com",
-  projectId: "project1-272727",
-  storageBucket: "project1-272727.appspot.com",
-  messagingSenderId: "984818879513"
+// Initialize Firebase
+var config = {
+  apiKey: "AIzaSyBv61iTyoUXrCoAOTSHvXN1iV2tuBcN1_k",
+  authDomain: "nutrition-687ce.firebaseapp.com",
+  databaseURL: "https://nutrition-687ce.firebaseio.com",
+  projectId: "nutrition-687ce",
+  storageBucket: "nutrition-687ce.appspot.com",
+  messagingSenderId: "582230784193"
 };
 firebase.initializeApp(config);
 
 // Registro de Usuarios Nuevos
-let registerNew = (email, password) => {
+const registerNew = (email, password) => {
   firebase.auth().createUserWithEmailAndPassword(email, password)
     .then((result) => {
       const user = result.user;
@@ -71,10 +72,12 @@ const loginGoogle = () => {
   firebase.auth().signInWithPopup(provider)
     .then((result) => {
     const token = result.credential.accessToken;
+    console.log("result", result)
     // Información de usuario
     const userData = result.user;
+    console.log(userData)
     saveData(userData.uid, userData.displayName, userData.email, userData.photoURL);
-    window.location.href = 'timeline.html';
+    //window.location.href = 'timeline.html';
     })
     .catch((error) => {
       const errorCode = error.code;
@@ -141,7 +144,7 @@ const writeNewPost = (uid, name, textPost, state ) => {
     author: name,
     newPost: textPost,
     privacy: state,
-    starCount: 0,
+    likeCount: 0,
   };
   
   // Key para nueva publicación
@@ -149,8 +152,23 @@ const writeNewPost = (uid, name, textPost, state ) => {
   console.log(postKey);      
   let updates = {};
   updates['/posts/' + postKey] = postData;
-  
   return firebase.database().ref().update(updates);
 }
 
-
+window.printPost = () => {
+  firebase.database().ref('posts/')
+  .on('value', (postsRef) =>{
+    const posts = postsRef.val();
+    //publications.innerHTML='';
+    Object.keys(posts).forEach((id) => {
+      const publications = document.getElementById('publications');
+      const post = posts[id];
+      publications.innerHTML += `
+      <div>
+        <p>Nombre: ${post.author}</p>
+        <p>${post.newPost}</p>
+      </div>
+      `
+    })
+  })
+}
