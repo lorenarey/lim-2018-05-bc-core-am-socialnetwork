@@ -1,57 +1,79 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <meta name= "viewport" content= "width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <title>Social Network - Q.Nutrition</title>
   <meta name="google-signin-scope" content="profile email">
   <meta name="google-signin-client_id" content="YOUR_CLIENT_ID.apps.googleusercontent.com">
   <link rel="icon" href="img/icono_frutas_verduras.png">
-  <link rel= "stylesheet" href= "https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity= "sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B" crossorigin= "anonymous" > 
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B"
+    crossorigin="anonymous">
   <link rel="stylesheet" href="style.css" />
-</head>
-<body class="bodyIndex">
+</head> 
+
+<body class="body-index">
   <div id="main-container">
-    <header>
-      <h1>Bienvenidos a Q-Nutrition Center</h1>
+
+    <header class="header">
+        <!-- <figure class="content-back">
+          <img src="img/fondo-prueba-1.png">
+        </figure>
+        </header>
+        <figure class="content-frontd">
+          <img src="img/logo-q-nutrition.png" alt="">
+        </figure> -->
+
     </header>
 
     <section>
-      <div id="formButton" class="hidden">
+      <div id="formButton" class="show">
         <form>
-          <h3>Inicio de Sesión</h3>
-          <input id="emailButton" type="button" value="Regístrate con e-mail y contraseña"><br>
+          <h2>Bienvenidos a
+            <br> Q-Nutrition Center</h2>
+          <!-- <h3>Inicio de Sesión</h3> -->
 
-          <input id="faceButton" type="button" value="Registro y acceso con Facebook"><br>
-          
-          <input id="googleButton" type="button" value="Registro y acceso con Google">
+          <input id="email2" type="email" placeholder="Ingresa e-mail">
+          <span id="error-email2"></span>
+          <input id="password2" type="password" placeholder="Ingresa contraseña">
+          <span id="error-password2"></span>
+          <input type="button" id="loginButton" class="boton" value="Acceder">
+         
+            <img src="img/ggg.png" id="googleButton" class="icon-login" alt="icono-google">
+            <img src="img/fff.png" id="faceButton" class="icon-login" alt="icono-facebook">
+         
+            <!-- <button id="optionR" type="button">Registrarse</button> -->
+            <a href="#" id="optionR" type="button">Registrarse</a>
+         
         </form>
       </div>
 
-      <div id="optionEmail" class="hidden">
+
+      <!-- <div id="optionEmail" class="hidden">
         <form>
           <label>Acción a realizar:</label>
           <button id="optionR" type="button">Registrarme</button>
           <button id="optionS" type="button">Iniciar Sesión</button>
         </form>
-      </div>
+      </div> -->
 
       <div id="formRegister" class="hidden">
         <form>
           <h2>Registro de Usuario</h2>
           <input id="nameUser" type="text" placeholder="Ingresa tu nombre">
-          <p></p>
+          <span id="error-nameUser"></span>
           <input id="email" type="email" placeholder="Ingresa e-mail">
-          <p id="error-email"></p>
-          <input id="password" type="password" placeholder="Ingresa contraseña">
-          <p id="error-password"></p>
-          <input id="confirPassword" type="password" placeholder="Confirmar contraseña">
-          <button id="register" type="button">Registrar</button>
+          <span id="error-email"></span>
+          <input id="password" type="password" placeholder="Ingresa contraseña" onkeyup="validatePassword(this.value);"/><span id="msg"></span>
+          <span id="error-password"></span>  	<span id="msg">  </span>
+          <input id="confirPassword" type="password" placeholder="Confirmar contraseña"> <span id="msg2">  </span> 
+           <button id="register" type="button">Guardar</button>
         </form>
       </div>
 
-      <div id="formSesion" class="hidden">
+      <!-- <div id="formSesion" class="hidden">
           <form>
             <h2>Inicio de Sesión</h2>
             <input id="email2" type="email" placeholder="Ingresa e-mail">
@@ -60,7 +82,9 @@
             <p id="error-password"></p>
             <button id="loginButton" type="button">Acceder</button>
           </form>
-        </div>
+        </div> -->
+
+
     </section>
   </div>
   <script src="https://www.gstatic.com/firebasejs/5.3.0/firebase.js"></script>
@@ -73,4 +97,5 @@
   <script src="social_network.js"></script>
   <script src="main.js"></script>
 </body>
+
 </html>

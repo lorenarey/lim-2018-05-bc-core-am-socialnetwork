@@ -1,131 +1,71 @@
-<<<<<<< HEAD
-.block {
-    display: block;
-}
-
-.none {
-    display: none;
-}
-=======
 .hidden {
     display: none;
 }
-
-
-/*
-.bodyIndex {
-    color: white;
-    background-size: 100vw 100vh;
-    background-attachment: fixed;
-    margin: 0;
+.show{
+    display: block;
 }
 
-h1 {
-    text-align: center;
-    box-sizing: content-box;    
-    background-size: auto;
-    background-position: center;
-    font-family: Arial, Helvetica, sans-serif;
-    color: white;  
-    text-decoration: underline;      
+.body-index
+{
+background-image:url(img/veg3.jpg);
+background-size: 100vw 100vh; 
 }
 
-a {
-    color: yellow;
+.body-timeline{
+background-image:url(img/fondo.jpg);
+background-size: 100vw 100vh;     
+opacity: initial;
+}
+  
+h2
+{
+color:#000000;  /*Genera color blanco */
+text-align: center;
+font-size: 30px;
+margin-bottom: 20px;     
 }
 
-.introducción {
-    width: 30%;
-    height: 525px;
-    margin: 0em 0em 0em 15em;
-    background: rgba(0,0,0,0.5);
-    padding: 10px 20px;
-    border-radius: 7px;
-    justify-content: center;   
-    text-align: justify; 
-    font-size: 14px;
-    box-sizing: border-box;
-    float: left;
+p{
+text-align: center;
 }
 
-.contenedor {
-    width: 30%;
-    height: 525px;
-    margin: 0em 15em 0em 0em;
-    background: rgba(0,0,0,0.5);
-    padding: 10px 20px;
-    box-sizing: border-box;
-    border-radius: 7px;
-    justify-content: center;   
-    text-align: justify;
-    font-size: 14px;
-    float: right;
+.icon-login {
+width: 50px;
+height: auto;
+border-image: 0px;
+align-content: center;
 }
 
-#cesar {
-    width: 100%
+h3
+{
+color:#fff;  /*Genera color blanco */
+text-align: center;
+margin-bottom: 20px;     
 }
 
-#offset {
-    width: 50%;
+form 
+{
+width:300px;
+margin: auto;  /* para centrar el formulario */    
+background: #F6D981; 
+padding: 10px 20px;  
+box-sizing: border-box;    
+margin-top: 20px;
+border-radius: 7px;  /* ESQUINAS REDONDAS */
 }
 
-.form {
-    font-size: 17px;
-    color: white;
+input, .textarea 
+{
+width: 100%;
+margin-bottom: 20px;
+padding: 7px;
+box-sizing: border-box;
+font-size: 12px;
+border: none;    
 }
 
-img {
-    width: 50%;
-    padding: 0px 80px;     
+.boton
+{
+background: rgb(57, 114, 55);    
+padding: 15px;    
 }
-
-input, textarea {
-    width: 100%;
-    margin-bottom: 10px;
-    border-radius: 7px;
-    padding: 7px;
-    box-sizing: border-box;
-    font-size: 15px;
-    border: none;
-    font-family: Arial, Helvetica, sans-serif;
-}
-
-textarea {
-    max-width: 100%;
-    max-height: 100%;
-}
-
-button {
-    width: 100%;
-    padding: 7px;
-    display: inline-block;
-    margin-bottom: 10px;
-    box-sizing: border-box;
-    font-size: 17px;
-    border-radius: 7px;
-    color: white;
-    background: navy;
-    font-weight: 600px;
-    border: 2px solid blue;
-    text-align: center;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-}
-
-button:hover {
-    cursor: pointer;
-    background-color: cyan;
-    color: black;
-    font-size: 20px;
-    font: bold;
-}
-
-#resultado {
-    width: 100%;
-    height: 100px;
-    padding: 5px 5px;
-    box-sizing: border-box;
-    border-radius: 7px;
-    margin: 0em 0em 3.5em 0em;
-} */
->>>>>>> 4c4933c08fe7ef37c89cfce901d6ee73e530cc56
