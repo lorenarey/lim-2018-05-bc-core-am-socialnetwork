@@ -16,19 +16,12 @@
 
 <body>
   <div id="main-container">
-    <header class="header">
-    <figure class="content-back">
-      <img src="img/fondo-prueba-1.png">
-    </figure>
-    </header>
-    <figure class="content-frontd">
-      <img src="img/logo-q-nutrition.png" alt="">
-    </figure>
 
     <section class="section-forms">
       <div id="formButton" class="show">
         <form>
-         <a href="#"class:"icon-Qnutrition"></a>
+          <img src="img/logo-q-nutrition.png" id="logo-qnut" class="logo-qnut" alt="logo-qnutrition"> 
+          <a href="#"class:"icon-Qnutrition"></a>
           <!-- <h3>Inicio de Sesión</h3> -->
 
           <input id="email2" class="inputInd" type="email" placeholder="Ingresa e-mail">
@@ -38,13 +31,15 @@
           <input type="button" id="loginButton" class="boton" value="Acceder">
           <section class="section-option2">
             <p> o </p>
-            <img src="img/fff.png" id="faceButton" class="icon-login" alt="icono-facebook">
-            <img src="img/ggg.png" id="googleButton" class="icon-login" alt="icono-google">
+            <div class="icon-redes">
+              <span class="icon-sn"><img src="img/icon-faceb3.png" id="faceButton" alt="icono-facebook"></span>
+              <span class="icon-sn"><img src="img/icon-goog3.png" id="googleButton" alt="icono-google"></span>
+            </div>
           </form>
         </div>
-        <footer class="nav-links">
+        <footer>
             <!-- <button id="optionR" type="button">Registrarse</button> -->
-            <a href="#" id="optionR" type="button" class="links-footer" >Registrarse</a>
+            <a href="#" id="optionR" class="links-footer" >Registrarse</a>
           </footer>
           
        
@@ -60,7 +55,7 @@
 
       <div id="formRegister" class="hidden">
         <form>
-          <h2>Registro de Usuario</h2>
+         
           <input id="nameUser" type="text" class="inputInd" placeholder="Ingresa tu nombre">
           <span id="error-nameUser"></span>
           <input id="email" type="email" class="inputInd" placeholder="Ingresa e-mail">
