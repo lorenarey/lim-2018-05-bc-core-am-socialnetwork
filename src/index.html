@@ -4,81 +4,98 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <meta name= "viewport" content= "width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>Social Network - Q.Nutrition</title>
+  <title>Q.Nutrition</title>
   <link rel="icon" href="img/icono_frutas_verduras.png">
-  
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B"
-    crossorigin="anonymous">
-  <link rel="stylesheet" href="style1.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/css/materialize.min.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="style1.css">
 </head>
 
 <body>
+
+  <header>
+    <img src="img/fondo-prueba-1.png" alt="imagen de tema" width="100%" height="190px">
+  </header>
+  
+  <main>
   <div id="main-container">
-
     <section class="section-forms">
-      <div id="formInicio" class="show">
-        <form>
-          <img src="img/logo-q-nutrition.png" id="logo-qnut" class="logo-qnut" alt="logo-qnutrition"> 
-          <a href="#"class:"icon-Qnutrition"></a>
-          <!-- <h3>Inicio de Sesión</h3> -->
-       
-        <input id="email2" class="inputInd" type="email" placeholder="Ingresa e-mail">
-          <span id="error-email2"></span>
-          <input id="password2" class="inputInd" type="password" placeholder="Ingresa contraseña">
-          <span id="error-password2"></span>
-          <input type="button" id="loginButton" class="boton" value="Acceder">
-          <section class="section-option2">
+      <div id="formInicio">
+          <img src="img/logo-q-nutrition.png" class="logo-qnut" alt="logo-qnutrition"> 
+          <div>
+            <form class="col s12">
+              <div class="input-field col s12">
+                <i class="material-icons prefix">mail_outline</i>
+                <input id="email-login" type="email" class="validate">
+                <label for="email-login">Email</label>
+              </div>
+              
+              <div class="input-field col s12">
+                <i class="material-icons prefix">lock_outline</i>
+                <input id="password-login" type="password" class="validate">
+                <label for="password-login">Contraseña</label>
+                <div><a href="#" class="update-password"><p id="update-password">¿Olvidó su contraseña?</p></a></div>
+              </div>
+              <input type="button" id="loginButton" class="button" value="Login">
+            </form>
+          </div>
+          <br>
+          <div class="icon-redes">
+            <div class="icon-snf"><a href="#" ><img src="img/facebook-icon.png" id="faceButton" alt="icono-facebook" width="40px" height="40px"></a></div>
+            <div class="icon-sng"><a href="#"><img src="img/ggg.png" width="45px" height="45px" id="googleButton" alt="icono-google"></a></div>
+          </div>
 
-            <!-- <p> o </p>
-            <div class="icon-redes">
-              <span class="icon-sn"><img src="img/icon-faceb3.png" id="faceButton" alt="icono-facebook"></span>
-              <span class="icon-sn"><img src="img/icon-goog3.png" id="googleButton" alt="icono-google"></span>
-            </div> -->
-             <!-- <button id="optionR" type="button">Registrarse</button> -->
-             <a href="#" id="optionR" class="links-footer" >Registrarse</a>
-          </form>
-        </div>
-        <footer>
-           
-          </footer>
-          
-       
-
-      <!-- <div id="optionEmail" class="hidden">
-        <form>
-          <label>Acción a realizar:</label>
-          <button id="optionR" type="button">Registrarme</button>
-          <button id="optionS" type="button">Iniciar Sesión</button>
-        </form>
-      </div> -->
-
+          <div>
+            <div><a href="#" class="login-invite"><p>Invitado</p></a></div>
+            <div><a href="#" class="register"><p id="registerLink">Regístrate</p></a></div>
+          </div>
+      </div>    
+        
+      
       <div id="formRegister" class="hidden">
         <form>
-         
-          <input id="nameUser" type="text" class="inputInd" placeholder="Ingresa tu nombre">
-          <span id="error-nameUser"></span>
-          <input id="email" type="email" class="inputInd" placeholder="Ingresa e-mail">
-          <span id="error-email"></span>
-          <input id="password" type="password" class="inputInd" placeholder="Ingresa contraseña" onkeyup="validatePassword(this.value);"/><span id="msg"></span>
-          <span id="error-password"></span>  	<span id="msg">  </span>
-          <input id="confirPassword" type="password" class="inputInd" placeholder="Confirmar contraseña"> <span id="msg2">  </span> 
-           <button id="register" type="button" class="boton">Registrar</button>
+          <p class="slogan">¡Conéctate con un estilo de vida saludable!</p>
+          <div class="inputs">
+            <div class="input-field col s12">
+              <i class="material-icons prefix">person_outline</i>
+              <input id="nameUser" type="text" class="validate">
+              <label for="nameUser">Nombre</label>
+            </div>
+          </div>
+
+          <div class="inputs">
+            <div class="input-field col s12">
+              <i class="material-icons prefix">mail_outline</i>
+              <input id="email" type="email" class="validate">
+              <label for="email">Email</label>
+            </div>
+          </div>
+          <div class="inputs">
+            <div class="input-field col s12">
+              <i class="material-icons prefix">lock_outline</i>
+              <input id="password" type="password" class="validate">
+              <label for="password">Contraseña</label>
+            </div>
+          </div>
+          <div class="inputs">
+            <div class="input-field col s12">
+              <i class="material-icons prefix">check</i>
+              <input id="confirPassword" type="password">
+              <label for="confirPassword">Confirmar contraseña</label>
+            </div>
+          </div>         
+          <button id="registerButton" type="button" class="button">Registrar</button>
         </form>
       </div>
-
-      <!-- <div id="formSesion" class="hidden">
-          <form>
-            <h2>Inicio de Sesión</h2>
-            <input id="email2" type="email" placeholder="Ingresa e-mail">
-            <p id="error-email"></p>
-            <input id="password2" type="password" placeholder="Ingresa contraseña">
-            <p id="error-password"></p>
-            <button id="loginButton" type="button">Acceder</button>
-          </form>
-        </div> -->
     </section>
   </div>
+  </main>
+
+  <footer>
+    <p class="section-footer"><img src="img/icono copy.png" alt="icono de Copyright" width="18px">Copyright - Todos los derechos reservados - Autores: Lorena Reyes - Geraldine Saco - Grecia Anicama</p>
+  </footer>
   <script src="https://www.gstatic.com/firebasejs/5.3.0/firebase.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js"></script>
   <script src="https://apis.google.com/js/platform.js" async defer></script>
   <!--<script src="initFirebase.js"></script>-->
   <script src="firebase.js"></script>
