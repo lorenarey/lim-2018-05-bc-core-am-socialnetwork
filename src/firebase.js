@@ -1,11 +1,10 @@
-// Initialize Firebase
-var config = {
-  apiKey: "AIzaSyBv61iTyoUXrCoAOTSHvXN1iV2tuBcN1_k",
-  authDomain: "nutrition-687ce.firebaseapp.com",
-  databaseURL: "https://nutrition-687ce.firebaseio.com",
-  projectId: "nutrition-687ce",
-  storageBucket: "nutrition-687ce.appspot.com",
-  messagingSenderId: "582230784193"
+const config = {
+  apiKey: "AIzaSyBt7Ap6YvpAzIXc3UNihWlWomZfrHVBOOE",
+  authDomain: "projecto2-272727.firebaseapp.com",
+  databaseURL: "https://projecto2-272727.firebaseio.com",
+  projectId: "projecto2-272727",
+  storageBucket: "projecto2-272727.appspot.com",
+  messagingSenderId: "1040741679215"
 };
 firebase.initializeApp(config);
 
@@ -77,7 +76,7 @@ const loginGoogle = () => {
     const userData = result.user;
     console.log(userData)
     saveData(userData.uid, userData.displayName, userData.email, userData.photoURL);
-    //window.location.href = 'timeline.html';
+    window.location.href = 'timeline.html';
     })
     .catch((error) => {
       const errorCode = error.code;
@@ -96,6 +95,16 @@ const check = () => {
   }).catch((error) => {
     console.log(error);
   });
+}
+
+// Cambio de contraseña
+const resetPassword = (email) => {
+  firebase.auth().sendPasswordResetEmail(email)
+  .then(() => {
+  })
+  .catch((error) => {
+    console.log(error);
+  })
 }
 
 // funcion para cerrar sesion
