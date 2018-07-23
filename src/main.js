@@ -1,36 +1,33 @@
-const emailButton = document.getElementById('emailButton');
 const faceButton = document.getElementById('faceButton');
 const googleButton = document.getElementById('googleButton');
-const registerButton = document.getElementById('register');
+const registerButton = document.getElementById('registerButton');
 const loginButton = document.getElementById('loginButton');
-const formButton = document.getElementById('formButton');
+const formInicio = document.getElementById('formInicio');
 const formRegister = document.getElementById('formRegister');
-const formSesion = document.getElementById('formSesion');
-const errorEmail = document.getElementById('error-email');
-const errorPassword = document.getElementById('error-password');
-const optionEmail = document.getElementById('optionEmail');
-const rButton = document.getElementById('optionR');
-const sButton = document.getElementById('optionS');
+const registerLink = document.getElementById('registerLink');
+const emailLogin = document.getElementById('email-login');
+const passwordLogin = document.getElementById('password-login');
+const updatePassword = document.getElementById('update-password');
 
-formButton.classList.remove('hidden');
-optionEmail.classList.add('hidden');
+formInicio.classList.remove('hidden');
+//optionEmail.classList.add('hidden');
 formRegister.classList.add('hidden');
-formSesion.classList.add('hidden');
+// formSesion.classList.add('hidden');
 
-emailButton.addEventListener('click', () => {
-  formButton.classList.add('hidden');
-  optionEmail.classList.remove('hidden');
-})
-
-rButton.addEventListener('click', () => {
+registerLink.addEventListener('click', () => {
+  formInicio.classList.add('hidden');
   formRegister.classList.remove('hidden');
-  optionEmail.classList.add('hidden');
 })
 
-sButton.addEventListener('click', () => {
-  formSesion.classList.remove('hidden');
-  optionEmail.classList.add('hidden');
-})
+// registerLink.addEventListener('click', () => {
+//   formRegister.classList.remove('hidden');
+//   optionEmail.classList.add('hidden');
+// })
+
+// sButton.addEventListener('click', () => {
+//   formSesion.classList.remove('hidden');
+//   optionEmail.classList.add('hidden');
+// })
 
 registerButton.addEventListener('click', () => {
   let email = document.getElementById('email').value;
@@ -42,20 +39,24 @@ registerButton.addEventListener('click', () => {
   }else {
     registerNew(email, password);
     
+    
     alert('Tu usuario ha sido registrado! \nConfirma el mensaje de verificación en tu correo y seguidamente puedes Iniciar Sesión')
     console.log(email);
     console.log(password);
     
-    formRegister.style.display = 'none';
-    formSesion.style.display = 'block';  
+    formRegister.classList.add('hidden');
+    formInicio.classList.remove('hidden');  
   }  
 });
 
 loginButton.addEventListener('click', () => {
-  let email2 = document.getElementById('email2').value;
-  let password2 = document.getElementById('password2').value;
-  login(email2, password2);
+  login(emailLogin.value, passwordLogin.value);
   validation();
+});
+
+updatePassword.addEventListener('click', () => {
+  resetPassword(emailLogin.value);
+  alert('Se envió correo para el cambio de contraseña')
 });
 
 googleButton.addEventListener('click', (e) => {
@@ -69,3 +70,4 @@ faceButton.addEventListener('click', (e) => {
     loginFacebook()
   }
 });
+
