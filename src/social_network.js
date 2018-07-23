@@ -20,12 +20,39 @@ publicButton.addEventListener('click', () => {
       writeNewPost(userId, nameUser, newPost, state);
       document.getElementById('post').value = '';
       document.getElementById('privacy').value = '0';
-      publications.innerHTML = `
-        <div class='send-post'>
-          <p>Nombre: ${nameUser}</p>
-          <p>${newPost}</p>
-        </div>
-      `
+      if (state.value === 'publico'){
+        publications.innerHTML = `
+            <div class="card-content white-text">
+              <div><span class="card-title">Nombre: ${nameUser}</span></div>
+              <div class="card-action">
+                <a href="#"><i class="material-icons prefix">edit</i></a>
+                <a href="#"><i class="material-icons prefix">delete</i></a>
+              </div>
+              <div><textarea>${newPost}</textarea></div>
+              <div class="card-action">
+                <i class="material-icons prefix">public</i>
+                <i class="material-icons prefix">favorite_border</i>
+              </div>
+            </div>
+       `
+      } else if (state.value === 'amigos'){
+        publications.innerHTML = `
+          <div class="card-content white-text">
+            <div><span class="card-title">Nombre: ${nameUser}</span></div>
+            <div class="card-action">
+              <a href="#"><i class="material-icons prefix">edit</i></a>
+              <a href="#"><i class="material-icons prefix">delete</i></a>
+            </div>
+            <div><textarea>${newPost}</textarea></div>
+            <div class="card-action">
+              <i class="material-icons prefix">public</i>
+              <i class="material-icons prefix">favorite_border</i>
+            </div>
+          </div>
+       `
+      }
+
+      
     } else {
       alert('Selecciona privacidad');
     }

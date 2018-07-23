@@ -5,47 +5,53 @@
 } 
 
 body {
-  background-image: url(img/fondo-header-social-qnut.png);  
-  background-repeat: no-repeat;
-  background-position: top center;
-  
+  background-color: rgb(225, 230, 231);
 }
 
 
-.section-forms
-{
-  padding: 20px;
-  max-width: 400px;
+.section-forms {
+  width: 500px;
+  height: 550px;
+  box-align: center;
   text-align: center;
-  background-color: #ffffff;
-  margin: 20px auto;
-  margin-top: 150px;
+  background-color: white;
+  border-radius: 10px;
+  margin: auto;
+  padding: 35px;
   box-sizing: border-box;
-  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2)
-  
-  
+  box-shadow: 0 0px 0px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2)
 }
 
 .logo-qnut {
   width: 100%;
-  height: 80%;
-  padding-bottom: 30px;
+  height: 30%;
 }
 
 
-.show{     
+.update-password {
+  text-align: right;
+  font-size: 14px;
+  padding: auto;
+}
+/* .show{     
   margin: 0.5em auto;
-}
+} */
 
-.boton
+.button
 {
-  width:97%;
+  width:80%;
   background-color:#93b462;  
   border: 0px;
   box-shadow: 0 0 10px rgba(83, 83, 83, 0.2);
-  color: #ffffff;  
+  color: white;  
   padding: 15px;
-  margin-top: 30px;
+  font-size: 20px;
+  margin-top: 5px;
+  border-radius: 10px;
+}
+
+.inputs {
+  padding: 5px;
 }
 
 .boton:hover
@@ -53,7 +59,7 @@ body {
   background-color:#79954f;  
 }
 
-.inputInd
+/* .inputInd
 {
   width:100% ;
   padding: 20px;  
@@ -62,31 +68,40 @@ body {
   border: none;
   border:  0px;
   border-bottom: solid #ccc 1px;
+} */
+
+.icon-snf {
+  display: inline-block;
+
 }
 
+.icon-sng {
+  display: inline-block;
+}
 
-
-.icon-redes {
-
-  display:inline-block;
-  width: 50%;
-  
+.slogan{
+  color: #79954f;
+  font-size: 20px;
 }
 
 footer {
-  background-color: #64625f;
-  float: left, 
-  
+  text-align: left;
+  color: #333333;
+  font-size: 12px;
+  margin-left: 20px;  
 }
 
-.links-footer
+.login-invite {
+text-align: left;
+float: left;
+font-size: 14px;
+}
+
+.register
 {  
-  color: #f0478d;
-  padding: 10px;  
-  box-sizing: border-box;
-  margin: 30px;
-  border: 0px;
-  float: left;
+text-align: right;
+display: flow-root;  
+font-size: 14px;
 }
 
 
