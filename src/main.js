@@ -1,36 +1,36 @@
-const emailButton = document.getElementById('emailButton');
-const faceButton = document.getElementById('faceButton');
-const googleButton = document.getElementById('googleButton');
+//const emailButton = document.getElementById('emailButton');
+//const faceButton = document.getElementById('faceButton');
+//const googleButton = document.getElementById('googleButton');
 const registerButton = document.getElementById('register');
 const loginButton = document.getElementById('loginButton');
-const formButton = document.getElementById('formButton');
+const formInicio = document.getElementById('formInicio');
 const formRegister = document.getElementById('formRegister');
-const formSesion = document.getElementById('formSesion');
+//const formSesion = document.getElementById('formSesion');
 const errorEmail = document.getElementById('error-email');
 const errorPassword = document.getElementById('error-password');
 const optionEmail = document.getElementById('optionEmail');
-const rButton = document.getElementById('optionR');
+const registerLink = document.getElementById('optionR');
 const sButton = document.getElementById('optionS');
 
-formButton.classList.remove('hidden');
-optionEmail.classList.add('hidden');
+formInicio.classList.remove('hidden');
+//optionEmail.classList.add('hidden');
 formRegister.classList.add('hidden');
-formSesion.classList.add('hidden');
+// formSesion.classList.add('hidden');
 
-emailButton.addEventListener('click', () => {
-  formButton.classList.add('hidden');
-  optionEmail.classList.remove('hidden');
-})
-
-rButton.addEventListener('click', () => {
+registerLink.addEventListener('click', () => {
+  formInicio.classList.add('hidden');
   formRegister.classList.remove('hidden');
-  optionEmail.classList.add('hidden');
 })
 
-sButton.addEventListener('click', () => {
-  formSesion.classList.remove('hidden');
-  optionEmail.classList.add('hidden');
-})
+// registerLink.addEventListener('click', () => {
+//   formRegister.classList.remove('hidden');
+//   optionEmail.classList.add('hidden');
+// })
+
+// sButton.addEventListener('click', () => {
+//   formSesion.classList.remove('hidden');
+//   optionEmail.classList.add('hidden');
+// })
 
 registerButton.addEventListener('click', () => {
   let email = document.getElementById('email').value;
@@ -46,8 +46,8 @@ registerButton.addEventListener('click', () => {
     console.log(email);
     console.log(password);
     
-    formRegister.style.display = 'none';
-    formSesion.style.display = 'block';  
+    formRegister.classList.add('hidden');
+    formInicio.classList.remove('hidden');  
   }  
 });
 

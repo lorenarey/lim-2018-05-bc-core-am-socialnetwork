@@ -21,7 +21,7 @@ publicButton.addEventListener('click', () => {
       document.getElementById('post').value = '';
       document.getElementById('privacy').value = '0';
       publications.innerHTML = `
-        <div>
+        <div class='send-post'>
           <p>Nombre: ${nameUser}</p>
           <p>${newPost}</p>
         </div>
