@@ -1,4 +1,5 @@
-const config = {
+// Initialize Firebase
+var config = {
   apiKey: "AIzaSyBt7Ap6YvpAzIXc3UNihWlWomZfrHVBOOE",
   authDomain: "projecto2-272727.firebaseapp.com",
   databaseURL: "https://projecto2-272727.firebaseio.com",

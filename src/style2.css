@@ -38,18 +38,6 @@ color: #ffffff;
 text-align: center;
 }
 
-.boton-send-post
-{
-  width:50%;
-  background-color:#93b462;  
-  border: 0px;
-  border-radius: 8px;
-  box-shadow: 0 0 10px rgba(83, 83, 83, 0.2);
-  color: #ffffff;  
-  padding: 15px;
-  margin-top: 10px;
-}
-
 
 .post-container {
   padding: 20px;
