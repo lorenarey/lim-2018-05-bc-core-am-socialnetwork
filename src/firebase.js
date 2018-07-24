@@ -9,6 +9,16 @@ var config = {
 };
 firebase.initializeApp(config);
 
+// Guardar datos de login en BD
+const saveData = (userId, name, email, imageUrl) => {
+  firebase.database().ref('users/' + userId).set({
+    username: name,
+    email: email,
+    picture: imageUrl,
+    id: userId,
+  });
+}
+
 // Registro de Usuarios Nuevos
 const registerNew = (email, password) => {
   firebase.auth().createUserWithEmailAndPassword(email, password)
@@ -67,8 +77,6 @@ const validation = () => {
 // Login con Google
 const loginGoogle = () => {
   const provider = new firebase.auth.GoogleAuthProvider();
-  provider.addScope('https://www.googleapis.com/auth/contacts.readonly');
-
   firebase.auth().signInWithPopup(provider)
     .then((result) => {
     const token = result.credential.accessToken;
@@ -77,7 +85,7 @@ const loginGoogle = () => {
     const userData = result.user;
     console.log(userData)
     saveData(userData.uid, userData.displayName, userData.email, userData.photoURL);
-    window.location.href = 'timeline.html';
+    //window.location.href = 'timeline.html';
     })
     .catch((error) => {
       const errorCode = error.code;
@@ -137,15 +145,7 @@ const loginFacebook = () => {
     });
 }
 
-// Registro de login en BD
-const saveData = (userId, name, email, imageUrl) => {
-  firebase.database().ref('users/' + userId).set({
-    username: name,
-    email: email,
-    picture: imageUrl,
-    id: userId,
-  });
-}
+
 
 // Función para escribir nuevo post
 const writeNewPost = (uid, name, textPost, state ) => {
@@ -169,23 +169,48 @@ window.printPost = () => {
   firebase.database().ref('posts/')
   .on('value', (postsRef) =>{
     const posts = postsRef.val();
-    console.log(posts);
+    console.log(posts)
     //publications.innerHTML='';
-    Object.keys(posts).forEach((id) => {
+    const postsOrder = Object.keys(posts).reverse();
+    console.log(postsOrder)
+    postsOrder.forEach((id) => {
       const publications = document.getElementById('publications');
       const post = posts[id];
-      publications.innerHTML += `
-        <div class="show-post">
-          <div><p>Nombre: ${post.author}</p><div class="actions">${post.privacy}</div></div>
+        
+      const newPost = publications.innerHTML += `
+        <div class="show-post" id="containerPost">
+          <div>
+            <p>Nombre: ${post.author}</p>
+            <div class="actions">${post.privacy}</div>
+          </div>
           <textarea class="textarea-post" cols="80" rows="7" disabled>${post.newPost}</textarea>
           <hr>
           <div>
-            <div class="icon-like"><a href="#" id="like-button"><img src="img/like.jpg" alt="icono de like" width="20px"></a><p class="count-like">${post.likeCount}</p></div>
-            <div class="actions"><a href="#"><img src="img/edit(1).png" id="edit-button" alt="icono de editar" width="24px"></a><a href="#" id="delete-button"><img src="img/delete.png" alt="icono de eliminar" width="24px"></a></div>
+            <div class="icon-like">
+              <a href="#" id="like-button">
+                <img src="img/like.jpg" alt="icono de like" width="20px">
+              </a>
+              <p class="count-like">${post.likeCount}</p>
+              </div>
+            <div class="actions"><a href="#" id="edit-button"><img src="img/edit(1).png" alt="icono de editar" width="24px"></a><a href="#" id="delete-button"><img src="img/delete.png" alt="icono de eliminar" width="24px"></a></div>
           </div>
         </div>
        `
-      //  const rootRef = firebase.database().ref();
+      
+      const deleteButton = document.getElementById('delete-button');
+      
+      deleteButton.addEventListener('click', () => {
+        //let userId = firebase.auth().currentUser.uid;
+        console.log('probando eliminar');
+        firebase.database().ref().child('posts/' + userId + '/' + newPost).remove();
+        firebase.database().ref().child('posts/' + newPost).remove();
+
+        while(posts.firstChild) posts.removeChild(posts.firstChild);
+
+        alert('The user is deleted successfully!');
+        
+       })
+       //  const rootRef = firebase.database().ref();
        
       //   return list;
        // const topUserPostsRef = firebase.database().ref().child('posts').orderByKey();
@@ -196,9 +221,8 @@ window.printPost = () => {
 
 const likeButton = document.getElementById('like-button');
 const editButton = document.getElementById('edit-button');
-const deleteButton = document.getElementById('delete-button');
 
-
+// Función para editar post
 
 
 // Función para el conteo de likes

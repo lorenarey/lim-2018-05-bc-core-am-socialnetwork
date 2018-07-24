@@ -10,7 +10,6 @@ outButton.addEventListener('click', () => {
 
 publicButton.addEventListener('click', () => {
   let userId = firebase.auth().currentUser.uid;
-  console.log(userId);
   firebase.database().ref('/users/' + userId).once('value')
     .then((user) => {
     const nameUser = (user.val().username);
@@ -28,6 +27,7 @@ publicButton.addEventListener('click', () => {
   })
 })
       
+//const deleteButton = document.getElementById('delete-button');
 
 
 
