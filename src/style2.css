@@ -15,11 +15,11 @@ body {
     border: solid #aed86f 1px;
   }
 
-  .select {
+.select {
   padding: 13px 5px;
   width: 48%;
   line-height: 80px;
-  border: solid #ccc 1px;
+  border: solid olive 2px;
   border-radius: 0.4rem;
 }
   
@@ -38,10 +38,12 @@ color: #ffffff;
 text-align: center;
 }
 
+
+
   .boton-send-post
   {
     width:50%;
-    background-color:#93b462;  
+    background-color:olive;  
     border: 0px;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(83, 83, 83, 0.2);
@@ -54,10 +56,50 @@ text-align: center;
 .post-container {
     padding: 20px;
     max-width: 70%;
-    text-align: center;
     background-color: #ffffff;
     margin: 20px auto;
     margin-top: 150px;
     box-sizing: border-box;
     box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2)
+}
+
+/* .mark-container {
+  background-color:red;
+  border: 2px;
+} */
+
+.actions {
+  text-align: right;
+  display: flow-root;
+}
+
+.count-like {
+  display: inline;
+  
+}
+
+.icon-like {
+  float: left;
+}
+
+.show-post {
+  border-style: solid;
+  padding: 15px;
+  margin: 10px;
+}
+
+#publications {
+  padding: 50px;
+    max-width: 70%;
+    background-color: #ffffff;
+    margin: 20px auto;
+    margin-top: 150px;
+    box-sizing: border-box;
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2)
+}
+
+.textarea-post {
+  border: white;
+  background-color: white;
+  font-family: 'Times New Roman', Times, serif;
 }

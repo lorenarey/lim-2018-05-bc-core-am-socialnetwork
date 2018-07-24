@@ -169,16 +169,40 @@ window.printPost = () => {
   firebase.database().ref('posts/')
   .on('value', (postsRef) =>{
     const posts = postsRef.val();
+    console.log(posts);
     //publications.innerHTML='';
     Object.keys(posts).forEach((id) => {
       const publications = document.getElementById('publications');
       const post = posts[id];
       publications.innerHTML += `
-      <div>
-        <p>Nombre: ${post.author}</p>
-        <p>${post.newPost}</p>
-      </div>
-      `
+        <div class="show-post">
+          <div><p>Nombre: ${post.author}</p><div class="actions">${post.privacy}</div></div>
+          <textarea class="textarea-post" cols="80" rows="7" disabled>${post.newPost}</textarea>
+          <hr>
+          <div>
+            <div class="icon-like"><a href="#" id="like-button"><img src="img/like.jpg" alt="icono de like" width="20px"></a><p class="count-like">${post.likeCount}</p></div>
+            <div class="actions"><a href="#"><img src="img/edit(1).png" id="edit-button" alt="icono de editar" width="24px"></a><a href="#" id="delete-button"><img src="img/delete.png" alt="icono de eliminar" width="24px"></a></div>
+          </div>
+        </div>
+       `
+      //  const rootRef = firebase.database().ref();
+       
+      //   return list;
+       // const topUserPostsRef = firebase.database().ref().child('posts').orderByKey();
+      // return topUserPostsR;
     })
   })
 }
+
+const likeButton = document.getElementById('like-button');
+const editButton = document.getElementById('edit-button');
+const deleteButton = document.getElementById('delete-button');
+
+
+
+
+// Función para el conteo de likes
+// var starCountRef = firebase.database().ref('posts/' + postId + '/starCount');
+// starCountRef.on('value', function(snapshot) {
+//   updateStarCount(postElement, snapshot.val());
+// });
