@@ -20,7 +20,6 @@ publicButton.addEventListener('click', () => {
       document.getElementById('privacy').value = '0';
       writeNewPost(userId, nameUser, newPost, state);
       printPost();
-      window.location.reload(true);
     } else {
       alert('Selecciona privacidad');
     }
