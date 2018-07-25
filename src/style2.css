@@ -1,8 +1,12 @@
 body {
-  background-image: url(img/fondo-header-social-qnut.png);  
+ /*  background-image: url(img/fondo-header-social-qnut.png);  
   background-repeat: no-repeat;
-  background-position: top center;
+  background-position: top center; */
   font-size: 14 px;
+}
+
+nav {
+  outline: 1px #56742a
 }
 
 .text-area {

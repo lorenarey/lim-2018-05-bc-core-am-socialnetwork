@@ -37,7 +37,7 @@ En la búsqueda de información descubrimos que no existen redes sociales que se
 
 ## Benchmarking
 
-Como guía para el diseño de nuestro producto tomamos en cuenta a las grandes redes sociales como pinterest en el Login, Facebook en su estructura postear, como instagram para registro, en la busqueda de paginas afines con nuestro contenido, logramos ver que existen muchas de comida comida sana pero que ofrecen servicios de delivery de comida o directorios de restaurantes saludables, más no específicamente una red social de comida saludable consejos etc, aun así listamos algunas otras del medio que tienen contenido, mucho tráfico y seguidores.
+Como guía para el diseño de nuestro producto tomamos en cuenta a las grandes redes sociales como pinterest en el Login, Facebook en su estructura postear,como instagram para registro, en la busqueda de paginas afines con nuestro contenido, logramos ver que existen muchas de comida comida sana pero que ofrecen servicios de delivery de comida o directorios de restaurantes saludables, más no específicamente una red social de comida saludable consejos etc, aun así listamos algunas otras del medio que tienen contenido, mucho tráfico y seguidores.
 
 *Alimenta: web de nutricionistas que comparten dietas, asesorías, fotos y tips de comida saludable es la unica web en español que encontramos de consejos y tips mas esta no permite la interacción entre usuarios por web, solo por redes, no permite poder postear. 
 
