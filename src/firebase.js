@@ -209,12 +209,8 @@ window.printPost = () => {
       
       deleteButton.addEventListener('click', () => {
         const userId = firebase.auth().currentUser.uid;
-        console.log('probando eliminar');
-
         firebase.database().ref().child('/user-posts/' + userId + '/' + id).remove();
         firebase.database().ref().child('posts/' + id).remove();
-  
-        
         while (publications.firstChild) publications.removeChild(publications.firstChild);
         alert('Post eliminado');
         window.location.reload()
