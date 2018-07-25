@@ -9,6 +9,16 @@ const emailLogin = document.getElementById('email-login');
 const passwordLogin = document.getElementById('password-login');
 const updatePassword = document.getElementById('update-password');
 
+const mistakeUserName = document.getElementById('mistake-userName');
+const mistakeEmail = document.getElementById('mistake-email');
+const mistakePassword = document.getElementById('mistake-password');
+const mistakeConfirPassword = document.getElementById('mistake-confirPassword');
+const nameUser = document.getElementById('nameUser');
+const email = document.getElementById('email');
+const password = document.getElementById('password');
+const confirPassword = document.getElementById('confirPassword');
+
+
 formInicio.classList.remove('hidden');
 //optionEmail.classList.add('hidden');
 formRegister.classList.add('hidden');
@@ -19,40 +29,38 @@ registerLink.addEventListener('click', () => {
   formRegister.classList.remove('hidden');
 })
 
-// registerLink.addEventListener('click', () => {
-//   formRegister.classList.remove('hidden');
-//   optionEmail.classList.add('hidden');
-// })
-
-// sButton.addEventListener('click', () => {
-//   formSesion.classList.remove('hidden');
-//   optionEmail.classList.add('hidden');
-// })
-
+// ***************** en Proceso ************************
 registerButton.addEventListener('click', () => {
   let email = document.getElementById('email').value;
   let password = document.getElementById('password').value;
   
-  if (email == ''){
-    errorEmail.textContent = "Ingrese Correo";
-    errorPassword.textContent = "IngresePassword";
-  }else {
-    registerNew(email, password);
-    
-    
+  if (validationRegisterUser(nameUser.value,email.value,password.value,confirPassword.value)){
+    // mistakeEmail.textContent = "Ingrese Correo";
+    // mistakePassword.textContent = "IngresePassword";
+
+    registerNew(email, password);    
     alert('Tu usuario ha sido registrado! \nConfirma el mensaje de verificación en tu correo y seguidamente puedes Iniciar Sesión')
-    console.log(email);
-    console.log(password);
+    // console.log(email);
+    // console.log(password);
     
     formRegister.classList.add('hidden');
     formInicio.classList.remove('hidden');  
-  }  
+ 
+}
 });
+// **************************************************
 
+// *********** OK
 loginButton.addEventListener('click', () => {
+
+if (isValidLogin(emailLogin.value, passwordLogin.value)){
   login(emailLogin.value, passwordLogin.value);
   validation();
+} else {
+  alert ('email y/o pasword incorrecto');
+}
 });
+
 
 updatePassword.addEventListener('click', () => {
   resetPassword(emailLogin.value);
