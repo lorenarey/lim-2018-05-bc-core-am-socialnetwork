@@ -171,7 +171,6 @@ window.printPost = () => {
   .on('value', (postsRef) =>{
     const posts = postsRef.val();
     console.log(posts);
-    console.log('hola');
     const publications = document.getElementById('publications');
     publications.innerHTML='';
     const postsOrder = Object.keys(posts).reverse();
@@ -200,7 +199,7 @@ window.printPost = () => {
               </a>
               <p class="count-like">${listPost.likeCount}</p>
               </div>
-            <div class="actions"><a href="#" id="edit-button"><img src="img/edit(1).png" alt="icono de editar" width="24px"></a><a class="delete-button"><img src="img/delete.png" alt="icono de eliminar" width="24px"></a></div>
+            <div class="actions"><a href="#" id="edit-button"><img src="img/edit(1).png" alt="icono de editar" width="24px"></a><a href="#" class="delete-button"><img src="img/delete.png" alt="icono de eliminar" width="24px"></a></div>
           </div>
         </div>
        `
@@ -216,9 +215,9 @@ window.printPost = () => {
         firebase.database().ref().child('posts/' + id).remove();
   
         
-        // while (publications.firstChild) publications.removeChild(publications.firstChild);
-        alert('The user is deleted successfully!');
-        // window.location.reload()
+        while (publications.firstChild) publications.removeChild(publications.firstChild);
+        alert('Post eliminado');
+        window.location.reload()
         
        })
 
@@ -226,14 +225,4 @@ window.printPost = () => {
   })
 }
 
-const likeButton = document.getElementById('like-button');
-const editButton = document.getElementById('edit-button');
 
-// Función para editar post
-
-
-// Función para el conteo de likes
-// var starCountRef = firebase.database().ref('posts/' + postId + '/starCount');
-// starCountRef.on('value', function(snapshot) {
-//   updateStarCount(postElement, snapshot.val());
-// });
