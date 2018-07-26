@@ -1,4 +1,4 @@
 global.window = global;
 global.assert = require('chai').assert;
-require('../src/social_network');
+require('../src/validations');
 require('./social.spec.js');
