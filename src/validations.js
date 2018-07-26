@@ -42,6 +42,25 @@ const validationUpdatePassword = (email) => {
   return isEmail(email);
 }
 
+
+// Valida publicacion en el muro
+// const validationPublicPost = (postPublic) => {
+//  if(isNotEmpty(postPublic)){
+//     // document.form.postPublic.disabled = false;
+//     form.disabled= false;
+//     alert('mensaje completo');
+//  }
+//  else{
+//     // document.form.postPublic.disabled = true;
+//     publicButton.disabled= true;
+//     alert('Escriba algo para publicar');
+//  }
+//  return isNotEmpty(postPublic)
+// }
+
+
 // Exportando funciones al Objeto Global windown
 window.isValidLogin = isValidLogin;
 window.validationRegisterUser = validationRegisterUser;
+window.validationPublicPost = validationPublicPost;
+window.validationUpdatePassword = validationUpdatePassword;
