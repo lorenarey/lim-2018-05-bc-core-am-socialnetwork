@@ -177,13 +177,13 @@ window.printPost = () => {
     //console.log(posts[id]);
     //console.log(firebase.database().ref('user-posts/'));
     // console.log(data);
-
+    
 
     postsOrder.forEach((id) => {
       const listPost = posts[id];
       console.log(id);
       console.log(listPost);
-      
+    
       publications.innerHTML += `
         <div class="show-post" id=${id}>
           <div>
@@ -194,8 +194,8 @@ window.printPost = () => {
           <hr>
           <div>
             <div class="icon-like">
-              <a href="#" id="like-button">
-                <img src="img/like.jpg" alt="icono de like" width="20px">
+              <a href="#">
+                <img id="like-button" src="img/like.jpg" alt="icono de like" width="20px">
               </a>
               <p class="count-like">${listPost.likeCount}</p>
               </div>
@@ -215,7 +215,26 @@ window.printPost = () => {
         alert('Post eliminado');
         window.location.reload()
         
-       })
+      })
+
+      const likeButton = document.getElementById('like-button');
+
+      likeButton.addEventListener('click', (e) => {
+        const userId = firebase.auth().currentUser.uid;
+        
+        let likeCount = listPost.likeCount;
+        console.log(likeCount);
+      
+        // const likeCountRef = firebase.database().ref('posts/' + postId + '/likeCount');
+        // console.log('likeCountRef');
+        // likeCountRef.on('value', (snapshot) => {
+        // updateLikeCount(postElement, snapshot.val());
+        //});
+      })
+
+
+
+
 
     })
   })
