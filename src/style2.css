@@ -6,7 +6,6 @@ body {
 }
 
 .text-area {
-<<<<<<< HEAD
     width:100% ;
     padding: 10px;
     height: 100px;
@@ -21,12 +20,6 @@ body {
   width: 48%;
   line-height: 80px;
   border: solid olive 2px;
-=======
-  width:100% ;
-  padding: 10px;
-  height: 100px;
-  box-sizing: border-box;
->>>>>>> a460e9e3c367cd95474d2d45b47a1fa897d355fa
   border-radius: 0.4rem;
   margin-bottom: 5px;
   border: solid #aed86f 1px;
@@ -55,7 +48,6 @@ color: #ffffff;
 text-align: center;
 }
 
-<<<<<<< HEAD
 
 
   .boton-send-post
@@ -69,11 +61,8 @@ text-align: center;
     padding: 15px;
     margin-top: 10px;
   }
-=======
->>>>>>> a460e9e3c367cd95474d2d45b47a1fa897d355fa
 
 .post-container {
-<<<<<<< HEAD
     padding: 20px;
     max-width: 70%;
     background-color: #ffffff;
@@ -122,14 +111,4 @@ text-align: center;
   border: white;
   background-color: white;
   font-family: 'Times New Roman', Times, serif;
-=======
-  padding: 20px;
-  max-width: 70%;
-  text-align: center;
-  background-color: #ffffff;
-  margin: 20px auto;
-  margin-top: 150px;
-  box-sizing: border-box;
-  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2)
->>>>>>> a460e9e3c367cd95474d2d45b47a1fa897d355fa
 }
