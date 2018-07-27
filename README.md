@@ -67,3 +67,8 @@ En este proyecto trtabajaremos en 3 sprint, para el primero hemos organizado el 
 
 
 ####  CONCLUSIONES  TEST ALTA FIDELIDAD Y HTML 
+
+
+####  Anotar el proceso de mejoramiento de feedback
+
+anotar en caso ya este terminado a futuro que se podria mejorar 

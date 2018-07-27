@@ -1,14 +1,13 @@
 body {
- /*  background-image: url(img/fondo-header-social-qnut.png);  
+  background-image: url(img/fondo-header-social-qnut.png);  
   background-repeat: no-repeat;
-  background-position: top center; */
+  background-position: top center;
   font-size: 14 px;
 }
 
-nav {
-  outline: 1px #56742a
+.nav-wrapper {
+  background-color: #93b462
 }
-
 .text-area {
     width:100% ;
     padding: 10px;
@@ -57,7 +56,7 @@ text-align: center;
   .boton-send-post
   {
     width:50%;
-    background-color:olive;  
+    background-color:#e23569;  
     border: 0px;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(83, 83, 83, 0.2);

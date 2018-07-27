@@ -8,7 +8,17 @@ var config = {
   messagingSenderId: "1040741679215"
 };
 firebase.initializeApp(config);
- 
+
+// Guardar datos de login en BD
+const saveData = (userId, name, email, imageUrl) => {
+  firebase.database().ref('users/' + userId).set({
+    username: name,
+    email: email,
+    picture: imageUrl,
+    id: userId,
+  });
+}
+
 // Registro de Usuarios Nuevos
 const registerNew = (email, password) => {
   firebase.auth().createUserWithEmailAndPassword(email, password)
@@ -30,11 +40,8 @@ const registerNew = (email, password) => {
     .catch((error) => {
       let errorCode = error.code;
       let errorMessage = error.message;
-      // console.log(errorCode);
-      // console.log(errorMessage);
-      alert(errorCode);
-      alert(errorMessage);
-
+      console.log(errorCode);
+      console.log(errorMessage);
     })
 }
 
@@ -44,8 +51,6 @@ let login = (email, password) => {
     .catch((error) => {
       let errorCode = error.code;
       let errorMessage = error.message;
-      // console.log(errorCode);
-      // console.log(errorMessage);
   });
 }
 
@@ -61,7 +66,7 @@ const validation = () => {
       let uid = user.uid;
       let providerData = user.providerData;
     }
-    if (user.emailVerified) {   
+    if (user.emailVerified) {
       window.location.href = 'timeline.html';
     } else {
       alert('Por favor valida tu correo');
@@ -72,15 +77,13 @@ const validation = () => {
 // Login con Google
 const loginGoogle = () => {
   const provider = new firebase.auth.GoogleAuthProvider();
-  provider.addScope('https://www.googleapis.com/auth/contacts.readonly');
-
   firebase.auth().signInWithPopup(provider)
     .then((result) => {
     const token = result.credential.accessToken;
-    // console.log("result", result)
+    console.log("result", result)
     // Información de usuario
     const userData = result.user;
-    // console.log(userData)
+    console.log(userData)
     saveData(userData.uid, userData.displayName, userData.email, userData.photoURL);
     window.location.href = 'timeline.html';
     })
@@ -89,9 +92,7 @@ const loginGoogle = () => {
       const errorMessage = error.message;
       const email = error.email;
       const credential = error.credential;
-      // console.log("dentro de firebase auth");
-      // console.log(errorCode);
-      // console.log(errorMessage);
+      console.log(errorMessage);
     });
 }
 
@@ -99,9 +100,9 @@ const loginGoogle = () => {
 const check = () => {
   const user = firebase.auth().currentUser;
   user.sendEmailVerification().then(() => {
-    // console.log('Enviando correo');
+    console.log('Enviando correo');
   }).catch((error) => {
-    // console.log(error);
+    console.log(error);
   });
 }
 
@@ -111,16 +112,16 @@ const resetPassword = (email) => {
   .then(() => {
   })
   .catch((error) => {
-    // console.log(error);
+    console.log(error);
   })
 }
 
 // funcion para cerrar sesion
 const signOut = () => {
   firebase.auth().signOut().then(() => {
-    // console.log('Sesión finalizada');
+    console.log('Sesión finalizada')
   }).catch((error) => {
-    // console.log(error);
+    console.log(error);
   });
 }
 
@@ -129,31 +130,22 @@ const loginFacebook = () => {
   const provider = new firebase.auth.FacebookAuthProvider();
   firebase.auth().signInWithPopup(provider)
     .then((result) => {
-      // console.log('Login con facebook')
+      console.log('Login con facebook')
       const token = result.credential.accessToken;
       const user = result.user;
-      // console.log(user)
+      console.log(user)
       saveData(user.uid, user.displayName, user.email, user.photoURL);
       window.location.href = 'timeline.html';
     })
     .catch((error) => {
-      // console.log('Sesión en Facebook')
-      // console.log(error.code);
-      // console.log(error.message);
-      // console.log(error.email);
-      // console.log(error.credential);
+      console.log(error.code);
+      console.log(error.message);
+      console.log(error.email);
+      console.log(error.credential);
     });
 }
 
-// Registro de login en BD
-const saveData = (userId, name, email, imageUrl) => {
-  firebase.database().ref('users/' + userId).set({
-    username: name,
-    email: email,
-    picture: imageUrl,
-    id: userId,
-  });
-}
+
 
 // Función para escribir nuevo post
 const writeNewPost = (uid, name, textPost, state ) => {
@@ -167,9 +159,10 @@ const writeNewPost = (uid, name, textPost, state ) => {
   
   // Key para nueva publicación
   let postKey = firebase.database().ref().child('posts').push().key;
-  // console.log(postKey);      
+  console.log(postKey);      
   let updates = {};
   updates['/posts/' + postKey] = postData;
+  updates['/user-posts/' + uid + '/' + postKey] = postData;
   return firebase.database().ref().update(updates);
 }
 
@@ -177,16 +170,70 @@ window.printPost = () => {
   firebase.database().ref('posts/')
   .on('value', (postsRef) =>{
     const posts = postsRef.val();
-    //publications.innerHTML='';
-    Object.keys(posts).forEach((id) => {
-      const publications = document.getElementById('publications');
-      const post = posts[id];
+    console.log(posts);
+    console.log('hola');
+    const publications = document.getElementById('publications');
+    publications.innerHTML='';
+    const postsOrder = Object.keys(posts).reverse();
+    //console.log(posts[id]);
+    //console.log(firebase.database().ref('user-posts/'));
+    // console.log(data);
+
+
+    postsOrder.forEach((id) => {
+      const listPost = posts[id];
+      console.log(id);
+      console.log(listPost);
+      
       publications.innerHTML += `
-      <div>
-        <p>Nombre: ${post.author}</p>
-        <p>${post.newPost}</p>
-      </div>
-      `
+        <div class="show-post" id=${id}>
+          <div>
+            <p>Nombre: ${listPost.author}</p>
+            <div class="actions">${listPost.privacy}</div>
+          </div>
+          <textarea class="textarea-post" cols="80" rows="7" disabled>${listPost.newPost}</textarea>
+          <hr>
+          <div>
+            <div class="icon-like">
+              <a href="#" id="like-button">
+                <img src="img/like.jpg" alt="icono de like" width="20px">
+              </a>
+              <p class="count-like">${listPost.likeCount}</p>
+              </div>
+            <div class="actions"><a href="#" id="edit-button"><img src="img/edit(1).png" alt="icono de editar" width="24px"></a><a class="delete-button"><img src="img/delete.png" alt="icono de eliminar" width="24px"></a></div>
+          </div>
+        </div>
+       `
+      
+      const deleteButton = document.querySelector('#'+ id +' .delete-button');
+      
+      
+      deleteButton.addEventListener('click', () => {
+        const userId = firebase.auth().currentUser.uid;
+        console.log('probando eliminar');
+
+        firebase.database().ref().child('/user-posts/' + userId + '/' + id).remove();
+        firebase.database().ref().child('posts/' + id).remove();
+  
+        
+        // while (publications.firstChild) publications.removeChild(publications.firstChild);
+        alert('The user is deleted successfully!');
+        // window.location.reload()
+        
+       })
+
     })
   })
 }
+
+const likeButton = document.getElementById('like-button');
+const editButton = document.getElementById('edit-button');
+
+// Función para editar post
+
+
+// Función para el conteo de likes
+// var starCountRef = firebase.database().ref('posts/' + postId + '/starCount');
+// starCountRef.on('value', function(snapshot) {
+//   updateStarCount(postElement, snapshot.val());
+// });
