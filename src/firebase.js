@@ -36,12 +36,13 @@ const registerNew = (email, password) => {
       }
       saveData(user.uid, username, user.email, picture);
       check();
+      alert('Tu usuario ha sido registrado! \nConfirma el mensaje de verificación en tu correo y seguidamente puedes Iniciar Sesión')
     })
     .catch((error) => {
       let errorCode = error.code;
       let errorMessage = error.message;
-      console.log(errorCode);
-      console.log(errorMessage);
+      alert(errorCode);
+      alert(errorMessage);
     })
 }
 
@@ -80,7 +81,8 @@ const loginGoogle = () => {
   firebase.auth().signInWithPopup(provider)
     .then((result) => {
     const token = result.credential.accessToken;
-    console.log("result", result)
+    // console.log("result", result)
+
     // Información de usuario
     const userData = result.user;
     console.log(userData)
@@ -92,7 +94,6 @@ const loginGoogle = () => {
       const errorMessage = error.message;
       const email = error.email;
       const credential = error.credential;
-      console.log(errorMessage);
     });
 }
 
@@ -100,9 +101,9 @@ const loginGoogle = () => {
 const check = () => {
   const user = firebase.auth().currentUser;
   user.sendEmailVerification().then(() => {
-    console.log('Enviando correo');
+    // console.log('Enviando correo');
   }).catch((error) => {
-    console.log(error);
+    // console.log(error);
   });
 }
 
@@ -112,16 +113,16 @@ const resetPassword = (email) => {
   .then(() => {
   })
   .catch((error) => {
-    console.log(error);
+    // console.log(error);
   })
 }
 
 // funcion para cerrar sesion
 const signOut = () => {
   firebase.auth().signOut().then(() => {
-    console.log('Sesión finalizada')
+    // console.log('Sesión finalizada')
   }).catch((error) => {
-    console.log(error);
+    // console.log(error);
   });
 }
 
@@ -130,18 +131,16 @@ const loginFacebook = () => {
   const provider = new firebase.auth.FacebookAuthProvider();
   firebase.auth().signInWithPopup(provider)
     .then((result) => {
-      console.log('Login con facebook')
       const token = result.credential.accessToken;
       const user = result.user;
-      console.log(user)
       saveData(user.uid, user.displayName, user.email, user.photoURL);
       window.location.href = 'timeline.html';
     })
     .catch((error) => {
-      console.log(error.code);
-      console.log(error.message);
-      console.log(error.email);
-      console.log(error.credential);
+      // console.log(error.code);
+      // console.log(error.message);
+      // console.log(error.email);
+      // console.log(error.credential);
     });
 }
 

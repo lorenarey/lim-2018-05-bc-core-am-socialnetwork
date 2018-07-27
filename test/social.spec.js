@@ -1,49 +1,31 @@
-describe('ingresar', () => {
-
-  // it('debería ser un objeto', () => {
-  //   assert.equal(typeof cipher, 'object');
-  // });
-
   describe('ingresar', () => {
 
-    it('debería ser una función', () => {
-      assert.equal(typeof ingresar, 'function');
+    it('debería ser una función: isValidLogin', () => {
+      assert.equal(typeof isValidLogin, 'function');  
     });
 
-    it('debería ser una función', () => {
-      assert.equal(typeof registrar, 'function');
+    it('debería retornar TRUE, al ingresar email(abc@hotmail.com) y password(123456aA$)', () => {
+      assert.equal(isValidLogin('abc@hotmail.com', '123456aA$'),true);
     });
 
-    it('debería ser una función', () => {
-      assert.equal(typeof observador, 'function');
+    it('debería retornar FALSE, al ingresar email(abcdefghij) y password incorrecto(123)', () => {
+      assert.equal(isValidLogin('abcdefghij', '123'),false);
     });
-    // it('debería retornar "HIJKLMNOPQRSTUVWXYZABCDEFG" para "ABCDEFGHIJKLMNOPQRSTUVWXYZ" con offest 33',()=> {
-    //   assert.equal(cipher.encode(33,'ABCDEFGHIJKLMNOPQRSTUVWXYZ'),'HIJKLMNOPQRSTUVWXYZABCDEFG');
-    // });
+    
+    it('debería ser una función: validationRegisterUser', () => {
+      assert.equal(typeof validationRegisterUser, 'function'); 
+    });
+
+    it('debería retornar TRUE, al ingresar: nombre, email, password y confirmar password, correctos', () => {
+      assert.equal(validationRegisterUser('Lucero','abc@hotmail.com', '123456aA$', '123456aA$'),true); 
+    });
+
+    it('debería retornar FALSE, al ingresar: los campos estan vacíos', () => {
+      assert.equal(validationRegisterUser('','', '', ''),false); 
+    });
+
+    it('debería retornar FALSE, al ingresar: nombre, email, password y confirmar password incorrectos', () => {
+      assert.equal(validationRegisterUser('name','abcdefghij', '123', '456'),false); 
+    });
+    
   });
-
-
-
-  // describe('cipher.createCipherWithOffset', () => {
-
-  //   it('debería ser una función', () => {
-  //     assert.equal(typeof cipher.createCipherWithOffset, 'function');
-  //   });
-
-  //   it('debería retornar un objeto con dos funciones (encode y decode) con offset fijado',() =>{
-  //     assert.equal(typeof cipher.createCipherWithOffset(33), 'object');
-  //     assert.equal(typeof cipher.createCipherWithOffset(33).encode, 'function');  // el createCipherWithOffset necesita un OFFSET para devolverme una función: encode
-  //     assert.equal(typeof cipher.createCipherWithOffset(33).decode, 'function');  // el createCipherWithOffset necesita un OFFSET para devolverme una función: decode
-  //   });
-
-  //   it('probando la funcionalidad de: función encode con offset fijado',() =>{   // TRABAJANDO
-  //     assert.equal(cipher.createCipherWithOffset(33).encode('ABCD'), 'HIJK');
-  //   });
-
-  //   it('probando la funcionalidad de: función decode con offset fijado',() =>{   // TRABAJANDO
-  //     assert.equal(cipher.createCipherWithOffset(33).decode('HIJK'), 'ABCD');
-  //   });
-
-  //  });
-
-});
