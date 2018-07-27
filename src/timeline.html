@@ -7,25 +7,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <title>Social Network - Q.Nutrition</title>
   <link rel="icon" href="img/icono_frutas_verduras.png">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/css/materialize.min.css">
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link rel="stylesheet" href="style2.css" />
 </head>
 
-<body onload="printPost()">
-    <nav>
-        <div class="nav-wrapper">
-          <img src="img/isotipo.png" class="material-icons" alt="isotipo"> 
-          <!-- <a href="#!" class="brand-logo"><i class="material-icons">cloud</i>Logo</a> -->
-          <ul class="right hide-on-med-and-down">
-            <li><a href="sass.html"><i class="material-icons">search</i></a></li>
-            <li><a href="badges.html"><i class="material-icons">view_module</i></a></li>
-            <li><a href="collapsible.html"><i class="material-icons">refresh</i></a></li>
-            <li><a href="mobile.html"><i class="material-icons">more_vert</i></a></li>
-          </ul>
-        </div>
-      </nav>
-    
+<body onload="printPost()" >
   <header>
     <div id="welcome-post">
       <h2>Bienvenid@, disfruta de los beneficios y aportes de nuestra Red Social</h2>
@@ -35,26 +20,30 @@
   <hr>
   <section>
     <div id="writePost" class="post-container">
-      <form name="form-timeline">
+      <form>
         <textarea id="post" class="text-area" autofocus placeholder="¿Qué estás pensando?" rows="5" cols="50"></textarea>
-        <input type="button" id="buttonPost" name="public" class="boton-send-post" value="Publicar">
+        <input type="button" id="buttonPost" class="boton-send-post" value="Publicar">
         
         <select id="privacy" class="select">
           <option value="0">Selecciona Privacidad</option>
           <option id="friends" value="amigos">Amigos</option>
           <option id="public" value="publico">Público</option>
         </select>
+
       </form>
-      <div id="publications"> </div>
+    </div>
+
+    <div id="publications"> 
+
+      
     </div>
   </section>
+  
+
   <script src="https://www.gstatic.com/firebasejs/5.3.0/firebase.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js"></script>
-  <script src="https://apis.google.com/js/platform.js" async defer></script>
   <!--<script src="initFirebase.js"></script>-->
   <script src="firebase.js"></script>
   <script src="social_network.js"></script>
-  <script src="validations.js"></script>
   <script src="main.js"></script>
 </body>
 

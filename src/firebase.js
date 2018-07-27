@@ -36,13 +36,12 @@ const registerNew = (email, password) => {
       }
       saveData(user.uid, username, user.email, picture);
       check();
-      alert('Tu usuario ha sido registrado! \nConfirma el mensaje de verificación en tu correo y seguidamente puedes Iniciar Sesión')
     })
     .catch((error) => {
       let errorCode = error.code;
       let errorMessage = error.message;
-      alert(errorCode);
-      alert(errorMessage);
+      console.log(errorCode);
+      console.log(errorMessage);
     })
 }
 
@@ -81,8 +80,7 @@ const loginGoogle = () => {
   firebase.auth().signInWithPopup(provider)
     .then((result) => {
     const token = result.credential.accessToken;
-    // console.log("result", result)
-
+    console.log("result", result)
     // Información de usuario
     const userData = result.user;
     console.log(userData)
@@ -94,6 +92,7 @@ const loginGoogle = () => {
       const errorMessage = error.message;
       const email = error.email;
       const credential = error.credential;
+      console.log(errorMessage);
     });
 }
 
@@ -101,9 +100,9 @@ const loginGoogle = () => {
 const check = () => {
   const user = firebase.auth().currentUser;
   user.sendEmailVerification().then(() => {
-    // console.log('Enviando correo');
+    console.log('Enviando correo');
   }).catch((error) => {
-    // console.log(error);
+    console.log(error);
   });
 }
 
@@ -113,16 +112,16 @@ const resetPassword = (email) => {
   .then(() => {
   })
   .catch((error) => {
-    // console.log(error);
+    console.log(error);
   })
 }
 
 // funcion para cerrar sesion
 const signOut = () => {
   firebase.auth().signOut().then(() => {
-    // console.log('Sesión finalizada')
+    console.log('Sesión finalizada')
   }).catch((error) => {
-    // console.log(error);
+    console.log(error);
   });
 }
 
@@ -131,16 +130,18 @@ const loginFacebook = () => {
   const provider = new firebase.auth.FacebookAuthProvider();
   firebase.auth().signInWithPopup(provider)
     .then((result) => {
+      console.log('Login con facebook')
       const token = result.credential.accessToken;
       const user = result.user;
+      console.log(user)
       saveData(user.uid, user.displayName, user.email, user.photoURL);
       window.location.href = 'timeline.html';
     })
     .catch((error) => {
-      // console.log(error.code);
-      // console.log(error.message);
-      // console.log(error.email);
-      // console.log(error.credential);
+      console.log(error.code);
+      console.log(error.message);
+      console.log(error.email);
+      console.log(error.credential);
     });
 }
 
@@ -165,6 +166,54 @@ const writeNewPost = (uid, name, textPost, state ) => {
   return firebase.database().ref().update(updates);
 }
 
+window.deletePost = (id) => {
+  const questions = confirm('¿Está seguro de eliminar?');
+  if (questions) {
+    const userId = firebase.auth().currentUser.uid;
+    firebase.database().ref().child('/user-posts/' + userId + '/' + id).remove();
+    firebase.database().ref().child('posts/' + id).remove();
+    while (publications.firstChild) publications.removeChild(publications.firstChild);
+    alert('Post eliminado');
+    window.location.reload()
+  } else {
+    console.log('regresa al muro')
+  }
+  console.log(id)
+  
+}
+
+window.editPost = (id) => {
+  console.log('prueba de boton editar');
+  let editPost = document.getElementById('textPost');
+  const editButton = document.getElementById('edit-button');
+  const saveButton = document.getElementById('save-button');
+  editPost.removeAttribute('disabled');
+  editButton.classList.add('hidden');
+  saveButton.classList.remove('hidden');
+}
+
+window.savePostEdit = (id) => {
+  console.log('prueba de guardar post editado');
+  let editPost = document.getElementById('textPost');
+  const editButton = document.getElementById('edit-button');
+  const saveButton = document.getElementById('save-button');
+  editPost.disabled = true;
+  saveButton.classList.add('hidden');
+  editButton.classList.remove('hidden');
+  const userId = firebase.auth().currentUser.uid;
+  
+  let postEdit = {
+    newPost : editPost.value,
+  }
+
+  let updates = {};
+  updates['/posts/' + id] = postEdit;
+  updates['/user-posts/' + userId + '/' + id] = postEdit;
+  return firebase.database().ref().update(updates);
+
+}
+
+
 window.printPost = () => {
   firebase.database().ref('posts/')
   .on('value', (postsRef) =>{
@@ -173,78 +222,33 @@ window.printPost = () => {
     const publications = document.getElementById('publications');
     publications.innerHTML='';
     const postsOrder = Object.keys(posts).reverse();
-    //console.log(posts[id]);
-    //console.log(firebase.database().ref('user-posts/'));
-    // console.log(data);
-    
-
     postsOrder.forEach((id) => {
       const listPost = posts[id];
-      console.log(id);
-      console.log(listPost);
-    
       publications.innerHTML += `
         <div class="show-post" id=${id}>
           <div>
             <p>Nombre: ${listPost.author}</p>
             <div class="actions">${listPost.privacy}</div>
           </div>
-          <textarea class="textarea-post" cols="80" rows="7" disabled>${listPost.newPost}</textarea>
+          <textarea id="textPost" class="textarea-post" cols="80" rows="7" disabled>${listPost.newPost}</textarea>
           <hr>
           <div>
             <div class="icon-like">
               <a href="#">
                 <img id="like-button" src="img/like.jpg" alt="icono de like" width="20px">
               </a>
-              <p class="count-like">${listPost.likeCount}</p>
+              <p class="count-like" id="show-count">${listPost.likeCount}</p>
               </div>
-            <div class="actions"><a href="#" id="edit-button"><img src="img/edit(1).png" alt="icono de editar" width="24px"></a><a href="#" class="delete-button"><img src="img/delete.png" alt="icono de eliminar" width="24px"></a></div>
+            <div class="actions">
+              <a href="#" class="hidden" onclick="savePostEdit('${id}')" id="save-button"><img src="img/guardar.png" alt="icono de editar" width="24px"></a>
+              <a href="#" onclick="editPost('${id}')" id="edit-button"><img src="img/edit(1).png" alt="icono de editar" width="24px"></a>
+              <a href="#" onclick="deletePost('${id}')" id="delete-button"><img src="img/delete.png" alt="icono de eliminar" width="24px"></a>
+            </div>
           </div>
         </div>
        `
-      
-      const deleteButton = document.querySelector('#'+ id +' .delete-button');
-      
-      
-      deleteButton.addEventListener('click', () => {
-        const userId = firebase.auth().currentUser.uid;
-        firebase.database().ref().child('/user-posts/' + userId + '/' + id).remove();
-        firebase.database().ref().child('posts/' + id).remove();
-        while (publications.firstChild) publications.removeChild(publications.firstChild);
-        alert('Post eliminado');
-        window.location.reload()
-        
       })
-
-      const likeButton = document.getElementById('like-button');
-
-      likeButton.addEventListener('click', (e) => {
-        const userId = firebase.auth().currentUser.uid;
-        
-        let likeCount = listPost.likeCount;
-        console.log(likeCount);
-      
-        // const likeCountRef = firebase.database().ref('posts/' + postId + '/likeCount');
-        // console.log('likeCountRef');
-        // likeCountRef.on('value', (snapshot) => {
-        // updateLikeCount(postElement, snapshot.val());
-        //});
-      })
-
-
-
-
-
     })
-  })
+
 }
 
-
-<<<<<<< HEAD
-// Función para el conteo de likes
-// var starCountRef = firebase.database().ref('posts/' + postId + '/starCount');
-// starCountRef.on('value', function(snapshot) {
-//   updateStarCount(postElement, snapshot.val());
-// });
-=======
->>>>>>> b5573deb260953c11668505ce44bf7e73546bce6
