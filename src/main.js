@@ -16,63 +16,66 @@ const mistakeConfirPassword = document.getElementById('mistake-confirPassword');
 const nameUser = document.getElementById('nameUser');
 const email = document.getElementById('email');
 const password = document.getElementById('password');
-const confirPassword = document.getElementById('confirPassword');
-
+const confirPassword = document.getElementById('confirPassword')
+const validInputs = document.getElementById('valid-inputs');
+const validInputs2 = document.getElementById('valid-inputs2');
 
 formInicio.classList.remove('hidden');
-//optionEmail.classList.add('hidden');
 formRegister.classList.add('hidden');
-// formSesion.classList.add('hidden');
 
 registerLink.addEventListener('click', () => {
   formInicio.classList.add('hidden');
   formRegister.classList.remove('hidden');
 })
 
-// ***************** en Proceso ************************
-registerButton.addEventListener('click', () => {
-  let email = document.getElementById('email').value;
-  let password = document.getElementById('password').value;
-  
-  if (validationRegisterUser(nameUser.value,email.value,password.value,confirPassword.value)){
-    // mistakeEmail.textContent = "Ingrese Correo";
-    // mistakePassword.textContent = "IngresePassword";
 
-    registerNew(email, password);    
-    alert('Tu usuario ha sido registrado! \nConfirma el mensaje de verificación en tu correo y seguidamente puedes Iniciar Sesión')
-    // console.log(email);
-    // console.log(password);
-    
+// ***************** Registra datos  ************************
+registerButton.addEventListener('click', () => {
+  nameUsers = nameUser.value;
+  emailUser = email.value;
+  passwordUser = password.value;
+  confirPasswordUser = confirPassword.value;
+
+  if (validationRegisterUser(nameUsers, emailUser, passwordUser, confirPasswordUser) === true) {
+    registerNew(emailUser, passwordUser);
     formRegister.classList.add('hidden');
-    formInicio.classList.remove('hidden');  
- 
-}
+    formInicio.classList.remove('hidden');
+  };
 });
 // **************************************************
 
-// *********** OK
+
+// *********** Loguea al Usuario **************************
 loginButton.addEventListener('click', () => {
-
-if (isValidLogin(emailLogin.value, passwordLogin.value)){
-  login(emailLogin.value, passwordLogin.value);
-  validation();
-} else {
-  alert ('email y/o pasword incorrecto');
-}
+  if (isValidLogin(emailLogin.value, passwordLogin.value)) {
+    login(emailLogin.value, passwordLogin.value);
+    validation();
+  } else {
+    validInputs2.innerHTML = 'email y/o pasword incorrecto';
+  }
 });
 
 
+// *********** Resetea contraseña **************************
 updatePassword.addEventListener('click', () => {
-  resetPassword(emailLogin.value);
-  alert('Se envió correo para el cambio de contraseña')
+  if (emailLogin.value === '') {
+    validInputs2.innerHTML = 'Ingrese un correo';
+  } else {
+    if (validationUpdatePassword(emailLogin.value)) {
+      resetPassword(emailLogin.value);
+      validInputs2.innerHTML = 'Se envió correo para el cambio de contraseña';
+    }
+  }
 });
 
+// *********** Loguea con Google **************************
 googleButton.addEventListener('click', (e) => {
   if (e.target) {
     loginGoogle();
   }
 });
 
+// *********** Loguea al Facebook **************************
 faceButton.addEventListener('click', (e) => {
   if (e.target) {
     loginFacebook()

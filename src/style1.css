@@ -11,7 +11,9 @@
     background-size: 30%;
   }
   
-
+  .valid-inputs{
+    color: red;
+  }
   
   .section-forms {
     width: 500px;

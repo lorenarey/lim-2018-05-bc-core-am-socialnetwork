@@ -35,10 +35,10 @@
   <hr>
   <section>
     <div id="writePost" class="post-container">
-      <form>
+      <form name="form-timeline">
         <textarea id="post" class="text-area" autofocus placeholder="¿Qué estás pensando?" rows="5" cols="50"></textarea>
-        <input type="button" id="buttonPost" class="boton-send-post" value="Publicar">
-
+        <input type="button" id="buttonPost" name="public" class="boton-send-post" value="Publicar">
+        
         <select id="privacy" class="select">
           <option value="0">Selecciona Privacidad</option>
           <option id="friends" value="amigos">Amigos</option>
@@ -54,6 +54,7 @@
   <!--<script src="initFirebase.js"></script>-->
   <script src="firebase.js"></script>
   <script src="social_network.js"></script>
+  <script src="validations.js"></script>
   <script src="main.js"></script>
 </body>
 
