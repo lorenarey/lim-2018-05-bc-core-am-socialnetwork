@@ -20,12 +20,12 @@ const confirPassword = document.getElementById('confirPassword')
 const validInputs = document.getElementById('valid-inputs');
 const validInputs2 = document.getElementById('valid-inputs2');
 
-formInicio.classList.remove('hidden');
-formRegister.classList.add('hidden');
+//formInicio.classList.remove('hidden');
+//formRegister.classList.add('hidden');
 
 registerLink.addEventListener('click', () => {
-  formInicio.classList.add('hidden');
   formRegister.classList.remove('hidden');
+  formInicio.classList.add('hidden');
 })
 
 
@@ -72,7 +72,6 @@ updatePassword.addEventListener('click', () => {
 googleButton.addEventListener('click', (e) => {
   if (e.target) {
     loginGoogle();
-    printPost();
   }
 });
 
