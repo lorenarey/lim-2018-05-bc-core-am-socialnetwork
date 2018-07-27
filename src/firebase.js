@@ -197,20 +197,29 @@ window.savePostEdit = (id) => {
   let editPost = document.getElementById('textPost');
   const editButton = document.getElementById('edit-button');
   const saveButton = document.getElementById('save-button');
-  editPost.disabled = true;
-  saveButton.classList.add('hidden');
-  editButton.classList.remove('hidden');
   const userId = firebase.auth().currentUser.uid;
   
-  let postEdit = {
-    newPost : editPost.value,
-  }
+  firebase.database().ref('posts/')
+  .on('value', (postsRef) =>{
+    const posts = postsRef.val();
+    const listPost = posts[id];
+    let postEdit = {
+      id: listPost.id,
+      author: listPost.author,
+      newPost: editPost.value,
+      privacy: listPost.privacy,
+      likeCount: 0,
+    }
 
   let updates = {};
   updates['/posts/' + id] = postEdit;
   updates['/user-posts/' + userId + '/' + id] = postEdit;
   return firebase.database().ref().update(updates);
 
+  editPost.disabled = true;
+  saveButton.classList.add('hidden');
+  editButton.classList.remove('hidden');
+  })
 }
 
 
@@ -247,8 +256,6 @@ window.printPost = () => {
           </div>
         </div>
        `
-      })
     })
-
+  })
 }
-

@@ -9,14 +9,23 @@ const emailLogin = document.getElementById('email-login');
 const passwordLogin = document.getElementById('password-login');
 const updatePassword = document.getElementById('update-password');
 
-formInicio.classList.remove('hidden');
-//optionEmail.classList.add('hidden');
-formRegister.classList.add('hidden');
-// formSesion.classList.add('hidden');
+const mistakeUserName = document.getElementById('mistake-userName');
+const mistakeEmail = document.getElementById('mistake-email');
+const mistakePassword = document.getElementById('mistake-password');
+const mistakeConfirPassword = document.getElementById('mistake-confirPassword');
+const nameUser = document.getElementById('nameUser');
+const email = document.getElementById('email');
+const password = document.getElementById('password');
+const confirPassword = document.getElementById('confirPassword')
+const validInputs = document.getElementById('valid-inputs');
+const validInputs2 = document.getElementById('valid-inputs2');
+
+//formInicio.classList.remove('hidden');
+//formRegister.classList.add('hidden');
 
 registerLink.addEventListener('click', () => {
-  formInicio.classList.add('hidden');
   formRegister.classList.remove('hidden');
+  formInicio.classList.add('hidden');
 })
 
 // registerLink.addEventListener('click', () => {
@@ -50,8 +59,13 @@ registerButton.addEventListener('click', () => {
 });
 
 loginButton.addEventListener('click', () => {
-  login(emailLogin.value, passwordLogin.value);
-  validation();
+  if (isValidLogin(emailLogin.value, passwordLogin.value)) {
+    login(emailLogin.value, passwordLogin.value);
+    validation();
+
+  } else {
+    validInputs2.innerHTML = 'email y/o pasword incorrecto';
+  }
 });
 
 updatePassword.addEventListener('click', () => {
