@@ -15,13 +15,13 @@ publicButton.addEventListener('click', () => {
     const nameUser = (user.val().username);
     let newPost = document.getElementById('post').value;
     let state = selectPrivacy.value;
-    if (selectPrivacy.value != '0') {
-      document.getElementById('post').value = '';
-      document.getElementById('privacy').value = '0';
+    if (selectPrivacy.value != '0' && validationPublicPost(newPost)) {
       writeNewPost(userId, nameUser, newPost, state);
       printPost();
-    } else {
-      alert('Selecciona privacidad');
-    }
-  })
+      document.getElementById('post').value = '';
+      document.getElementById('privacy').value = '0';
+  } else {
+    alert('Selecciona privacidad y/o escribe un mensaje');
+  }
+})
 })
