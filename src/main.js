@@ -44,7 +44,22 @@ registerButton.addEventListener('click', () => {
     registerNew(emailUser, passwordUser);
     formRegister.classList.add('hidden');
     formInicio.classList.remove('hidden');
-  };
+  }
+  else {
+    if (isNotEmpty(nameUsers) === false) {
+      validInputs.innerHTML = 'Ingrese su nombre';
+    } else if (isEmail(emailUser) === false) {
+      validInputs.innerHTML = 'Ingrese email válido';
+    } else if (isNotEmpty(passwordUser) === false) {
+      validInputs.innerHTML = 'Ingrese contraseña con mínimo 6 caracteres';
+    } else if (isNotEmpty(confirPasswordUser) == false) {
+      validInputs.innerHTML = 'Confirmar contraseña';
+    } else if (equalPassword(passwordUser, confirPasswordUser) == false) {
+      validInputs.innerHTML = 'Las contraseñas no coinciden';
+    } else if (miniLenght(passwordUser) == false) {
+      validInputs.innerHTML = 'Su contraseña debe tener mínimo 6 caracteres';
+    }
+  }
 });
 
 // *********** Loguea al Usuario **************************
@@ -60,7 +75,7 @@ loginButton.addEventListener('click', () => {
 // *********** Resetea contraseña **************************
 updatePassword.addEventListener('click', () => {
   if (emailLogin.value === '') {
-    validInputs2.innerHTML = 'Ingrese un correo';
+    validInputs2.innerHTML = 'Ingrese un correo válido para resetear contraseña';
   } else if (validationUpdatePassword(emailLogin.value)) {
       resetPassword(emailLogin.value);
       validInputs2.innerHTML = 'Se envió correo para el cambio de contraseña';
