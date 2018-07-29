@@ -19,6 +19,19 @@ const saveData = (userId, name, email, imageUrl) => {
   });
 }
 
+
+// Mostrar usuario logueado en consola
+const welcome = () => {
+  const messageWelcome = document.getElementById('welcome-post');
+  let userLogin = firebase.currentUser;
+  // firebase.database().ref('users/')
+  // .on('value', (userRef) =>{
+  //   const users = usersRef.val();
+    console.log(usersLogin);
+  // })
+
+}
+
 // Registro de Usuarios Nuevos
 const registerNew = (email, password) => {
   firebase.auth().createUserWithEmailAndPassword(email, password)
@@ -145,8 +158,6 @@ const loginFacebook = () => {
     });
 }
 
-
-
 // Función para escribir nuevo post
 const writeNewPost = (uid, name, textPost, state ) => {
   let postData = {
@@ -155,6 +166,7 @@ const writeNewPost = (uid, name, textPost, state ) => {
     newPost: textPost,
     privacy: state,
     likeCount: 0,
+    followers:[],
   };
   
   // Key para nueva publicación
@@ -178,25 +190,28 @@ window.deletePost = (id) => {
   } else {
     console.log('regresa al muro')
   }
-  console.log(id)
-  
 }
 
 window.editPost = (id) => {
+  console.log(id);
   console.log('prueba de boton editar');
-  let editPost = document.getElementById('textPost');
-  const editButton = document.getElementById('edit-button');
-  const saveButton = document.getElementById('save-button');
-  editPost.removeAttribute('disabled');
+  const currentPost = document.getElementById(id);
+  const currentTextarea = currentPost.querySelector('.textarea-post');
+  currentTextarea.disabled = false;
+  //let editPost = document.getElementById('textPost');
+  const editButton = currentPost.querySelector('.edit-button');
+  const saveButton = currentPost.querySelector('.save-button');
+  //editPost.removeAttribute('disabled');
   editButton.classList.add('hidden');
   saveButton.classList.remove('hidden');
 }
 
 window.savePostEdit = (id) => {
   console.log('prueba de guardar post editado');
-  let editPost = document.getElementById('textPost');
-  const editButton = document.getElementById('edit-button');
-  const saveButton = document.getElementById('save-button');
+  const currentPost = document.getElementById(id);
+  const currentTextarea = currentPost.querySelector('.textarea-post');
+  const editButton = currentPost.querySelector('.edit-button');
+  const saveButton = currentPost.querySelector('.save-button');
   const userId = firebase.auth().currentUser.uid;
   
   firebase.database().ref('posts/')
@@ -206,7 +221,7 @@ window.savePostEdit = (id) => {
     let postEdit = {
       id: listPost.id,
       author: listPost.author,
-      newPost: editPost.value,
+      newPost: currentTextarea.value,
       privacy: listPost.privacy,
       likeCount: 0,
     }
@@ -227,35 +242,72 @@ window.printPost = () => {
   firebase.database().ref('posts/')
   .on('value', (postsRef) =>{
     const posts = postsRef.val();
-    console.log(posts);
     const publications = document.getElementById('publications');
     publications.innerHTML='';
     const postsOrder = Object.keys(posts).reverse();
+    
+    let userId = firebase.auth().currentUser.uid;
+       
+    const postActions = (id) => {
+      return `<div class="actions card-action">
+      <a onclick="savePostEdit('${id}')" class="save-button hidden"><img src="img/guardar.png" alt="icono de editar" width="24px"></a>
+      <a onclick="editPost('${id}')" class="edit-button"><img src="img/edit(1).png" alt="icono de editar" width="24px"></a>
+      <a onclick="deletePost('${id}')" id="delete-button"><img src="img/delete.png" alt="icono de eliminar" width="24px"></a>
+      </div>`
+    }
+
     postsOrder.forEach((id) => {
       const listPost = posts[id];
       publications.innerHTML += `
-        <div class="show-post" id=${id}>
-          <div>
-            <p>Nombre: ${listPost.author}</p>
-            <div class="actions">${listPost.privacy}</div>
-          </div>
-          <textarea id="textPost" class="textarea-post" cols="80" rows="7" disabled>${listPost.newPost}</textarea>
-          <hr>
-          <div>
-            <div class="icon-like">
-              <a href="#">
-                <img id="like-button" src="img/like.jpg" alt="icono de like" width="20px">
-              </a>
-              <p class="count-like" id="show-count">${listPost.likeCount}</p>
+        <div class="" id=${id}>
+          
+          <div class="col s12 m12">
+          <div class="card green lighten-2">
+              <div class="card-content white-text">
+                <span class="card-title">
+                Nombre: ${listPost.author} </span>
+                <div class="actions">${listPost.privacy}</div>
               </div>
-            <div class="actions">
-              <a href="#" class="hidden" onclick="savePostEdit('${id}')" id="save-button"><img src="img/guardar.png" alt="icono de editar" width="24px"></a>
-              <a href="#" onclick="editPost('${id}')" id="edit-button"><img src="img/edit(1).png" alt="icono de editar" width="24px"></a>
-              <a href="#" onclick="deletePost('${id}')" id="delete-button"><img src="img/delete.png" alt="icono de eliminar" width="24px"></a>
-            </div>
+            <textarea class="textarea-post green" cols="80" rows="7" disabled>${listPost.newPost}</textarea>
+           <div>
+              <div class="icon-like">
+                <a href="#"> <img id="like-button" src="img/like.jpg" alt="icono de like" width="20px"> </a>
+                <p class="count-like" id="show-count">${listPost.likeCount}</p>
+              </div>
+            ${userId === listPost.id && postActions(id)}
           </div>
         </div>
        `
     })
+
   })
 }
+
+
+
+
+
+
+
+// postsOrder.forEach((id) => {
+//   const listPost = posts[id];
+//   publications.innerHTML += `
+//     <div class="show-post green" id=${id}>
+//       <div>
+//         <p>Nombre: ${listPost.author}</p>
+//         <div class="actions">${listPost.privacy}</div>
+//       </div>
+//       <textarea class="textarea-post" cols="80" rows="7" disabled>${listPost.newPost}</textarea>
+//       <hr>
+//       <div>
+//         <div class="icon-like">
+//           <a href="#">
+//             <img id="like-button" src="img/like.jpg" alt="icono de like" width="20px">
+//           </a>
+//           <p class="count-like" id="show-count">${listPost.likeCount}</p>
+//           </div>
+//         ${userId === listPost.id && postActions(id)}
+//       </div>
+//     </div>
+//    `
+// })
