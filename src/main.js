@@ -54,10 +54,6 @@ registerButton.addEventListener('click', () => {
   }
 });
 
-
-
-
-
 // *********** Loguea al Usuario **************************
 loginButton.addEventListener('click', () => {
   if (isValidLogin(emailLogin.value, passwordLogin.value)) {
@@ -67,7 +63,6 @@ loginButton.addEventListener('click', () => {
     validInputs2.innerHTML = 'email y/o pasword incorrecto';
   }
 });
-
 
 // *********** Resetea contraseña **************************
 updatePassword.addEventListener('click', () => {

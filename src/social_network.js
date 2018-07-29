@@ -1,7 +1,14 @@
-const outButton = document.getElementById('signOut');
+const outButton = document.getElementById('#signOut');
 const publicButton = document.getElementById('buttonPost');
 const selectPrivacy = document.getElementById('privacy');
 const publications = document.getElementById('publications');
+
+// Inicializando el side-nav
+document.addEventListener('DOMContentLoaded', function() {
+  var elems = document.querySelectorAll('.sidenav');
+  var instances = M.Sidenav.init(elems);
+});
+    
 
 outButton.addEventListener('click', () => {
   signOut();
