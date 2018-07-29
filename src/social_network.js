@@ -3,6 +3,13 @@ const publicButton = document.getElementById('buttonPost');
 const selectPrivacy = document.getElementById('privacy');
 const publications = document.getElementById('publications');
 
+// Inicializando el side-nav
+document.addEventListener('DOMContentLoaded', function() {
+  var elems = document.querySelectorAll('.sidenav');
+  var instances = M.Sidenav.init(elems);
+});
+    
+
 outButton.addEventListener('click', () => {
   signOut();
   window.location.href = 'index.html';
@@ -15,13 +22,13 @@ publicButton.addEventListener('click', () => {
     const nameUser = (user.val().username);
     let newPost = document.getElementById('post').value;
     let state = selectPrivacy.value;
-    if (selectPrivacy.value != '0') {
-      document.getElementById('post').value = '';
-      document.getElementById('privacy').value = '0';
+    if (selectPrivacy.value != '0' && validationPublicPost(newPost)) {
       writeNewPost(userId, nameUser, newPost, state);
       printPost();
-    } else {
-      alert('Selecciona privacidad');
-    }
-  })
+      document.getElementById('post').value = '';
+      document.getElementById('privacy').value = '0';
+  } else {
+    alert('Selecciona privacidad y/o escribe un mensaje');
+  }
+})
 })
