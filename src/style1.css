@@ -5,7 +5,10 @@
 } 
 
 body {
-  background-color: rgb(225, 230, 231);
+  background-image: url(img/1-fon-prueba.png);  
+  background-repeat: no-repeat;
+  background-position: top center;
+  font-size: 14 px;
 }
 
 .valid-inputs{

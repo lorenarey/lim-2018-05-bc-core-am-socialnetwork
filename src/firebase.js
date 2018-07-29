@@ -234,28 +234,51 @@ window.printPost = () => {
     postsOrder.forEach((id) => {
       const listPost = posts[id];
       publications.innerHTML += `
-        <div class="show-post" id=${id}>
-          <div>
-            <p>Nombre: ${listPost.author}</p>
-            <div class="actions">${listPost.privacy}</div>
-          </div>
-          <textarea id="textPost" class="textarea-post" cols="80" rows="7" disabled>${listPost.newPost}</textarea>
-          <hr>
-          <div>
-            <div class="icon-like">
-              <a href="#">
-                <img id="like-button" src="img/like.jpg" alt="icono de like" width="20px">
-              </a>
-              <p class="count-like" id="show-count">${listPost.likeCount}</p>
-              </div>
-            <div class="actions">
+      <div class="row" id=${id}>
+        <div class="col s12 m12">
+          <div class="card amber lighten-2">
+            <div class="card-content white-text">
+              <span class="card-title">Nombre: ${listPost.author}</span>
+              <span>${listPost.privacy}</span>
+              <p>${listPost.newPost}.</p>
+            </div>
+            <div class="card-action">
+              <a href="#"><img id="like-button" src="img/like.jpg" alt="icono de like" width="20px"></a>
               <a href="#" class="hidden" onclick="savePostEdit('${id}')" id="save-button"><img src="img/guardar.png" alt="icono de editar" width="24px"></a>
               <a href="#" onclick="editPost('${id}')" id="edit-button"><img src="img/edit(1).png" alt="icono de editar" width="24px"></a>
               <a href="#" onclick="deletePost('${id}')" id="delete-button"><img src="img/delete.png" alt="icono de eliminar" width="24px"></a>
             </div>
           </div>
         </div>
+      </div>
        `
     })
   })
 }
+
+
+
+
+
+
+        // <div class="show-post" id=${id}>
+        //   <div>
+        //     <p>Nombre: ${listPost.author}</p>
+        //     <div class="actions">${listPost.privacy}</div>
+        //   </div>
+        //   <textarea id="textPost" class="textarea-post" cols="80" rows="7" disabled>${listPost.newPost}</textarea>
+        //   <hr>
+        //   <div>
+        //     <div class="icon-like">
+        //       <a href="#">
+        //         <img id="like-button" src="img/like.jpg" alt="icono de like" width="20px">
+        //       </a>
+        //       <p class="count-like" id="show-count">${listPost.likeCount}</p>
+        //       </div>
+        //     <div class="actions">
+        //       <a href="#" class="hidden" onclick="savePostEdit('${id}')" id="save-button"><img src="img/guardar.png" alt="icono de editar" width="24px"></a>
+        //       <a href="#" onclick="editPost('${id}')" id="edit-button"><img src="img/edit(1).png" alt="icono de editar" width="24px"></a>
+        //       <a href="#" onclick="deletePost('${id}')" id="delete-button"><img src="img/delete.png" alt="icono de eliminar" width="24px"></a>
+        //     </div>
+        //   </div>
+        // </div>

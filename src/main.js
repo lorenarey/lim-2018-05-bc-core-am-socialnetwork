@@ -20,6 +20,9 @@ const confirPassword = document.getElementById('confirPassword')
 const validInputs = document.getElementById('valid-inputs');
 const validInputs2 = document.getElementById('valid-inputs2');
 
+
+
+
 //formInicio.classList.remove('hidden');
 //formRegister.classList.add('hidden');
 
@@ -84,3 +87,16 @@ faceButton.addEventListener('click', (e) => {
     loginFacebook()
   }
 });
+
+
+
+
+
+
+
+/* MATERIALIZE*/
+document.addEventListener('DOMContentLoaded', function() {
+  var elems = document.querySelectorAll('.sidenav');
+  var instances = M.Sidenav.init(elems, options);
+});
+
