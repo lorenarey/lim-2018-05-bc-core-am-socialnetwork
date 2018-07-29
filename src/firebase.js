@@ -249,8 +249,8 @@ window.printPost = () => {
        
     const postActions = (id) => {
       return `<div class="actions card-action">
-      <a onclick="savePostEdit('${id}')" class="save-button hidden"><img src="img/guardar.png" alt="icono de editar" width="24px"></a>
-      <a onclick="editPost('${id}')" class="edit-button"><img src="img/edit(1).png" alt="icono de editar" width="24px"></a>
+      <a onclick="savePostEdit('${id}')" class="save-button hidden"><img src="img/garvage.svg" alt="icono de editar" width="24px"></a>
+      <a onclick="editPost('${id}')" class="edit-button"><img src="img/save.svg" alt="icono de editar" width="24px"></a>
       <a onclick="deletePost('${id}')" id="delete-button"><img src="img/delete.png" alt="icono de eliminar" width="24px"></a>
       </div>`
     }
@@ -270,7 +270,7 @@ window.printPost = () => {
             <textarea class="textarea-post green" cols="80" rows="7" disabled>${listPost.newPost}</textarea>
            <div>
               <div class="icon-like">
-                <a href="#"> <img id="like-button" src="img/like.jpg" alt="icono de like" width="20px"> </a>
+                <a href="#"> <img id="like-button" src="img/icon-like.svg" alt="icono de like" width="20px"> </a>
                 <p class="count-like" id="show-count">${listPost.likeCount}</p>
               </div>
             ${userId === listPost.id && postActions(id)}

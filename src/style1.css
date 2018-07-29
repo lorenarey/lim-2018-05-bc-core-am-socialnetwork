@@ -5,10 +5,10 @@
   } 
   
   body {
-   background-image:url(img/fondop2.png);
-   background-position: top right;
-   background-repeat: no-repeat;
-   background-size: 30%;
+   background-image:url(img/fondo-nutricion-1.jpg);
+   /* background-position: top right; */
+   /* background-repeat: no-repeat;
+   background-size: 100%; */
 
   }
   
@@ -17,11 +17,11 @@
   }
   
   .section-forms {
-    width: 500px;
-    height: 550px;
+    width: 400px;
+    height: 600px;
     box-align: center;
     text-align: center;
-    background-color: white;
+    background-color: #ffffff;
     border-radius: 10px;
     margin: auto;
     padding: 35px;
@@ -34,7 +34,7 @@
     height: 30%;
     margin-bottom: 50px;
   }
-  
+
   
   .update-password {
     text-align: right;
@@ -44,6 +44,15 @@
   /* .show{     
     margin: 0.5em auto;
   } */
+
+  .bot {
+    width:300px;
+    padding: auto;
+    font-size: 20px;
+    margin-top: 5px;
+    text-align: center;
+    color: #ffffff;
+  }
   
   .button {
     width:80%;
@@ -58,7 +67,7 @@
   }
   
   .boton:hover {
-    background-color:#79954f;  
+    background-color:#95694f;  
   }
 
   .inputs {
@@ -150,8 +159,7 @@
   
   .register
   {  
-  text-align: right;
-  display: flow-root;  
+  text-align: center;
   font-size: 14px;
   }
   
