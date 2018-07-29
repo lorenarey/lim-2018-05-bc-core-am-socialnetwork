@@ -24,31 +24,16 @@ registerLink.addEventListener('click', () => {
   formInicio.classList.add('hidden');
 })
 
-// registerLink.addEventListener('click', () => {
-//   formRegister.classList.remove('hidden');
-//   optionEmail.classList.add('hidden');
-// })
 
-// sButton.addEventListener('click', () => {
-//   formSesion.classList.remove('hidden');
-//   optionEmail.classList.add('hidden');
-// })
-
+// ***************** Registra datos  ************************
 registerButton.addEventListener('click', () => {
-  let email = document.getElementById('email').value;
-  let password = document.getElementById('password').value;
-  
-  if (email == ''){
-    errorEmail.textContent = "Ingrese Correo";
-    errorPassword.textContent = "IngresePassword";
-  }else {
-    registerNew(email, password);
-    
-    
-    alert('Tu usuario ha sido registrado! \nConfirma el mensaje de verificación en tu correo y seguidamente puedes Iniciar Sesión')
-    console.log(email);
-    console.log(password);
-    
+  nameUsers = nameUser.value;
+  emailUser = email.value;
+  passwordUser = password.value;
+  confirPasswordUser = confirPassword.value;
+
+  if (validationRegisterUser(nameUsers, emailUser, passwordUser, confirPasswordUser) === true) {
+    registerNew(emailUser, passwordUser);
     formRegister.classList.add('hidden');
     formInicio.classList.remove('hidden');
   }
@@ -91,27 +76,16 @@ updatePassword.addEventListener('click', () => {
   }
 });
 
+// *********** Loguea con Google **************************
 googleButton.addEventListener('click', (e) => {
   if (e.target) {
     loginGoogle();
   }
 });
 
+// *********** Loguea al Facebook **************************
 faceButton.addEventListener('click', (e) => {
   if (e.target) {
     loginFacebook()
   }
 });
-
-
-
-
-
-
-
-/* MATERIALIZE*/
-document.addEventListener('DOMContentLoaded', function() {
-  var elems = document.querySelectorAll('.sidenav');
-  var instances = M.Sidenav.init(elems, options);
-});
-

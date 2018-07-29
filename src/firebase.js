@@ -49,12 +49,13 @@ const registerNew = (email, password) => {
       }
       saveData(user.uid, username, user.email, picture);
       check();
+      alert('Tu usuario ha sido registrado! \nConfirma el mensaje de verificación en tu correo y seguidamente puedes Iniciar Sesión')
     })
     .catch((error) => {
       let errorCode = error.code;
       let errorMessage = error.message;
-      console.log(errorCode);
-      console.log(errorMessage);
+      alert(errorCode);
+      alert(errorMessage);
     })
 }
 
@@ -93,7 +94,8 @@ const loginGoogle = () => {
   firebase.auth().signInWithPopup(provider)
     .then((result) => {
     const token = result.credential.accessToken;
-    console.log("result", result)
+    // console.log("result", result)
+
     // Información de usuario
     const userData = result.user;
     console.log(userData)
@@ -105,7 +107,6 @@ const loginGoogle = () => {
       const errorMessage = error.message;
       const email = error.email;
       const credential = error.credential;
-      console.log(errorMessage);
     });
 }
 
@@ -113,9 +114,9 @@ const loginGoogle = () => {
 const check = () => {
   const user = firebase.auth().currentUser;
   user.sendEmailVerification().then(() => {
-    console.log('Enviando correo');
+    // console.log('Enviando correo');
   }).catch((error) => {
-    console.log(error);
+    // console.log(error);
   });
 }
 
@@ -125,16 +126,16 @@ const resetPassword = (email) => {
   .then(() => {
   })
   .catch((error) => {
-    console.log(error);
+    // console.log(error);
   })
 }
 
 // funcion para cerrar sesion
 const signOut = () => {
   firebase.auth().signOut().then(() => {
-    console.log('Sesión finalizada')
+    // console.log('Sesión finalizada')
   }).catch((error) => {
-    console.log(error);
+    // console.log(error);
   });
 }
 
@@ -143,18 +144,16 @@ const loginFacebook = () => {
   const provider = new firebase.auth.FacebookAuthProvider();
   firebase.auth().signInWithPopup(provider)
     .then((result) => {
-      console.log('Login con facebook')
       const token = result.credential.accessToken;
       const user = result.user;
-      console.log(user)
       saveData(user.uid, user.displayName, user.email, user.photoURL);
       window.location.href = 'timeline.html';
     })
     .catch((error) => {
-      console.log(error.code);
-      console.log(error.message);
-      console.log(error.email);
-      console.log(error.credential);
+      // console.log(error.code);
+      // console.log(error.message);
+      // console.log(error.email);
+      // console.log(error.credential);
     });
 }
 
@@ -250,8 +249,8 @@ window.printPost = () => {
        
     const postActions = (id) => {
       return `<div class="actions card-action">
-      <a onclick="savePostEdit('${id}')" class="save-button hidden"><img src="img/guardar.png" alt="icono de editar" width="24px"></a>
-      <a onclick="editPost('${id}')" class="edit-button"><img src="img/edit(1).png" alt="icono de editar" width="24px"></a>
+      <a onclick="savePostEdit('${id}')" class="save-button hidden"><img src="img/garvage.svg" alt="icono de editar" width="24px"></a>
+      <a onclick="editPost('${id}')" class="edit-button"><img src="img/save.svg" alt="icono de editar" width="24px"></a>
       <a onclick="deletePost('${id}')" id="delete-button"><img src="img/delete.png" alt="icono de eliminar" width="24px"></a>
       </div>`
     }
@@ -271,13 +270,12 @@ window.printPost = () => {
             <textarea class="textarea-post green" cols="80" rows="7" disabled>${listPost.newPost}</textarea>
            <div>
               <div class="icon-like">
-                <a href="#"> <img id="like-button" src="img/like.jpg" alt="icono de like" width="20px"> </a>
+                <a href="#"> <img id="like-button" src="img/icon-like.svg" alt="icono de like" width="20px"> </a>
                 <p class="count-like" id="show-count">${listPost.likeCount}</p>
               </div>
             ${userId === listPost.id && postActions(id)}
           </div>
         </div>
-      </div>
        `
     })
 
