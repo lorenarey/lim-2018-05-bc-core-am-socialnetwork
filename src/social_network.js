@@ -1,4 +1,4 @@
-const outButton = document.getElementById('#signOut');
+const outButton = document.getElementById('signOut');
 const publicButton = document.getElementById('buttonPost');
 const selectPrivacy = document.getElementById('privacy');
 const publications = document.getElementById('publications');

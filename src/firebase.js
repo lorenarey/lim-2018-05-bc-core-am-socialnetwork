@@ -255,7 +255,6 @@ window.printPost = () => {
       </div>`
     }
 
-           
     postsOrder.forEach((id) => {
       const listPost = posts[id];
       publications.innerHTML += `
@@ -292,7 +291,7 @@ window.printPost = () => {
 // postsOrder.forEach((id) => {
 //   const listPost = posts[id];
 //   publications.innerHTML += `
-//     <div class="show-post" id=${id}>
+//     <div class="show-post green" id=${id}>
 //       <div>
 //         <p>Nombre: ${listPost.author}</p>
 //         <div class="actions">${listPost.privacy}</div>
