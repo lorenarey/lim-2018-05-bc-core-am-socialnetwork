@@ -24,14 +24,11 @@ const saveData = (userId, name, email, imageUrl) => {
 const welcome = () => {
   const messageWelcome = document.getElementById('welcome-post');
   let userLogin = firebase.currentUser;
-  console.log(usersLogin);
-  console.log('welcome');
   firebase.database().ref('users/')
   .on('value', (userRef) =>{
     const users = usersRef.val();
     console.log(usersLogin);
   })
-
 }
 
 // Registro de Usuarios Nuevos
@@ -107,11 +104,9 @@ const loginGoogle = () => {
   firebase.auth().signInWithPopup(provider)
     .then((result) => {
     const token = result.credential.accessToken;
-    // console.log("result", result)
 
     // Información de usuario
     const userData = result.user;
-    console.log(userData)
     saveData(userData.uid, userData.displayName, userData.email, userData.photoURL);
     window.location.href = 'timeline.html';
     })
@@ -163,10 +158,6 @@ const loginFacebook = () => {
       window.location.href = 'timeline.html';
     })
     .catch((error) => {
-      // console.log(error.code);
-      // console.log(error.message);
-      // console.log(error.email);
-      // console.log(error.credential);
     });
 }
 
