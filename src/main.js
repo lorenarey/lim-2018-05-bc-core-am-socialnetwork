@@ -24,7 +24,7 @@ registerLink.addEventListener('click', () => {
   email.value = '';
   password.value = '';
   confirPassword.value = '';
-  validInputs.innerHTML= '';
+  validInputs.innerHTML = '';
 })
 
 
@@ -37,7 +37,6 @@ registerButton.addEventListener('click', () => {
 
   if (validationRegisterUser(nameUsers, emailUser, passwordUser, confirPasswordUser) === true) {
     registerNew(emailUser, passwordUser);
-
   }
   else {
     if (isNotEmpty(nameUsers) === false) {
