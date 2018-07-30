@@ -273,9 +273,9 @@ window.printPost = () => {
     let userId = firebase.auth().currentUser.uid;
     const postActions = (id) => {
       return `<div class="actions">
-      <a onclick="savePostEdit('${id}')" class="save-button hidden"><img src="img/guardar.png" alt="icono de editar" width="24px"></a>
-      <a onclick="editPost('${id}')" class="edit-button"><img src="img/edit(1).png" alt="icono de editar" width="24px"></a>
-      <a onclick="deletePost('${id}')" id="delete-button"><img src="img/delete.png" alt="icono de eliminar" width="24px"></a>
+      <a onclick="savePostEdit('${id}')" class="save-button hidden"><img src="img/save-regular.svg" alt="icono de editar" width="20px"></a>
+      <a onclick="editPost('${id}')" class="edit-button"><img src="img/edit-regular.svg" alt="icono de editar" width="25px"></a>
+      <a onclick="deletePost('${id}')" id="delete-button"><img src="img/trash-alt-regular.svg" alt="icono de eliminar" width="20px"></a>
       </div>`
     }
                
@@ -283,20 +283,23 @@ window.printPost = () => {
       const listPost = posts[id];
       publications.innerHTML += `
         <div class="show-post" id=${id}>
-          <div>
-            <p>Nombre: ${listPost.author}</p>
-            <div class="actions">${listPost.privacy}</div>
-          </div>
-          <textarea class="textarea-post" cols="80" rows="7" disabled>${listPost.newPost}</textarea>
-          <hr>
-          <div>
-            <div class="icon-like">
-              <a class="like-button" onclick="like('${id}')">
-                <img src="img/like.jpg" alt="icono de like" width="20px">
-              </a>
-              <p class="count-like" id="show-count">${listPost.likeCount}</p>
+          <div class="col s12 m12">
+            <div class="card green"> 
+              <div class="card-content white-text">
+                <span class="card-title">${listPost.author}</span>
+                <div class="actions">${listPost.privacy}</div>
+              </div>
+              <textarea class="textarea-post" cols="80" rows="7" disabled>${listPost.newPost}</textarea>
+              <div>
+                <div class="icon-like">
+                  <a class="like-button" onclick="like('${id}')">
+                    <img src="img/heart-solid.svg" alt="icono de like" width="20px">
+                  </a>
+                  <p class="count-like" id="show-count">${listPost.likeCount}</p>
+                </div>
+                <div>${userId === listPost.id ? postActions(id) : ''}</div>
+              </div>
             </div>
-            <div>${userId === listPost.id ? postActions(id) : ''}</div>
           </div>
         </div>
        ` 
@@ -326,14 +329,14 @@ const showMyPost = (uid) => {
           <div>
             <div class="icon-like">
               <a class="like-button" onclick="like('${id}')">
-                <img src="img/like.jpg" alt="icono de like" width="20px">
+                <img src="img/heart-solid.svg" alt="icono de like" width="20px">
               </a>
               <p class="count-like" id="show-count">${userPostId.likeCount}</p>
             </div>
             <div class="actions">
-              <a onclick="savePostEdit('${id}')" class="save-button hidden"><img src="img/guardar.png" alt="icono de editar" width="24px"></a>
-              <a onclick="editPost('${id}')" class="edit-button"><img src="img/edit(1).png" alt="icono de editar" width="24px"></a>
-              <a onclick="deletePost('${id}')" id="delete-button"><img src="img/delete.png" alt="icono de eliminar" width="24px"></a>
+              <a onclick="savePostEdit('${id}')" class="save-button hidden"><img src="img/save-regular.svg" alt="icono de editar" width="20px"></a>
+              <a onclick="editPost('${id}')" class="edit-button"><img src="img/edit-regular.svg" alt="icono de editar" width="25px"></a>
+              <a onclick="deletePost('${id}')" id="delete-button"><img src="img/trash-alt-regular.svg" alt="icono de eliminar" width="20px"></a>
             </div>
           </div>
         </div>
