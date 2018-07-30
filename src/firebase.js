@@ -261,13 +261,13 @@ window.printPost = () => {
         <div class="" id=${id}>
           
           <div class="col s12 m12">
-          <div class="card green lighten-2">
-              <div class="card-content white-text">
+          <div class="card white lighten-2">
+              <div class="card-content>
                 <span class="card-title">
                 Nombre: ${listPost.author} </span>
                 <div class="actions">${listPost.privacy}</div>
               </div>
-            <textarea class="textarea-post green" cols="80" rows="7" disabled>${listPost.newPost}</textarea>
+            <textarea class="textarea-post white" cols="80" rows="7" disabled>${listPost.newPost}</textarea>
            <div>
               <div class="icon-like">
                 <a href="#"> <img id="like-button" src="img/icon-like.svg" alt="icono de like" width="20px"> </a>

@@ -36,6 +36,8 @@ registerButton.addEventListener('click', () => {
     registerNew(emailUser, passwordUser);
     formRegister.classList.add('hidden');
     formInicio.classList.remove('hidden');
+    registerButton.disable = true;
+    registerButton.value = 'Cargando';
   }
   else {
     if (isNotEmpty(nameUsers) === false) {
@@ -58,7 +60,10 @@ registerButton.addEventListener('click', () => {
 loginButton.addEventListener('click', () => {
   if (isValidLogin(emailLogin.value, passwordLogin.value)) {
     login(emailLogin.value, passwordLogin.value);
-    validation();
+    validation(); 
+      loginButton.disable = true;
+      loginButton.value = 'Cargando';
+      // loginButton.value.classList.add('iconLoader');
   } else {
     validInputs2.innerHTML = 'email y/o pasword incorrecto';
   }
