@@ -190,7 +190,7 @@ window.deletePost = (id) => {
     alert('Post eliminado');
     window.location.reload()
   } else {
-    console.log('regresa al muro')
+    return false;
   }
 }
 
