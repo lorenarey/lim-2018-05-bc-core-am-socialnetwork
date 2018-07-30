@@ -16,12 +16,13 @@
     <div id="welcome-post">
       <button id="signOut" type="button" class="boton-send-post">Cerrar Sesión</button>
     </div>
-
-    <div> 
-        <input type="text" id="buscador"> 
-    </div>
+    <form>
+      <button type="button" id="start">Inicio</button>  
+      <button type="button" id="myPost">Mis publicaciones</button>
+    </form>
   </header>
   <hr>
+  <main>
   <section>
     <div id="writePost" class="post-container">
       <form name="form-timeline">
@@ -31,40 +32,18 @@
         
         <select id="privacy" class="select">
           <option value="0">Selecciona Privacidad</option>
-          <option id="friends" value="amigos">Amigos</option>
-          <option id="public" value="publico">Público</option>
+          <option id="friends" value="Amigos">Amigos</option>
+          <option id="public" value="Público">Público</option>
         </select>
-
-      </form>
-
-      <form>
-        <button type="button" id="start">Inicio</button>
-        <button type="button" id="myPost">Mis publicaciones</button>
-        <fieldset class="hidden">
-          <legend>Ver por tipo de privacidad</legend>
-  
-          <div>
-              <input type="radio" id="publicFilter"/>
-              <label for="publicFilter">Público</label>
-          </div>
-  
-          <div>
-              <input type="radio" id="friendsFilter" name="drone" />
-              <label for="friendsFilter">Amigos</label>
-          </div>
-        </fieldset>
-  
-      </form>
+      </form>    
     </div>
     
-
     <div id="publications"> 
-
-      
+    
     </div>
 
   </section>
-  
+  </main>
 
   <script src="https://www.gstatic.com/firebasejs/5.3.0/firebase.js"></script>
   <script src="firebase.js"></script>

@@ -9,11 +9,6 @@ const emailLogin = document.getElementById('email-login');
 const passwordLogin = document.getElementById('password-login');
 const updatePassword = document.getElementById('update-password');
 
-const outButton = document.getElementById('signOut');
-const publicButton = document.getElementById('buttonPost');
-const selectPrivacy = document.getElementById('privacy');
-const publications = document.getElementById('publications');
-
 const mistakeUserName = document.getElementById('mistake-userName');
 const mistakeEmail = document.getElementById('mistake-email');
 const mistakePassword = document.getElementById('mistake-password');
@@ -24,9 +19,6 @@ const password = document.getElementById('password');
 const confirPassword = document.getElementById('confirPassword')
 const validInputs = document.getElementById('valid-inputs');
 const validInputs2 = document.getElementById('valid-inputs2');
-
-const startButton = document.getElementById('start');
-const myPostButton = document.getElementById('myPost');
 
 registerLink.addEventListener('click', () => {
   formRegister.classList.remove('hidden');
@@ -96,36 +88,5 @@ faceButton.addEventListener('click', (e) => {
   }
 });
 
-outButton.addEventListener('click', () => {
-  signOut();
-  window.location.href = 'index.html';
-});
 
-publicButton.addEventListener('click', () => {
-  let userId = firebase.auth().currentUser.uid;
-  firebase.database().ref('/users/' + userId).once('value')
-    .then((user) => {
-    const nameUser = (user.val().username);
-    let newPost = document.getElementById('post').value;
-    let state = selectPrivacy.value;
-    if (selectPrivacy.value != '0' && newPost !=  '') {
-      writeNewPost(userId, nameUser, newPost, state);
-      printPost();
-      document.getElementById('post').value = '';
-      document.getElementById('privacy').value = '0';
-    } else {
-      alert('Selecciona privacidad y escribe un post');
-    }
-  })
-})
 
-startButton.addEventListener('click', () => {
-  printPost();
-})
-
-myPostButton.addEventListener('click', () => {
-  console.log('Probando botón mis publicaciones');
-  let userId = firebase.auth().currentUser.uid;
-  //showMyPost(userId);
-  console.log(userId);
-})
