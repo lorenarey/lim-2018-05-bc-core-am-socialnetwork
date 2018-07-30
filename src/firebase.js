@@ -19,6 +19,17 @@ const saveData = (userId, name, email, imageUrl) => {
   });
 }
 
+// Mostrar usuario logueado en consola
+const welcome = () => {
+  const messageWelcome = document.getElementById('welcome-post');
+  let userLogin = firebase.currentUser;
+  firebase.database().ref('users/')
+    .on('value', (userRef) => {
+      const users = usersRef.val();
+      console.log(usersLogin);
+    })
+}
+
 // Registro de Usuarios Nuevos
 const registerNew = (email, password) => {
   firebase.auth().createUserWithEmailAndPassword(email, password)
@@ -29,7 +40,7 @@ const registerNew = (email, password) => {
       } else {
         username = user.displayName;
       }
-      if (user.photoURL == null){
+      if (user.photoURL == null) {
         picture = "https://thumbs.dreamstime.com/b/icono-del-usuario-46707697.jpg";
       } else {
         picture = user.photoURL;
@@ -37,12 +48,17 @@ const registerNew = (email, password) => {
       saveData(user.uid, username, user.email, picture);
       check();
       alert('Tu usuario ha sido registrado! \nConfirma el mensaje de verificación en tu correo y seguidamente puedes Iniciar Sesión')
+      formRegister.classList.add('hidden');
+      formInicio.classList.remove('hidden');
     })
     .catch((error) => {
       let errorCode = error.code;
       let errorMessage = error.message;
-      alert(errorCode);
-      alert(errorMessage);
+      if (error.message === 'auth/email-already-in-use') {
+        validInputs.innerHTML = "El email ingresado ya está en uso";
+      } else if (error.message === 'The email address is already in use by another account.') {
+        validInputs.innerHTML = "El email está siendo utilizado por otro usuario";
+      }
     })
 }
 
@@ -52,7 +68,12 @@ let login = (email, password) => {
     .catch((error) => {
       let errorCode = error.code;
       let errorMessage = error.message;
-  });
+      if (error.message === 'The password is invalid or the user does not have a password.') {
+        validInputs2.innerHTML = "email o password incorrectos";
+      } else if (error.message === 'There is no user record corresponding to this identifier. The user may have been deleted.') {
+        validInputs2.innerHTML = "Usuario no registrado";
+      }
+    });
 }
 
 // Validación de autenticación de usuarios
@@ -133,7 +154,7 @@ const loginFacebook = () => {
 }
 
 // Función para escribir nuevo post
-const writeNewPost = (uid, name, textPost, state ) => {
+const writeNewPost = (uid, name, textPost, state) => {
   let postData = {
     id: uid,
     author: name,
@@ -142,7 +163,7 @@ const writeNewPost = (uid, name, textPost, state ) => {
     likeCount: 0,
     postWithLikes:[],
   };
-  
+
   // Key para nueva publicación
   let postKey = firebase.database().ref().child('posts').push().key;    
   let updates = {};
@@ -182,7 +203,7 @@ window.savePostEdit = (id) => {
   const editButton = currentPost.querySelector('.edit-button');
   const saveButton = currentPost.querySelector('.save-button');
   const userId = firebase.auth().currentUser.uid;
-  
+
   firebase.database().ref('posts/')
   .on('value', (postsRef) =>{
     const posts = postsRef.val();
@@ -195,15 +216,15 @@ window.savePostEdit = (id) => {
       likeCount: 0,
     }
 
-  let updates = {};
-  updates['/posts/' + id] = postEdit;
-  updates['/user-posts/' + userId + '/' + id] = postEdit;
-  return firebase.database().ref().update(updates);
+      let updates = {};
+      updates['/posts/' + id] = postEdit;
+      updates['/user-posts/' + userId + '/' + id] = postEdit;
+      return firebase.database().ref().update(updates);
 
-  editPost.disabled = true;
-  saveButton.classList.add('hidden');
-  editButton.classList.remove('hidden');
-  })
+      editPost.disabled = true;
+      saveButton.classList.add('hidden');
+      editButton.classList.remove('hidden');
+    })
 }
 
 // Función para like's

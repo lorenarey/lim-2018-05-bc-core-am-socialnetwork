@@ -19,10 +19,16 @@ const password = document.getElementById('password');
 const confirPassword = document.getElementById('confirPassword')
 const validInputs = document.getElementById('valid-inputs');
 const validInputs2 = document.getElementById('valid-inputs2');
+const errorPassword = document.getElementById('error-password');
 
 registerLink.addEventListener('click', () => {
   formRegister.classList.remove('hidden');
   formInicio.classList.add('hidden');
+  nameUser.value = '';
+  email.value = '';
+  password.value = '';
+  confirPassword.value = '';
+  validInputs.innerHTML = '';
 })
 
 // ***************** Registra datos  ************************
@@ -34,8 +40,6 @@ registerButton.addEventListener('click', () => {
 
   if (validationRegisterUser(nameUsers, emailUser, passwordUser, confirPasswordUser) === true) {
     registerNew(emailUser, passwordUser);
-    formRegister.classList.add('hidden');
-    formInicio.classList.remove('hidden');
   }
   else {
     if (isNotEmpty(nameUsers) === false) {
@@ -44,11 +48,11 @@ registerButton.addEventListener('click', () => {
       validInputs.innerHTML = 'Ingrese email válido';
     } else if (isNotEmpty(passwordUser) === false) {
       validInputs.innerHTML = 'Ingrese contraseña con mínimo 6 caracteres';
-    } else if (isNotEmpty(confirPasswordUser) == false) {
+    } else if (isNotEmpty(confirPasswordUser) === false) {
       validInputs.innerHTML = 'Confirmar contraseña';
-    } else if (equalPassword(passwordUser, confirPasswordUser) == false) {
+    } else if (equalPassword(passwordUser, confirPasswordUser) === false) {
       validInputs.innerHTML = 'Las contraseñas no coinciden';
-    } else if (miniLenght(passwordUser) == false) {
+    } else if (miniLenght(passwordUser) === false) {
       validInputs.innerHTML = 'Su contraseña debe tener mínimo 6 caracteres';
     }
   }
@@ -58,7 +62,10 @@ registerButton.addEventListener('click', () => {
 loginButton.addEventListener('click', () => {
   if (isValidLogin(emailLogin.value, passwordLogin.value)) {
     login(emailLogin.value, passwordLogin.value);
-    validation();
+    validation(); 
+      // loginButton.disable = true;
+      // loginButton.value = 'Cargando';
+      // loginButton.value.classList.add('iconLoader');
   } else {
     validInputs2.innerHTML = 'email y/o password incorrecto';
   }
@@ -87,6 +94,3 @@ faceButton.addEventListener('click', (e) => {
     loginFacebook()
   }
 });
-
-
-
