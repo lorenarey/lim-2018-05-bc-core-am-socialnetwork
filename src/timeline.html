@@ -16,10 +16,17 @@
 <body onload="printPost()">
   <header>
     <div id="welcome-post">
-      <!-- <button id="signOut" type="button" class="boton-send-post">Cerrar Sesión</button> -->
+      <!-- <button id="signOut" type="button" class="boton-send-post">Cerrar Sesión</button>
+    </div>
+    <form>
+      <button type="button" id="start">Inicio</button>  
+      <button type="button" id="myPost">Mis publicaciones</button>
+    </form> -->
     </div>
   </header>
-
+  
+  <main>
+      <!-- <button id="signOut" type="button" class="boton-send-post">Cerrar Sesión</button> -->
   <nav class="sidenav-trigger green">
     <div class="nav-wrapper">
       <a href="#!" class="brand-logo">Q-Nutrition</a>
@@ -27,23 +34,24 @@
         <i class="material-icons">menu</i>
       </a>
       <ul class="right hide-on-med-and-down">
-        <li> <a href="#">Components</a> </li>
-        <li> <a href="#">Ver perfil</a> </li>
+        <li> <a href="#" id="start">Inicio</a> </li>
+        <li> <a href="#" id="myPost">Mis publicaciones</a> </li>
         <li> <a href="#" id="signOut" class="signOut">Cerrar Sesión</a> </li>
       </ul>
     </div>
   </nav>
 
   <ul class="sidenav" id="mobile-demo">
-    <li><a href="#">Contactos</a>  </li>
-    <li><a href="#">Ver perfil</a> </li>
+    <li><a href="#" id="start">Inicio</a>  </li>
+    <li><a href="#" id="myPost">Mis publicaciones</a> </li>
     <li><a href="#" id="signOut1" class="signOut">Cerrar Sesión</a></li>
   </ul>
 
 
   <section>
     <div id="writePost" class="post-container">
-      <h5 class="center"> ¡Conectate con un estilo de vida saludable!</h5>
+      <h5 class="center">¡Conéctate con un estilo de vida saludable!</h5>
+
       <form name="form-timeline">
         <div>
           <textarea id="post" class="text-area" autofocus placeholder="¿Qué estás pensando?" rows="5" cols="50"></textarea>
@@ -54,9 +62,9 @@
 
         <div class="input-field col s12 m6 in-line">
           <select id="privacy" class="select">
-            <option value="0" disabled selected>Choose your option</option>
-            <option id="friends" value="amigos">Amigos</option>
-            <option id="public" value="publico">Publico</option>
+            <option value="0" disabled selected>Elige compartir con:</option>
+            <option id="friends" value="Amigos">Amigos</option>
+            <option id="public" value="Público">Público</option>
           </select>
           <label>Privacidad:</label>
         </div>
@@ -64,16 +72,12 @@
           <label id="valid-post" class="center"> </label>
         </div>
       </form>
-
     </div>
-    <form>
-      <!-- <option>prueba</option> -->
-    </form>
 
     <div id="publications">
     </div>
   </section>
-
+  </main>
 
   <script src="https://www.gstatic.com/firebasejs/5.3.0/firebase.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js"></script>

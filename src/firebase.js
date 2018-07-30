@@ -19,7 +19,6 @@ const saveData = (userId, name, email, imageUrl) => {
   });
 }
 
-
 // Mostrar usuario logueado en consola
 const welcome = () => {
   const messageWelcome = document.getElementById('welcome-post');
@@ -102,12 +101,11 @@ const loginGoogle = () => {
   const provider = new firebase.auth.GoogleAuthProvider();
   firebase.auth().signInWithPopup(provider)
     .then((result) => {
-      const token = result.credential.accessToken;
-
-      // Información de usuario
-      const userData = result.user;
-      saveData(userData.uid, userData.displayName, userData.email, userData.photoURL);
-      window.location.href = 'timeline.html';
+    const token = result.credential.accessToken;
+    // Información de usuario
+    const userData = result.user;
+    saveData(userData.uid, userData.displayName, userData.email, userData.photoURL);
+    window.location.href = 'timeline.html';
     })
     .catch((error) => {
       const errorCode = error.code;
@@ -121,28 +119,23 @@ const loginGoogle = () => {
 const check = () => {
   const user = firebase.auth().currentUser;
   user.sendEmailVerification().then(() => {
-    // console.log('Enviando correo');
   }).catch((error) => {
-    // console.log(error);
   });
 }
 
 // Cambio de contraseña
 const resetPassword = (email) => {
   firebase.auth().sendPasswordResetEmail(email)
-    .then(() => {
-    })
-    .catch((error) => {
-      // console.log(error);
-    })
+  .then(() => {
+  })
+  .catch((error) => {
+  })
 }
 
-// funcion para cerrar sesion
+// Función para cerrar sesion
 const signOut = () => {
   firebase.auth().signOut().then(() => {
-    // console.log('Sesión finalizada')
   }).catch((error) => {
-    // console.log(error);
   });
 }
 
@@ -168,18 +161,18 @@ const writeNewPost = (uid, name, textPost, state) => {
     newPost: textPost,
     privacy: state,
     likeCount: 0,
-    followers: [],
+    postWithLikes:[],
   };
 
   // Key para nueva publicación
-  let postKey = firebase.database().ref().child('posts').push().key;
-  console.log(postKey);
+  let postKey = firebase.database().ref().child('posts').push().key;    
   let updates = {};
   updates['/posts/' + postKey] = postData;
   updates['/user-posts/' + uid + '/' + postKey] = postData;
   return firebase.database().ref().update(updates);
 }
 
+// Función para eliminar Post
 window.deletePost = (id) => {
   const questions = confirm('¿Está seguro de eliminar?');
   if (questions) {
@@ -188,28 +181,23 @@ window.deletePost = (id) => {
     firebase.database().ref().child('posts/' + id).remove();
     while (publications.firstChild) publications.removeChild(publications.firstChild);
     alert('Post eliminado');
-    window.location.reload()
-  } else {
-    return false;
+    window.location.reload();
   }
 }
 
+// Función para editar Post
 window.editPost = (id) => {
-  console.log(id);
-  console.log('prueba de boton editar');
   const currentPost = document.getElementById(id);
   const currentTextarea = currentPost.querySelector('.textarea-post');
   currentTextarea.disabled = false;
-  //let editPost = document.getElementById('textPost');
   const editButton = currentPost.querySelector('.edit-button');
   const saveButton = currentPost.querySelector('.save-button');
-  //editPost.removeAttribute('disabled');
   editButton.classList.add('hidden');
   saveButton.classList.remove('hidden');
 }
 
+// Función para guardar post editado
 window.savePostEdit = (id) => {
-  console.log('prueba de guardar post editado');
   const currentPost = document.getElementById(id);
   const currentTextarea = currentPost.querySelector('.textarea-post');
   const editButton = currentPost.querySelector('.edit-button');
@@ -217,16 +205,16 @@ window.savePostEdit = (id) => {
   const userId = firebase.auth().currentUser.uid;
 
   firebase.database().ref('posts/')
-    .on('value', (postsRef) => {
-      const posts = postsRef.val();
-      const listPost = posts[id];
-      let postEdit = {
-        id: listPost.id,
-        author: listPost.author,
-        newPost: currentTextarea.value,
-        privacy: listPost.privacy,
-        likeCount: 0,
-      }
+  .on('value', (postsRef) =>{
+    const posts = postsRef.val();
+    const listPost = posts[id];
+    let postEdit = {
+      id: listPost.id,
+      author: listPost.author,
+      newPost: currentTextarea.value,
+      privacy: listPost.privacy,
+      likeCount: 0,
+    }
 
       let updates = {};
       updates['/posts/' + id] = postEdit;
@@ -239,48 +227,120 @@ window.savePostEdit = (id) => {
     })
 }
 
-
-window.printPost = () => {
+// Función para like's
+window.like = (id) => {
+  let userId = firebase.auth().currentUser.uid;
+  const currentPost = document.getElementById(id);
+  const likeButton = currentPost.querySelector('.like-button');
   firebase.database().ref('posts/')
-    .on('value', (postsRef) => {
-      const posts = postsRef.val();
-      const publications = document.getElementById('publications');
-      publications.innerHTML = '';
-      const postsOrder = Object.keys(posts).reverse();
+  .on('value', (postsRef) =>{
+    const posts = postsRef.val();
+    const listPost = posts[id];
+    let postLike = {
+      id: listPost.id,
+      author: listPost.author,
+      newPost: listPost.newPost,
+      privacy: listPost.privacy,
+      likeCount: 0,
+      postWithLikes: [],
+    }
+    
+    const objRefLike = postLike.postWithLikes;
+    
+    if (objRefLike.indexOf(userId) === -1) {
+      objRefLike.push(userId);
+      postLike.likeCount = objRefLike.length;
+    } else if (objRefLike.indexOf(userId) === 0) {
+      likeButton.disabled = false;
+    }
 
-      let userId = firebase.auth().currentUser.uid;
+    let updates = {};
+    updates['/posts/' + id] = postLike;
+    updates['/user-posts/' + userId + '/' + id] = postLike;
+    return firebase.database().ref().update(updates);
+    
+  })
+}
 
-      const postActions = (id) => {
-        return `<div class="actions card-action">
-        <a onclick="savePostEdit('${id}')" class="save-button hidden"><img src="img/guardar.png" alt="icono de guardar" width="24px"></a>
-        <a onclick="editPost('${id}')" class="edit-button"><img src="img/edit(1).png" alt="icono de editar" width="24px"></a>
-        <a onclick="deletePost('${id}')" id="delete-button"><img src="img/delete.png" alt="icono de eliminar" width="24px"></a>
+// Imprimir total post publicados
+window.printPost = () => { 
+  firebase.database().ref('posts/')
+  .on('value', (postsRef) =>{
+    const posts = postsRef.val();
+    const publications = document.getElementById('publications');
+    publications.innerHTML='';
+    const postsOrder = Object.keys(posts).reverse();
+    let userId = firebase.auth().currentUser.uid;
+    const postActions = (id) => {
+      return `<div class="actions">
+      <a onclick="savePostEdit('${id}')" class="save-button hidden"><img src="img/save-regular.svg" alt="icono de editar" width="20px"></a>
+      <a onclick="editPost('${id}')" class="edit-button"><img src="img/edit-regular.svg" alt="icono de editar" width="25px"></a>
+      <a onclick="deletePost('${id}')" id="delete-button"><img src="img/trash-alt-regular.svg" alt="icono de eliminar" width="20px"></a>
       </div>`
-      }
-
-      postsOrder.forEach((id) => {
-        const listPost = posts[id];
-        publications.innerHTML += `
-        <div class="" id=${id}>
-          
+    }
+               
+    postsOrder.forEach((id) => {
+      const listPost = posts[id];
+      publications.innerHTML += `
+        <div class="show-post" id=${id}>
           <div class="col s12 m12">
-          <div class="card green lighten-2">
-              <div class="card-content">
-                <span class="card-title">
-                Nombre: ${listPost.author} </span>
+            <div class="card green"> 
+              <div class="card-content white-text">
+                <span class="card-title">${listPost.author}</span>
                 <div class="actions">${listPost.privacy}</div>
               </div>
-            <textarea class="textarea-post card green lighten-2" cols="80" rows="7" disabled>${listPost.newPost}</textarea>
-           <div>
-              <div class="icon-like">
-                <a href="#"> <img id="like-button" src="img/icon-like.svg" alt="icono de like" width="20px"> </a>
-                <p class="count-like" id="show-count">${listPost.likeCount}</p>
+              <textarea class="textarea-post" cols="80" rows="7" disabled>${listPost.newPost}</textarea>
+              <div>
+                <div class="icon-like">
+                  <a class="like-button" onclick="like('${id}')">
+                    <img src="img/heart-solid.svg" alt="icono de like" width="20px">
+                  </a>
+                  <p class="count-like" id="show-count">${listPost.likeCount}</p>
+                </div>
+                <div>${userId === listPost.id ? postActions(id) : ''}</div>
               </div>
-            ${userId === listPost.id && postActions(id)}
+            </div>
           </div>
         </div>
-       `
-      })
-
+       ` 
     })
+  })
+}
+
+// Imprimir sólo post del usuario logueado
+const showMyPost = (uid) => {
+  firebase.database().ref('user-posts/' + uid + '/')
+  .on('value', (userPostsRef) => {
+    const listPosts = userPostsRef.val();
+    const listPostsOrder = Object.keys(listPosts).reverse();
+    const publications = document.getElementById('publications');
+    publications.innerHTML='';
+    let userId = firebase.auth().currentUser.uid;
+    listPostsOrder.forEach((id) => {
+      const userPostId = listPosts[id];  
+      publications.innerHTML += `
+        <div class="show-post" id=${id}>
+          <div>
+            <p>Nombre: ${userPostId.author}</p>
+            <div class="actions">${userPostId.privacy}</div>
+          </div>
+          <textarea class="textarea-post" cols="80" rows="7" disabled>${userPostId.newPost}</textarea>
+          <hr>
+          <div>
+            <div class="icon-like">
+              <a class="like-button" onclick="like('${id}')">
+                <img src="img/heart-solid.svg" alt="icono de like" width="20px">
+              </a>
+              <p class="count-like" id="show-count">${userPostId.likeCount}</p>
+            </div>
+            <div class="actions">
+              <a onclick="savePostEdit('${id}')" class="save-button hidden"><img src="img/save-regular.svg" alt="icono de editar" width="20px"></a>
+              <a onclick="editPost('${id}')" class="edit-button"><img src="img/edit-regular.svg" alt="icono de editar" width="25px"></a>
+              <a onclick="deletePost('${id}')" id="delete-button"><img src="img/trash-alt-regular.svg" alt="icono de eliminar" width="20px"></a>
+            </div>
+          </div>
+        </div>
+       ` 
+    })
+  })
 }

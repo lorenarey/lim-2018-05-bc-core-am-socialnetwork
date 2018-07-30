@@ -3,6 +3,8 @@ const outButton1 = document.getElementById('signOut1');
 const publicButton = document.getElementById('buttonPost');
 const selectPrivacy = document.getElementById('privacy');
 const publications = document.getElementById('publications');
+const startButton = document.getElementById('start');
+const myPostButton = document.getElementById('myPost');
 const validPost = document.getElementById('valid-post');
 
 // Inicializando el side-nav
@@ -33,17 +35,27 @@ publicButton.addEventListener('click', () => {
   let userId = firebase.auth().currentUser.uid;
   firebase.database().ref('/users/' + userId).once('value')
     .then((user) => {
-      const nameUser = (user.val().username);
-      let newPost = document.getElementById('post').value;
-      let state = selectPrivacy.value;
-      if (selectPrivacy.value != '0' && validationPublicPost(newPost)) {
-        writeNewPost(userId, nameUser, newPost, state);
-        printPost();
-        document.getElementById('post').value = '';
-        document.getElementById('privacy').value = '0';
-        validPost.innerHTML = '';
-      } else {
-        validPost.innerHTML = 'Selecciona privacidad y/o escribe un mensaje';
-      }
-    })
+    const nameUser = (user.val().username);
+    let newPost = document.getElementById('post').value;
+    let state = selectPrivacy.value;
+    if (selectPrivacy.value != '0' && validationPublicPost(newPost)) {
+      writeNewPost(userId, nameUser, newPost, state);
+      printPost();
+      document.getElementById('post').value = '';
+      document.getElementById('privacy').value = '0';
+      validPost.innerHTML = '';
+    } else {
+      validPost.innerHTML = 'Selecciona privacidad y/o escribe un mensaje';
+    }
+  })
 })
+
+startButton.addEventListener('click', () => {
+  printPost();
+})
+  
+myPostButton.addEventListener('click', () => {
+  let userId = firebase.auth().currentUser.uid;
+  showMyPost(userId);
+})
+      
