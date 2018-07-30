@@ -4,7 +4,7 @@ comida Saludable
 
 # Q-Nutrition Social Network
 
-![Logo Q-nutrition red social sobre alimentación saludable](https://github.com/lorenarey/lim-2018-05-bc-core-am-socialnetwork/blob/dev/img/logo1-normal.png)
+![Logo Q-nutrition red social sobre alimentación saludable](https://github.com/Grecia2727/lim-2018-05-bc-core-am-socialnetwork/blob/master/img/loguitop1.png)
 
 
 ## INTRODUCCIÓN
@@ -103,13 +103,13 @@ Entrevista 2 : Beatriz Castiglia  / psicóloga/ training manager/ deportista
 
 La Entrevista manifestó conocimiento amplio del tema, indicó seguir cuentas de personas que viven esta práctica de alimentación, estas cuentan con webs abiertas, más no tienen un registro con un perfil que se  pudiera modificar, usa con frecuencia estas cuentas para seguir consejos, tips, gusta mucho de la fotografía de estas webs, ha conseguido ampliar su conocimiento en cuanto a esta práctica.
 
-![Entrevistas]()
+![Entrevistas](https://github.com/Grecia2727/lim-2018-05-bc-core-am-socialnetwork/blob/master/img/entrevistas.jpg)
 
 
 #### 2) Diseño de la Interfaz de Usuario (prototipo)
 ![sketch mano alzada Q-nutrition red social sobre alimentación saludable](https://github.com/lorenarey/lim-2018-05-bc-core-am-socialnetwork/blob/dev/img/sketch-q-nutrition-social-network-1.jpg)
 
-![altafidelidad1](https://github.com/lorenarey/lim-2018-05-bc-core-am-socialnetwork/blob/dev/img/logo1-normal.png)
+![altafidelidad1](https://github.com/Grecia2727/lim-2018-05-bc-core-am-socialnetwork/blob/master/img/alta%20fidelidad1.jpg)
 
 
 
