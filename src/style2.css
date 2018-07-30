@@ -3,7 +3,7 @@
 } 
 
 body {
-   background-position: top center;
+  background-position: top center;
   /* font-size: 14 px; */
 }
 
@@ -20,13 +20,13 @@ body {
 .select {
   /* padding: 13px 5px; */
   height: 45px;
-  width: 48%;
+  width: 50%;
   line-height: 100px;
   border: solid olive 2px;
   border-radius: 0.4rem;
   margin-bottom: 5px;
   border: solid #aed86f 1px;
-  display: inline-block;
+  /* display: inline-block; */
   font-size: 15px;
 }
 
@@ -120,7 +120,18 @@ text-align: center;
       box-sizing: border-box;
       box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2)
     }
-
+    .in-line{
+      width: 40%;
+      display: block;
+    }
 
   }
+
+  .center{
+    text-align: center;
+  }
  
+.in-line{
+  width: 40%;
+  display: inline-block;
+}
