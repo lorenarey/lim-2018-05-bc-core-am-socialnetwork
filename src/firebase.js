@@ -16,7 +16,7 @@ const saveData = (userId, name, email, imageUrl) => {
     email: email,
     picture: imageUrl,
     id: userId,
-  });
+  }); 
 }
 
 
@@ -24,12 +24,11 @@ const saveData = (userId, name, email, imageUrl) => {
 const welcome = () => {
   const messageWelcome = document.getElementById('welcome-post');
   let userLogin = firebase.currentUser;
-  // firebase.database().ref('users/')
-  // .on('value', (userRef) =>{
-  //   const users = usersRef.val();
+  firebase.database().ref('users/')
+  .on('value', (userRef) =>{
+    const users = usersRef.val();
     console.log(usersLogin);
-  // })
-
+  })
 }
 
 // Registro de Usuarios Nuevos
@@ -49,13 +48,19 @@ const registerNew = (email, password) => {
       }
       saveData(user.uid, username, user.email, picture);
       check();
-      alert('Tu usuario ha sido registrado! \nConfirma el mensaje de verificación en tu correo y seguidamente puedes Iniciar Sesión')
+      alert('Felicitaciones, ya estas registrado! \nConfirma el mensaje de verificación en tu correo y seguidamente puedes Iniciar Sesión')
+      formRegister.classList.add('hidden');
+      formInicio.classList.remove('hidden');
+
     })
     .catch((error) => {
       let errorCode = error.code;
       let errorMessage = error.message;
-      alert(errorCode);
-      alert(errorMessage);
+      if(error.message === 'auth/email-already-in-use'){
+        validInputs.innerHTML = "El email ingresado ya está en uso";
+      }else if(error.message === 'The email address is already in use by another account.'){
+        validInputs.innerHTML = "El email está siendo utilizado por otro usuario";
+      }
     })
 }
 
@@ -65,6 +70,11 @@ let login = (email, password) => {
     .catch((error) => {
       let errorCode = error.code;
       let errorMessage = error.message;
+      if(error.message === 'The password is invalid or the user does not have a password.'){
+        validInputs2.innerHTML = "email o password incorrectos";
+      }else if(error.message === 'There is no user record corresponding to this identifier. The user may have been deleted.'){
+        validInputs2.innerHTML = "Usuario no registrado";
+      }
   });
 }
 
@@ -94,11 +104,9 @@ const loginGoogle = () => {
   firebase.auth().signInWithPopup(provider)
     .then((result) => {
     const token = result.credential.accessToken;
-    // console.log("result", result)
 
     // Información de usuario
     const userData = result.user;
-    console.log(userData)
     saveData(userData.uid, userData.displayName, userData.email, userData.photoURL);
     window.location.href = 'timeline.html';
     })
@@ -150,10 +158,6 @@ const loginFacebook = () => {
       window.location.href = 'timeline.html';
     })
     .catch((error) => {
-      // console.log(error.code);
-      // console.log(error.message);
-      // console.log(error.email);
-      // console.log(error.credential);
     });
 }
 

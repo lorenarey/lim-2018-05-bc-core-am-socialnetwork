@@ -16,12 +16,15 @@ const confirPassword = document.getElementById('confirPassword')
 const validInputs = document.getElementById('valid-inputs');
 const validInputs2 = document.getElementById('valid-inputs2');
 const errorPassword = document.getElementById('error-password');
-//formInicio.classList.remove('hidden');
-//formRegister.classList.add('hidden');
 
 registerLink.addEventListener('click', () => {
   formRegister.classList.remove('hidden');
   formInicio.classList.add('hidden');
+  nameUser.value = '';
+  email.value = '';
+  password.value = '';
+  confirPassword.value = '';
+  validInputs.innerHTML= '';
 })
 
 
@@ -34,10 +37,6 @@ registerButton.addEventListener('click', () => {
 
   if (validationRegisterUser(nameUsers, emailUser, passwordUser, confirPasswordUser) === true) {
     registerNew(emailUser, passwordUser);
-    formRegister.classList.add('hidden');
-    formInicio.classList.remove('hidden');
-    registerButton.disable = true;
-    registerButton.value = 'Cargando';
   }
   else {
     if (isNotEmpty(nameUsers) === false) {
@@ -46,11 +45,11 @@ registerButton.addEventListener('click', () => {
       validInputs.innerHTML = 'Ingrese email válido';
     } else if (isNotEmpty(passwordUser) === false) {
       validInputs.innerHTML = 'Ingrese contraseña con mínimo 6 caracteres';
-    } else if (isNotEmpty(confirPasswordUser) == false) {
+    } else if (isNotEmpty(confirPasswordUser) === false) {
       validInputs.innerHTML = 'Confirmar contraseña';
-    } else if (equalPassword(passwordUser, confirPasswordUser) == false) {
+    } else if (equalPassword(passwordUser, confirPasswordUser) === false) {
       validInputs.innerHTML = 'Las contraseñas no coinciden';
-    } else if (miniLenght(passwordUser) == false) {
+    } else if (miniLenght(passwordUser) === false) {
       validInputs.innerHTML = 'Su contraseña debe tener mínimo 6 caracteres';
     }
   }
