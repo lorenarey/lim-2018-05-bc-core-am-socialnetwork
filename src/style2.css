@@ -80,7 +80,6 @@ h2 {
 }
 
 .show-post {
-  border-style: solid;
   padding: 15px;
   margin: 10px;
 }
@@ -96,8 +95,25 @@ h2 {
 .textarea-post {
   border: white;
   background-color: white;
-  font-family: 'Times New Roman', Times, serif;
+  grid-row: auto;
 }
+
+.bot {
+  width:180px;
+  padding: auto;
+  font-size: 20px;
+  margin-bottom: 5px;
+  margin-top: 25px;
+  text-align: center;
+  color: #ffffff;
+  align-content: right;  
+ }
+
+ .post2 {
+   padding: 10px;
+   margin: 5px;
+   height: 180px;
+ }
 
 @media (max-width: 600px) {
     #publications {

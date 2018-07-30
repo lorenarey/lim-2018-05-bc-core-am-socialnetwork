@@ -283,13 +283,13 @@ window.printPost = () => {
       const listPost = posts[id];
       publications.innerHTML += `
         <div class="show-post" id=${id}>
-          <div class="col s12 m12">
-            <div class="card green"> 
-              <div class="card-content white-text">
+          <div class="card post2">
+            <div class="col s12 m12"> 
+              <div class="card-stacked">
                 <span class="card-title">${listPost.author}</span>
                 <div class="actions">${listPost.privacy}</div>
-              </div>
-              <textarea class="textarea-post" cols="80" rows="7" disabled>${listPost.newPost}</textarea>
+              </div class="card-content">
+              <textarea class="textarea-post" cols="80" rows="30" disabled>${listPost.newPost}</textarea>
               <div>
                 <div class="icon-like">
                   <a class="like-button" onclick="like('${id}')">
@@ -301,6 +301,7 @@ window.printPost = () => {
               </div>
             </div>
           </div>
+        </div>
         </div>
        ` 
     })
