@@ -36,4 +36,3 @@ window.isEmail = isEmail;
 window.equalPassword = equalPassword;
 window.miniLenght = miniLenght;
 window.isMessage= isMessage;
-

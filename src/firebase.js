@@ -241,8 +241,8 @@ window.like = (id) => {
       author: listPost.author,
       newPost: listPost.newPost,
       privacy: listPost.privacy,
-      likeCount: +1,
-      postWithLikes: [userId],
+      likeCount: 0,
+      postWithLikes: [],
     }
     
     const objRefLike = postLike.postWithLikes;
