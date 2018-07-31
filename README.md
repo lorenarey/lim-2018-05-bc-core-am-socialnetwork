@@ -1,10 +1,7 @@
-Social Network:
-Q-Nutrition
-comida Saludable 
 
 # Q-Nutrition Social Network
 
-![Logo Q-nutrition red social sobre alimentación saludable](https://github.com/lorenarey/lim-2018-05-bc-core-am-socialnetwork/blob/dev/img/logo1-normal.png)
+![Logo Q-nutrition red social sobre alimentación saludable](https://github.com/Grecia2727/lim-2018-05-bc-core-am-socialnetwork/blob/master/img/loguitop1.png)
 
 
 ## INTRODUCCIÓN
@@ -24,7 +21,7 @@ Q- Nutrition apunta a ser una red social sumamente visitada con usuarios activos
 
 Entre las características de nuestro producto están:
 
-Registrarse, loguearse con correo y con botones de facebook y google, el tener un muro donde postear poder publicar contenido que se pueda editar, borrar, seleccionar la privacidad de esto y poder llevar con conteo de likes de publicación  y en un futuro poder seguir a otros usuarios, crear colecciones de fotos, tener un perfil y chatear con otros usuarios. 
+Registrarse, loguearse con correo y con botones de facebook y google, el tener un muro donde postear poder publicar contenido que se pueda editar, borrar, seleccionar la privacidad de esto y poder llevar con conteo de likes de publicación  y en un futuro poder seguir a otros usuarios, crear colecciones de fotos, tener un perfil y chatear con otros usuarios.
 
 ¿Cuáles son los elementos básicos que tiene una red social?
 
@@ -34,13 +31,13 @@ Formulario de registro: Este debe ser claro, intuitivo, debe de guiar a la perso
 
 Perfil y feed: El poder ser visible es muy importante en las redes, personalizar tu nombre, colocar una foto  y decir "qué estás pensando / haciendo". son elementos esenciales en las redes sociales.
 
-Fácil interacción entre usuarios: el éxito de una red social  se basa en la conversación entre sus usuarios, se debe permitir el acceso rápido a esta parte de la plataforma. 
+Fácil interacción entre usuarios: el éxito de una red social  se basa en la conversación entre sus usuarios, se debe permitir el acceso rápido a esta parte de la plataforma.
 
-Tener una interfaz de usuario simple pero atractiva e interactiva es una necesidad para una experiencia de usuario exitosa, para esto es necesario acceder fácilmente al menú de navegación, el diseño debe ser responsivo adaptable a los diversos tamaños de visualización, el logotipo debe estar perenne en la visualización de la página . 
+Tener una interfaz de usuario simple pero atractiva e interactiva es una necesidad para una experiencia de usuario exitosa, para esto es necesario acceder fácilmente al menú de navegación, el diseño debe ser responsivo adaptable a los diversos tamaños de visualización, el logotipo debe estar perenne en la visualización de la página .
 
 Posibilidad de importar usuarios de otros sitios, gracias a ello el éxito de Facebook ante sus competidores.
 .
-Búsqueda: su sitio debe tener la opción de buscar a través de usuarios, comunidades, etc. 
+Búsqueda: su sitio debe tener la opción de buscar a través de usuarios, comunidades, etc.
 
 Entre otras se debe considerar poder dar likes, compartir y comentar, en cuanto al funcionamiento interno se debe poder llevar los datos cualitativos y cuantitativos de los usuarios registrado, interacciones etc..
 
@@ -83,13 +80,13 @@ Como guía para el diseño de nuestro producto tomamos en cuenta a las grandes r
 
 *RESUMEN ENTREVISTAS CON USUARIOS:
 
-Llevamos a cabo 4 entrevistas 2 de ellas grabadas en la que dejamos a los entrevistados expandirse en el tema, para guiar las mismas y tener resultados que nos ayudacen a planificar el producto llevamos esta guía de preguntas clave 
+Llevamos a cabo 4 entrevistas 2 de ellas grabadas en la que dejamos a los entrevistados expandirse en el tema, para guiar las mismas y tener resultados que nos ayudacen a planificar el producto llevamos esta guía de preguntas clave
 
 ¿Cuál fue tu última experiencia usando una red social sobre comida consciente?
 
 ¿ Qué te gusta de ellas?
 
-¿Qué les hace falta? 
+¿Qué les hace falta?
 
 ¿Con qué frecuencia usas esta aplicación ?
 
@@ -103,13 +100,13 @@ Entrevista 2 : Beatriz Castiglia  / psicóloga/ training manager/ deportista
 
 La Entrevista manifestó conocimiento amplio del tema, indicó seguir cuentas de personas que viven esta práctica de alimentación, estas cuentan con webs abiertas, más no tienen un registro con un perfil que se  pudiera modificar, usa con frecuencia estas cuentas para seguir consejos, tips, gusta mucho de la fotografía de estas webs, ha conseguido ampliar su conocimiento en cuanto a esta práctica.
 
-![Entrevistas]()
+![Entrevistas](https://github.com/Grecia2727/lim-2018-05-bc-core-am-socialnetwork/blob/master/img/entrevistas.jpg)
 
 
 #### 2) Diseño de la Interfaz de Usuario (prototipo)
 ![sketch mano alzada Q-nutrition red social sobre alimentación saludable](https://github.com/lorenarey/lim-2018-05-bc-core-am-socialnetwork/blob/dev/img/sketch-q-nutrition-social-network-1.jpg)
 
-![altafidelidad1](https://github.com/lorenarey/lim-2018-05-bc-core-am-socialnetwork/blob/dev/img/logo1-normal.png)
+![altafidelidad1](https://github.com/Grecia2727/lim-2018-05-bc-core-am-socialnetwork/blob/master/img/alta%20fidelidad1.jpg)
 
 
 
@@ -130,3 +127,5 @@ En este proyecto trabajaremos en 3 sprint, para el primero hemos organizado el f
 ####  CONCLUSIONES  TEST ALTA FIDELIDAD Y HTML
 
 En el test de HTML, los usuarios manifestaron afinidad por el diseño, les pareció sencillo y fácil de usar, indicaron malestar por la demora del tiempo de carga, indicaron mejorar el tamaño de los botones, tener imágenes que identifiquen el fin de la red social.
+
+

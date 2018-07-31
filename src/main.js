@@ -9,6 +9,10 @@ const emailLogin = document.getElementById('email-login');
 const passwordLogin = document.getElementById('password-login');
 const updatePassword = document.getElementById('update-password');
 
+const mistakeUserName = document.getElementById('mistake-userName');
+const mistakeEmail = document.getElementById('mistake-email');
+const mistakePassword = document.getElementById('mistake-password');
+const mistakeConfirPassword = document.getElementById('mistake-confirPassword');
 const nameUser = document.getElementById('nameUser');
 const email = document.getElementById('email');
 const password = document.getElementById('password');
@@ -16,14 +20,16 @@ const confirPassword = document.getElementById('confirPassword')
 const validInputs = document.getElementById('valid-inputs');
 const validInputs2 = document.getElementById('valid-inputs2');
 const errorPassword = document.getElementById('error-password');
-//formInicio.classList.remove('hidden');
-//formRegister.classList.add('hidden');
 
 registerLink.addEventListener('click', () => {
   formRegister.classList.remove('hidden');
   formInicio.classList.add('hidden');
+  nameUser.value = '';
+  email.value = '';
+  password.value = '';
+  confirPassword.value = '';
+  validInputs.innerHTML = '';
 })
-
 
 // ***************** Registra datos  ************************
 registerButton.addEventListener('click', () => {
@@ -34,10 +40,6 @@ registerButton.addEventListener('click', () => {
 
   if (validationRegisterUser(nameUsers, emailUser, passwordUser, confirPasswordUser) === true) {
     registerNew(emailUser, passwordUser);
-    formRegister.classList.add('hidden');
-    formInicio.classList.remove('hidden');
-    registerButton.disable = true;
-    registerButton.value = 'Cargando';
   }
   else {
     if (isNotEmpty(nameUsers) === false) {
@@ -46,11 +48,11 @@ registerButton.addEventListener('click', () => {
       validInputs.innerHTML = 'Ingrese email válido';
     } else if (isNotEmpty(passwordUser) === false) {
       validInputs.innerHTML = 'Ingrese contraseña con mínimo 6 caracteres';
-    } else if (isNotEmpty(confirPasswordUser) == false) {
+    } else if (isNotEmpty(confirPasswordUser) === false) {
       validInputs.innerHTML = 'Confirmar contraseña';
-    } else if (equalPassword(passwordUser, confirPasswordUser) == false) {
+    } else if (equalPassword(passwordUser, confirPasswordUser) === false) {
       validInputs.innerHTML = 'Las contraseñas no coinciden';
-    } else if (miniLenght(passwordUser) == false) {
+    } else if (miniLenght(passwordUser) === false) {
       validInputs.innerHTML = 'Su contraseña debe tener mínimo 6 caracteres';
     }
   }
@@ -61,11 +63,11 @@ loginButton.addEventListener('click', () => {
   if (isValidLogin(emailLogin.value, passwordLogin.value)) {
     login(emailLogin.value, passwordLogin.value);
     validation(); 
-      loginButton.disable = true;
-      loginButton.value = 'Cargando';
+      // loginButton.disable = true;
+      // loginButton.value = 'Cargando';
       // loginButton.value.classList.add('iconLoader');
   } else {
-    validInputs2.innerHTML = 'email y/o pasword incorrecto';
+    validInputs2.innerHTML = 'email y/o password incorrecto';
   }
 });
 
@@ -73,11 +75,9 @@ loginButton.addEventListener('click', () => {
 updatePassword.addEventListener('click', () => {
   if (emailLogin.value === '') {
     validInputs2.innerHTML = 'Ingrese un correo válido para resetear contraseña';
-  } else {
-    if (validationUpdatePassword(emailLogin.value)) {
+  } else if (validationUpdatePassword(emailLogin.value)) {
       resetPassword(emailLogin.value);
       validInputs2.innerHTML = 'Se envió correo para el cambio de contraseña';
-    }
   }
 });
 
