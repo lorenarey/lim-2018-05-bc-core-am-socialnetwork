@@ -1,6 +1,3 @@
-Social Network:
-Q-Nutrition
-comida Saludable
 
 # Q-Nutrition Social Network
 
