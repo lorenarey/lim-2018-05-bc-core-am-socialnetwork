@@ -38,26 +38,20 @@ registerButton.addEventListener('click', () => {
   let email = document.getElementById('email').value;
   let password = document.getElementById('password').value;
   
-  if (email == ''){
+  if (email == '') {
     errorEmail.textContent = "Ingrese Correo";
     errorPassword.textContent = "IngresePassword";
-  }else {
+  } else {
     registerNew(email, password);
-    
-    
     alert('Tu usuario ha sido registrado! \nConfirma el mensaje de verificación en tu correo y seguidamente puedes Iniciar Sesión')
     console.log(email);
     console.log(password);
     
     formRegister.classList.add('hidden');
-<<<<<<< HEAD
-    formInicio.classList.remove('hidden');  
-  }  
-});
-
-=======
     formInicio.classList.remove('hidden');
   }
+
+
   else {
     if (isNotEmpty(nameUsers) === false) {
       validInputs.innerHTML = 'Ingrese su nombre';
@@ -76,7 +70,6 @@ registerButton.addEventListener('click', () => {
 });
 
 // *********** Loguea al Usuario **************************
->>>>>>> ee5ac6672f5ffa42958d735581a0f007ecfebcec
 loginButton.addEventListener('click', () => {
   if (isValidLogin(emailLogin.value, passwordLogin.value)) {
     login(emailLogin.value, passwordLogin.value);
@@ -86,11 +79,6 @@ loginButton.addEventListener('click', () => {
   }
 });
 
-<<<<<<< HEAD
-updatePassword.addEventListener('click', () => {
-  resetPassword(emailLogin.value);
-  alert('Se envió correo para el cambio de contraseña')
-=======
 // *********** Resetea contraseña **************************
 updatePassword.addEventListener('click', () => {
   if (emailLogin.value === '') {
@@ -101,7 +89,6 @@ updatePassword.addEventListener('click', () => {
       validInputs2.innerHTML = 'Se envió correo para el cambio de contraseña';
     }
   }
->>>>>>> ee5ac6672f5ffa42958d735581a0f007ecfebcec
 });
 
 googleButton.addEventListener('click', (e) => {
