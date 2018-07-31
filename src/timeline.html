@@ -13,7 +13,6 @@
 </head>
 
 <!-- Muro -->
-
 <body onload="printPost()">
   <header>
       <nav class="sidenav-trigger green">
@@ -31,19 +30,20 @@
         </nav>
       
         <ul class="sidenav" id="mobile-demo">
-          <li><a href="#" id="start1">Inicio</a></li>
-          <li><a href="#" id="myPost1">Mis publicaciones</a></li>
+          <li><a href="#" id="start">Inicio</a></li>
+          <li><a href="#" id="myPost">Mis publicaciones</a></li>
           <li><a href="#" id="signOut1" class="signOut">Cerrar Sesión</a></li>
         </ul>
   </header>
-
+  
   <main>
+      
+  
 
 
-
-    <section>
-      <div id="writePost" class="post-container">
-        <h5 class="center">¡Conéctate con un estilo de vida saludable!</h5>
+  <section>
+    <div id="writePost" class="post-container">
+      <h5 class="center">¡Conéctate con un estilo de vida saludable!</h5>
 
       <form name="form-timeline">
         <div>
@@ -53,22 +53,23 @@
           <a id="buttonPost" class="bot btn-large light-green darken-2">Publicar</a>
         </div>
 
-          <div class="input-field col s12 m6 in-line">
-            <select id="privacy" class="select">
-              <option value="0" disabled selected>Elige compartir con:</option>
-              <option id="friends" value="Amigos">Amigos</option>
-              <option id="public" value="Público">Público</option>
-            </select>
-            <label>Privacidad:</label>
-          </div>
-          
-          <div><label id="valid-post" class="center"> </label>
-          </div>
-        </form>
-      </div>
+        <div class="input-field col s12 m6 in-line">
+          <select id="privacy" class="select">
+            <option value="0" disabled selected>Elige compartir con:</option>
+            <option id="friends" value="Amigos">Amigos</option>
+            <option id="public" value="Público">Público</option>
+          </select>
+          <label>Privacidad:</label>
+        </div>
+        <div> 
+          <label id="valid-post" class="center"> </label>
+        </div>
+      </form>
+    </div>
 
-      <div id="publications"></div>
-    </section>
+    <div id="publications">
+    </div>
+  </section>
   </main>
 
   <script src="https://www.gstatic.com/firebasejs/5.3.0/firebase.js"></script>

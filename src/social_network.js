@@ -58,4 +58,3 @@ myPostButton.addEventListener('click', () => {
   let userId = firebase.auth().currentUser.uid;
   showMyPost(userId);
 })
-      
