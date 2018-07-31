@@ -6,41 +6,76 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <title>Social Network - Q.Nutrition</title>
-  <link rel="icon" href="img/icono_frutas_verduras.png">
- 
+  <link rel="icon" href="img/isotipo.png">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/css/materialize.min.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link rel="stylesheet" href="style2.css" />
 </head>
 
-<body onload="printPost()" >
-  <header>
-    <div id="welcome-post">
-      <h2>Bienvenid@, disfruta de los beneficios y aportes de nuestra Red Social</h2>
-      <button id="signOut" type="button" class="boton-send-post">Cerrar Sesión</button>
-    </div>
-  </header>
-  <hr>
-  <section>
-    <div id="writePost" class="post-container">
-      <form>
-        <textarea id="post" class="text-area" autofocus placeholder="¿Qué estás pensando?" rows="5" cols="50"></textarea>
-        <input type="button" id="buttonPost" class="boton-send-post" value="Publicar">
-        <select id="privacy" class="select">
-            <option value="0">Selecciona Privacidad</option>
-          <option id="friends" value="amigos">Amigos</option>
-          <option id="public" value="publico">Público</option>
-        </select>
-      </form>
+<!-- Muro -->
 
-      <div id="publications">
-        
+<body onload="printPost()">
+  <header>
+      <nav class="sidenav-trigger green">
+          <div class="nav-wrapper">
+            <a href="#!" class="brand-logo">Q-Nutrition</a>
+            <a href="#" data-target="mobile-demo" class="sidenav-trigger">
+              <i class="material-icons">menu</i>
+            </a>
+            <ul class="right hide-on-med-and-down">
+              <li> <a href="#" id="start">Inicio</a> </li>
+              <li> <a href="#" id="myPost">Mis publicaciones</a> </li>
+              <li> <a href="#" id="signOut" class="signOut">Cerrar Sesión</a> </li>
+            </ul>
+          </div>
+        </nav>
+      
+        <ul class="sidenav" id="mobile-demo">
+          <li><a href="#" id="start1">Inicio</a></li>
+          <li><a href="#" id="myPost1">Mis publicaciones</a></li>
+          <li><a href="#" id="signOut1" class="signOut">Cerrar Sesión</a></li>
+        </ul>
+  </header>
+
+  <main>
+
+
+
+    <section>
+      <div id="writePost" class="post-container">
+        <h5 class="center">¡Conéctate con un estilo de vida saludable!</h5>
+
+      <form name="form-timeline">
+        <div>
+          <textarea id="post" class="text-area" autofocus placeholder="¿Qué estás pensando?" rows="5" cols="50"></textarea>
+        </div>
+        <div class="in-line">
+          <a id="buttonPost" class="bot btn-large light-green darken-2">Publicar</a>
+        </div>
+
+          <div class="input-field col s12 m6 in-line">
+            <select id="privacy" class="select">
+              <option value="0" disabled selected>Elige compartir con:</option>
+              <option id="friends" value="Amigos">Amigos</option>
+              <option id="public" value="Público">Público</option>
+            </select>
+            <label>Privacidad:</label>
+          </div>
+          
+          <div><label id="valid-post" class="center"> </label>
+          </div>
+        </form>
       </div>
+
+      <div id="publications"></div>
     </section>
-  </div>
+  </main>
 
   <script src="https://www.gstatic.com/firebasejs/5.3.0/firebase.js"></script>
-  <!--<script src="initFirebase.js"></script>-->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js"></script>
   <script src="firebase.js"></script>
   <script src="social_network.js"></script>
+  <script src="validations.js"></script>
   <script src="main.js"></script>
 </body>
 
