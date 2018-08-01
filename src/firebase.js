@@ -15,7 +15,6 @@ const saveData = (userId, name, email, imageUrl) => {
   set({
     username: name,
     email: email,
-
     picture: imageUrl,
     id: userId,
   });
