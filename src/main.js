@@ -9,10 +9,6 @@ const emailLogin = document.getElementById('email-login');
 const passwordLogin = document.getElementById('password-login');
 const updatePassword = document.getElementById('update-password');
 
-const mistakeUserName = document.getElementById('mistake-userName');
-const mistakeEmail = document.getElementById('mistake-email');
-const mistakePassword = document.getElementById('mistake-password');
-const mistakeConfirPassword = document.getElementById('mistake-confirPassword');
 const nameUser = document.getElementById('nameUser');
 const email = document.getElementById('email');
 const password = document.getElementById('password');
@@ -32,7 +28,6 @@ if (registerLink != null) {
     validInputs.innerHTML = '';
   })
 }
-
 
 // ***************** Registra datos  ************************
 if (registerButton != null) {
@@ -62,6 +57,7 @@ registerButton.addEventListener('click', () => {
   }
 });
 }
+
 
 // *********** Loguea al Usuario **************************
 if (loginButton != null) {

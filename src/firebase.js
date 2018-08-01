@@ -28,7 +28,6 @@ const welcome = () => {
   firebase.database().ref('users/')
     .on('value', (userRef) => {
       const users = usersRef.val();
-      console.log(usersLogin);
     })
 }
 
@@ -49,7 +48,7 @@ const registerNew = (email, password) => {
       }
       saveData(user.uid, username, user.email, picture);
       check();
-      alert('Tu usuario ha sido registrado! \nConfirma el mensaje de verificación en tu correo y seguidamente puedes Iniciar Sesión')
+      alert('Tu usuario ha sido registrado! \nConfirma el mensaje de verificación en tu correo y seguidamente puedes Iniciar Sesión');
       formRegister.classList.add('hidden');
       formInicio.classList.remove('hidden');
     })
@@ -106,7 +105,6 @@ const loginGoogle = () => {
     const token = result.credential.accessToken;
     // Información de usuario
     const userData = result.user;
-    console.log(userData);
     saveData(userData.uid, userData.displayName, userData.email, userData.photoURL);
     window.location.href = 'timeline.html';
     })
@@ -149,7 +147,6 @@ const loginFacebook = () => {
     .then((result) => {
       const token = result.credential.accessToken;
       const user = result.user;
-      console.log(user);
       saveData(user.uid, user.displayName, user.email, user.photoURL);
       window.location.href = 'timeline.html';
     })
@@ -167,8 +164,6 @@ const writeNewPost = (uid, name, textPost, state) => {
     likeCount: 0,
     usersLikes: []
   };
-
-  console.log(postData)
 
   // Key para nueva publicación
   let postKey = firebase.database().ref().child('posts').push().key;    
@@ -287,9 +282,9 @@ window.printPost = () => {
     let userId = firebase.auth().currentUser.uid;
     const postActions = (id) => {
       return `<div class="actions">
-      <a onclick="savePostEdit('${id}')" class="save-button hidden"><img src="img/save-regular.svg" alt="icono de editar" width="20px"></a>
-      <a onclick="editPost('${id}')" class="edit-button"><img src="img/edit-regular.svg" alt="icono de editar" width="25px"></a>
-      <a onclick="deletePost('${id}')" id="delete-button"><img src="img/trash-alt-regular.svg" alt="icono de eliminar" width="20px"></a>
+      <a onclick="savePostEdit('${id}')" class="save-button hidden"><img src="img/icon-save.png" alt="icono de guardar" width="20px"></a>
+      <a onclick="editPost('${id}')" class="edit-button"><img src="img/icon-edit.png" alt="icono de editar" width="25px"></a>
+      <a onclick="deletePost('${id}')" id="delete-button"><img src="img/icon-delete.png" alt="icono de eliminar" width="20px"></a>
       </div>`
     }
                
@@ -306,8 +301,8 @@ window.printPost = () => {
               <textarea class="textarea-post" cols="80" rows="30" disabled>${listPost.newPost}</textarea>
               <div>
                 <div class="icon-like">
-                  <a class="like-button" >
-                    <img onclick="like('${id}')" src="img/heart-solid.svg" alt="icono de like" width="20px">
+                  <a class="like-button">
+                    <img onclick="like('${id}')" src="img/icon-like1.png" alt="icono de like" width="20px">
                   </a>
                   <p class="count-like" id="show-count">${listPost.likeCount}</p>
                 </div>
@@ -328,7 +323,6 @@ const showMyPost = () => {
   firebase.database().ref('/user-posts/' + userId + '/')
   .once('value', (userPostsRef) => {
     const listPosts = userPostsRef.val();
-    console.log(listPosts);
     const listPostsOrder = Object.keys(listPosts).reverse();
     const publications = document.getElementById('publications');
     publications.innerHTML='';
@@ -352,9 +346,9 @@ const showMyPost = () => {
                   <p class="count-like" id="show-count">${userPostId.likeCount}</p>
                 </div>
                 <div class="actions">
-                  <a onclick="savePostEdit('${id}')" class="save-button hidden"><img src="img/save-regular.svg" alt="icono de editar" width="20px"></a>
-                  <a onclick="editPost('${id}')" class="edit-button"><img src="img/edit-regular.svg" alt="icono de editar" width="25px"></a>
-                  <a onclick="deletePost('${id}')" id="delete-button"><img src="img/trash-alt-regular.svg" alt="icono de eliminar" width="20px"></a>
+                  <a onclick="savePostEdit('${id}')" class="save-button hidden"><img src="img/icon-save.png" alt="icono de guardar" width="20px"></a>
+                  <a onclick="editPost('${id}')" class="edit-button"><img src="img/icon-edit.png" alt="icono de editar" width="25px"></a>
+                  <a onclick="deletePost('${id}')" id="delete-button"><img src="img/icon-delete.png" alt="icono de eliminar" width="20px"></a>
                 </div>
               </div>
             </div>

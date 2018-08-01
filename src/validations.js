@@ -3,7 +3,7 @@ const isNotEmpty = value => (value !== '');
 const isEmail = value => (regularExpresion.test(value))
 const equalPassword = (password, confirPassword) => password === confirPassword;
 const miniLenght = value => (value.length >= 6);
-const isMessage = value => (value !== '');
+const isMessage = value => (value.trim() !== '');
 
 
 //  Valida los campos al Registrar Nuevo Usuario
