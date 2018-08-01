@@ -16,7 +16,7 @@
 
 <body onload="printPost()">
   <header>
-      <nav class="sidenav-trigger green">
+      <nav class="sidenav-trigger brown">
           <div class="nav-wrapper">
             <a href="#!" class="brand-logo">Q-Nutrition</a>
             <a href="#" data-target="mobile-demo" class="sidenav-trigger">
@@ -42,29 +42,33 @@
 
 
     <section>
-      <div id="writePost" class="post-container">
-        <h5 class="center">¡Conéctate con un estilo de vida saludable!</h5>
+      <div id="writePost" class="container">
+        <h4 class="center slogan-login">¡Conéctate con un estilo de vida saludable!</h4>
 
       <form name="form-timeline">
         <div>
           <textarea id="post" class="text-area" autofocus placeholder="¿Qué estás pensando?" rows="5" cols="50"></textarea>
-        </div>
-        <div class="in-line">
-          <a id="buttonPost" class="bot btn-large light-green darken-2">Publicar</a>
+          <div><p id="valid-post" class="center red-message" center> </p> </div>
         </div>
 
-          <div class="input-field col s12 m6 in-line">
+          <div class="input-field col s6 m6 l8 in-line">
             <select id="privacy" class="select">
-              <option value="0" disabled selected>Elige compartir con:</option>
+              <option value="0" disabled selected>Comparte con:</option>
               <option id="friends" value="Amigos">Amigos</option>
               <option id="public" value="Público">Público</option>
             </select>
             <label>Privacidad:</label>
           </div>
-          
-          <div><label id="valid-post" class="center"> </label>
+
+          <div class="in-line col s6 m6 l4">
+              <a id="buttonPost" class="btn-small light-green darken-2">Publicar</a>
+              <!-- btn-publicar  bot -->
           </div>
+          
+        
         </form>
+        <br>
+        <br>
       </div>
 
       <div id="publications"></div>

@@ -4,7 +4,9 @@ const publicButton = document.getElementById('buttonPost');
 const selectPrivacy = document.getElementById('privacy');
 const publications = document.getElementById('publications');
 const startButton = document.getElementById('start');
+const startButton1 = document.getElementById('start1');
 const myPostButton = document.getElementById('myPost');
+const myPostButton1 = document.getElementById('myPost1');
 const validPost = document.getElementById('valid-post');
 
 // Inicializando el side-nav
@@ -45,7 +47,7 @@ publicButton.addEventListener('click', () => {
       document.getElementById('privacy').value = '0';
       validPost.innerHTML = '';
     } else {
-      validPost.innerHTML = 'Selecciona privacidad y/o escribe un mensaje';
+      validPost.innerHTML = '* ¡Selecciona privacidad y/o escribe un mensaje! *';
     }
   })
 })
@@ -55,6 +57,15 @@ startButton.addEventListener('click', () => {
 })
   
 myPostButton.addEventListener('click', () => {
+  let userId = firebase.auth().currentUser.uid;
+  showMyPost(userId);
+})
+
+startButton1.addEventListener('click', () => {
+  printPost();
+})
+  
+myPostButton1.addEventListener('click', () => {
   let userId = firebase.auth().currentUser.uid;
   showMyPost(userId);
 })

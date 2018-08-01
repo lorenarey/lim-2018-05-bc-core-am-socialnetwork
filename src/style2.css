@@ -13,8 +13,10 @@ body {
   height: 100px;
   box-sizing: border-box;
   border-radius: 0.4rem;
-  margin-bottom: 5px;
+  /* margin-bottom: 5px; */
   border: solid #aed86f 1px;
+  margin: 20px auto;
+  margin-top: 50px;
 }
 
 .select {
@@ -28,7 +30,7 @@ body {
   border: solid #aed86f 1px;
   /* display: inline-block; */
   font-size: 15px;
-}
+} */
 
 .send-post {
   display: inline-block;
@@ -38,11 +40,6 @@ body {
   font-size: 1rem;
   color: rgb(121, 121, 121);
   box-shadow: 0 2px 3px rgba(0, 0, 0, 0.3);
-}
-
-h2 {
-  color: #ffffff;
-  text-align: center;
 }
 
 .boton-send-post {
@@ -56,7 +53,7 @@ h2 {
   margin-top: 10px;
 }
 
-.post-container {
+/* .post-container {
   padding: 20px;
   max-width: 70%;
   background-color: #ffffff;
@@ -64,7 +61,7 @@ h2 {
   margin-top: 50px;
   box-sizing: border-box;
   box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2)
-}
+} */
 
 .actions {
   text-align: right;
@@ -84,18 +81,11 @@ h2 {
   margin: 10px;
 }
 
-#publications { 
-  max-width: 70%;
-  background-color:transparent;
-  margin: 20px auto;   
-  box-sizing: border-box;
-  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2)
-}
-
 .textarea-post {
   border: white;
   background-color: white;
   grid-row: auto;
+  min-height: 100px;
 }
 
 .bot {
@@ -110,33 +100,71 @@ h2 {
  }
 
  .post2 {
-   padding: 10px;
-   margin: 5px;
-   height: 180px;
+   padding: 20px;
+   margin: 25px;
+   margin-top: 5px;
+   /* height: 180px; */
+   min-height: 100px;
  }
 
-@media (max-width: 600px) {
-    #publications {
-      padding: 1px;
-      max-width: 70%;
-      background-color: #ffffff;
-      margin: 20px auto;
-      margin-top: 150px;
-      box-sizing: border-box;
-      box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2)
-    }
+ /* .select2{
+  float: left; 
+  width:  50%;
+} */
+
+.btn-publicar{
+  /* float: right; */
+  width: 50%;
+}
+
+
+/* @media (max-width: 600px) {
     .in-line{
       width: 40%;
       display: block;
     }
 
-  }
+    .select2{
+      width:  100%;
+      display: block;
+    }
+
+    .btn-publicar{
+      float: left;
+      display: block;
+      width: 50%;
+    }
+
+  } */
 
 .center{
     text-align: center;
   }
 
-.in-line{
+/* .in-line{
   width: 40%;
   display: inline-block;
+} */
+
+.red-message {
+  color: red;
+  font-weight: 600;
+  padding: 5px;
+  margin: 10px;
 }
+
+.slogan-login {
+  color:#bd8e9c;  
+  font-weight: 550;
+  font-size: 20px;
+  margin: 15px;
+}
+
+.m-height{
+  min-height: 100px;
+}
+
+.card-post{
+  height: auto;
+}
+

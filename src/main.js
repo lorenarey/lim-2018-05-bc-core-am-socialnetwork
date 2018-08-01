@@ -21,6 +21,7 @@ const validInputs = document.getElementById('valid-inputs');
 const validInputs2 = document.getElementById('valid-inputs2');
 const errorPassword = document.getElementById('error-password');
 
+// Boton Registrar o Crear una cuenta nueva
 registerLink.addEventListener('click', () => {
   formRegister.classList.remove('hidden');
   formInicio.classList.add('hidden');
@@ -57,6 +58,7 @@ registerButton.addEventListener('click', () => {
     }
   }
 });
+
 
 // *********** Loguea al Usuario **************************
 loginButton.addEventListener('click', () => {
