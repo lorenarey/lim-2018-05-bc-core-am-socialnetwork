@@ -235,7 +235,7 @@ window.savePostEdit = (id) => {
 window.like = (id) => {
   let userId = firebase.auth().currentUser.uid;
   const currentPost = document.getElementById(id);
-  const likeButton = currentPost.querySelector('.like-button');
+  // const likeButton = currentPost.querySelector('.like-button');
 
   firebase.database().ref('posts/')
   .once('value', (postsRef) => {
@@ -253,6 +253,8 @@ window.like = (id) => {
 
     const objRefLike = postLikeRef.usersLikes;
 
+    console.log(objRefLike);
+    
     if (objRefLike.indexOf(userId) === -1) {
       objRefLike.push(userId);
       postLikeRef.likeCount = objRefLike.length; 
@@ -262,8 +264,6 @@ window.like = (id) => {
       postLikeRef.likeCount = dislike.length;
     }
     
-    
-
     let updates = {};
     updates['/posts/' + id] = postLikeRef;
     updates['/user-posts/' + userId + '/' + id] = postLikeRef;
@@ -274,7 +274,7 @@ window.like = (id) => {
 // Imprimir total post publicados
 window.printPost = () => { 
   firebase.database().ref('posts/')
-  .once('value', (postsRef) =>{
+  .on('value', (postsRef) =>{
     const posts = postsRef.val();
     const publications = document.getElementById('publications');
     publications.innerHTML='';
