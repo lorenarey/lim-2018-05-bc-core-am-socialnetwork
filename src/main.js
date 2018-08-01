@@ -21,17 +21,21 @@ const validInputs = document.getElementById('valid-inputs');
 const validInputs2 = document.getElementById('valid-inputs2');
 const errorPassword = document.getElementById('error-password');
 
-registerLink.addEventListener('click', () => {
-  formRegister.classList.remove('hidden');
-  formInicio.classList.add('hidden');
-  nameUser.value = '';
-  email.value = '';
-  password.value = '';
-  confirPassword.value = '';
-  validInputs.innerHTML = '';
-})
+if (registerLink != null) {
+  registerLink.addEventListener('click', () => {
+    formRegister.classList.remove('hidden');
+    formInicio.classList.add('hidden');
+    nameUser.value = '';
+    email.value = '';
+    password.value = '';
+    confirPassword.value = '';
+    validInputs.innerHTML = '';
+  })
+}
+
 
 // ***************** Registra datos  ************************
+if (registerButton != null) {
 registerButton.addEventListener('click', () => {
   nameUsers = nameUser.value;
   emailUser = email.value;
@@ -57,8 +61,10 @@ registerButton.addEventListener('click', () => {
     }
   }
 });
+}
 
 // *********** Loguea al Usuario **************************
+if (loginButton != null) {
 loginButton.addEventListener('click', () => {
   if (isValidLogin(emailLogin.value, passwordLogin.value)) {
     login(emailLogin.value, passwordLogin.value);
@@ -70,8 +76,10 @@ loginButton.addEventListener('click', () => {
     validInputs2.innerHTML = 'email y/o password incorrecto';
   }
 });
+}
 
 // *********** Resetea contraseña **************************
+if (updatePassword != null) {
 updatePassword.addEventListener('click', () => {
   if (emailLogin.value === '') {
     validInputs2.innerHTML = 'Ingrese un correo válido para resetear contraseña';
@@ -80,17 +88,23 @@ updatePassword.addEventListener('click', () => {
       validInputs2.innerHTML = 'Se envió correo para el cambio de contraseña';
   }
 });
+}
 
 // *********** Loguea con Google **************************
+if (googleButton != null) {
 googleButton.addEventListener('click', (e) => {
   if (e.target) {
     loginGoogle();
   }
 });
+}
 
 // *********** Loguea al Facebook **************************
+if (faceButton != null) {
 faceButton.addEventListener('click', (e) => {
   if (e.target) {
     loginFacebook()
   }
 });
+}
+

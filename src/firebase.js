@@ -11,9 +11,11 @@ firebase.initializeApp(config);
 
 // Guardar datos de login en BD
 const saveData = (userId, name, email, imageUrl) => {
-  firebase.database().ref('users/' + userId).set({
+  firebase.database().ref('users/' + userId).
+  set({
     username: name,
     email: email,
+
     picture: imageUrl,
     id: userId,
   });
@@ -104,6 +106,7 @@ const loginGoogle = () => {
     const token = result.credential.accessToken;
     // Información de usuario
     const userData = result.user;
+    console.log(userData);
     saveData(userData.uid, userData.displayName, userData.email, userData.photoURL);
     window.location.href = 'timeline.html';
     })
@@ -146,6 +149,7 @@ const loginFacebook = () => {
     .then((result) => {
       const token = result.credential.accessToken;
       const user = result.user;
+      console.log(user);
       saveData(user.uid, user.displayName, user.email, user.photoURL);
       window.location.href = 'timeline.html';
     })
@@ -161,8 +165,10 @@ const writeNewPost = (uid, name, textPost, state) => {
     newPost: textPost,
     privacy: state,
     likeCount: 0,
-    postWithLikes:[],
+    usersLikes: []
   };
+
+  console.log(postData)
 
   // Key para nueva publicación
   let postKey = firebase.database().ref().child('posts').push().key;    
@@ -194,6 +200,7 @@ window.editPost = (id) => {
   const saveButton = currentPost.querySelector('.save-button');
   editButton.classList.add('hidden');
   saveButton.classList.remove('hidden');
+  currentTextarea.focus();
 }
 
 // Función para guardar post editado
@@ -205,26 +212,28 @@ window.savePostEdit = (id) => {
   const userId = firebase.auth().currentUser.uid;
 
   firebase.database().ref('posts/')
-  .on('value', (postsRef) =>{
-    const posts = postsRef.val();
-    const listPost = posts[id];
-    let postEdit = {
-      id: listPost.id,
-      author: listPost.author,
-      newPost: currentTextarea.value,
-      privacy: listPost.privacy,
-      likeCount: 0,
-    }
-
+  .once('value', (postsRef) => { 
+      const posts = postsRef.val();
+      const postEdit = posts[id];
+  
+      let postEditRef = {
+        id: postEdit.id,
+        author: postEdit.author,
+        newPost: currentTextarea.value,
+        privacy: postEdit.privacy,
+        likeCount: postEdit.likeCount,
+        usersLikes: postEdit.usersLikes || []
+      }
+  
       let updates = {};
-      updates['/posts/' + id] = postEdit;
-      updates['/user-posts/' + userId + '/' + id] = postEdit;
+      updates['/posts/' + id] = postEditRef;
+      updates['/user-posts/' + userId + '/' + id] = postEditRef;
       return firebase.database().ref().update(updates);
 
-      editPost.disabled = true;
+      currentTextarea.disabled = true;
       saveButton.classList.add('hidden');
       editButton.classList.remove('hidden');
-    })
+    });
 }
 
 // Función para like's
@@ -232,40 +241,45 @@ window.like = (id) => {
   let userId = firebase.auth().currentUser.uid;
   const currentPost = document.getElementById(id);
   const likeButton = currentPost.querySelector('.like-button');
+
   firebase.database().ref('posts/')
-  .on('value', (postsRef) =>{
-    const posts = postsRef.val();
-    const listPost = posts[id];
-    let postLike = {
-      id: listPost.id,
-      author: listPost.author,
-      newPost: listPost.newPost,
-      privacy: listPost.privacy,
-      likeCount: 0,
-      postWithLikes: [],
-    }
+  .once('value', (postsRef) => {
+    const listPost = postsRef.val();
+    const postLike = listPost[id];
     
-    const objRefLike = postLike.postWithLikes;
-    
-    if (objRefLike.indexOf(userId) === -1) {
-      objRefLike.push(userId);
-      postLike.likeCount = objRefLike.length;
-    } else if (objRefLike.indexOf(userId) === 0) {
-      likeButton.disabled = false;
+    let postLikeRef = {
+      id: postLike.id,
+      author: postLike.author,
+      newPost: postLike.newPost,
+      privacy: postLike.privacy,
+      likeCount: postLike.likeCount,
+      usersLikes: postLike.usersLikes || []
     }
 
-    let updates = {};
-    updates['/posts/' + id] = postLike;
-    updates['/user-posts/' + userId + '/' + id] = postLike;
-    return firebase.database().ref().update(updates);
+    const objRefLike = postLikeRef.usersLikes;
+
+    if (objRefLike.indexOf(userId) === -1) {
+      objRefLike.push(userId);
+      postLikeRef.likeCount = objRefLike.length; 
+    } else {
+      let dislike = objRefLike.filter(user => user != userId)
+      postLikeRef.usersLikes = dislike;
+      postLikeRef.likeCount = dislike.length;
+    }
     
+    
+
+    let updates = {};
+    updates['/posts/' + id] = postLikeRef;
+    updates['/user-posts/' + userId + '/' + id] = postLikeRef;
+    return firebase.database().ref().update(updates);
   })
 }
 
 // Imprimir total post publicados
 window.printPost = () => { 
   firebase.database().ref('posts/')
-  .on('value', (postsRef) =>{
+  .once('value', (postsRef) =>{
     const posts = postsRef.val();
     const publications = document.getElementById('publications');
     publications.innerHTML='';
@@ -292,8 +306,8 @@ window.printPost = () => {
               <textarea class="textarea-post" cols="80" rows="30" disabled>${listPost.newPost}</textarea>
               <div>
                 <div class="icon-like">
-                  <a class="like-button" onclick="like('${id}')">
-                    <img src="img/heart-solid.svg" alt="icono de like" width="20px">
+                  <a class="like-button" >
+                    <img onclick="like('${id}')" src="img/heart-solid.svg" alt="icono de like" width="20px">
                   </a>
                   <p class="count-like" id="show-count">${listPost.likeCount}</p>
                 </div>
@@ -309,35 +323,40 @@ window.printPost = () => {
 }
 
 // Imprimir sólo post del usuario logueado
-const showMyPost = (uid) => {
-  firebase.database().ref('user-posts/' + uid + '/')
-  .on('value', (userPostsRef) => {
+const showMyPost = () => {
+  let userId = firebase.auth().currentUser.uid;
+  firebase.database().ref('/user-posts/' + userId + '/')
+  .once('value', (userPostsRef) => {
     const listPosts = userPostsRef.val();
+    console.log(listPosts);
     const listPostsOrder = Object.keys(listPosts).reverse();
     const publications = document.getElementById('publications');
     publications.innerHTML='';
-    let userId = firebase.auth().currentUser.uid;
+    
     listPostsOrder.forEach((id) => {
       const userPostId = listPosts[id];  
       publications.innerHTML += `
         <div class="show-post" id=${id}>
-          <div>
-            <p>Nombre: ${userPostId.author}</p>
-            <div class="actions">${userPostId.privacy}</div>
-          </div>
-          <textarea class="textarea-post" cols="80" rows="7" disabled>${userPostId.newPost}</textarea>
-          <hr>
-          <div>
-            <div class="icon-like">
-              <a class="like-button" onclick="like('${id}')">
-                <img src="img/heart-solid.svg" alt="icono de like" width="20px">
-              </a>
-              <p class="count-like" id="show-count">${userPostId.likeCount}</p>
-            </div>
-            <div class="actions">
-              <a onclick="savePostEdit('${id}')" class="save-button hidden"><img src="img/save-regular.svg" alt="icono de editar" width="20px"></a>
-              <a onclick="editPost('${id}')" class="edit-button"><img src="img/edit-regular.svg" alt="icono de editar" width="25px"></a>
-              <a onclick="deletePost('${id}')" id="delete-button"><img src="img/trash-alt-regular.svg" alt="icono de eliminar" width="20px"></a>
+          <div class="card post2">
+            <div class="col s12 m12"> 
+              <div class="card-stacked">
+                <span class="card-title">${userPostId.author}</span>
+                <div class="actions">${userPostId.privacy}</div>
+              </div>
+              <textarea class="textarea-post" cols="80" rows="7" disabled>${userPostId.newPost}</textarea>
+              <div>
+                <div class="icon-like">
+                  <a class="like-button">
+                    <img onclick="like('${id}')" src="img/heart-solid.svg" alt="icono de like" width="20px">
+                  </a>
+                  <p class="count-like" id="show-count">${userPostId.likeCount}</p>
+                </div>
+                <div class="actions">
+                  <a onclick="savePostEdit('${id}')" class="save-button hidden"><img src="img/save-regular.svg" alt="icono de editar" width="20px"></a>
+                  <a onclick="editPost('${id}')" class="edit-button"><img src="img/edit-regular.svg" alt="icono de editar" width="25px"></a>
+                  <a onclick="deletePost('${id}')" id="delete-button"><img src="img/trash-alt-regular.svg" alt="icono de eliminar" width="20px"></a>
+                </div>
+              </div>
             </div>
           </div>
         </div>

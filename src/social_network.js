@@ -10,7 +10,7 @@ const validPost = document.getElementById('valid-post');
 // Inicializando el side-nav
 document.addEventListener('DOMContentLoaded', function() {
   var elems = document.querySelectorAll('.sidenav');
-  var instances = M.Sidenav.init(elems);
+  //var instances = M.Sidenav.init(elems);
 });
 
 // Inicializando select de privacidad del post
@@ -20,17 +20,22 @@ document.addEventListener('DOMContentLoaded', function() {
 });
     
 // Cerrar sesión (NavBar)
+if (outButton1 != null){
 outButton1.addEventListener('click', () => {
   signOut();
   window.location.href = 'index.html';
 });
+}
 
 // Cerrar sesión
+if (outButton != null){
 outButton.addEventListener('click', () => {
   signOut();
   window.location.href = 'index.html';
 });
+}
 
+if (publicButton != null){
 publicButton.addEventListener('click', () => {
   let userId = firebase.auth().currentUser.uid;
   firebase.database().ref('/users/' + userId).once('value')
@@ -49,13 +54,17 @@ publicButton.addEventListener('click', () => {
     }
   })
 })
+}
 
+if (startButton != null){
 startButton.addEventListener('click', () => {
   printPost();
 })
-  
+}
+ 
+if (myPostButton != null){
 myPostButton.addEventListener('click', () => {
-  let userId = firebase.auth().currentUser.uid;
-  showMyPost(userId);
+  showMyPost();
 })
+}
       
