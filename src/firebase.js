@@ -306,7 +306,7 @@ window.printPost = () => {
                   </a>
                   <p class="count-like" id="show-count">${listPost.likeCount}</p>
                 </div>
-                <div>${userId === listPost.id ? postActions(id) : ''}</div>
+                <div class="actions">${userId === listPost.id ? postActions(id) : ''}</div>
               </div>
             </div>
           </div>

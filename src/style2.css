@@ -5,6 +5,7 @@
 body {
   background-position: top center;
   font-family: Quicksand;
+  color: #fa2929
 }
 
 .text-area {
@@ -42,6 +43,7 @@ body {
 .actions {
   text-align: right;
   display: flow-root;
+  margin: 5px;
 }
 
 .count-like {
@@ -147,3 +149,7 @@ body {
   height: auto;
 }
 
+.select-wrapper input.select-dropdown {
+  font-size: 14px;
+  color: #727272;
+}
