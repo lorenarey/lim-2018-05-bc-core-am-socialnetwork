@@ -65,9 +65,6 @@ loginButton.addEventListener('click', () => {
   if (isValidLogin(emailLogin.value, passwordLogin.value)) {
     login(emailLogin.value, passwordLogin.value);
     validation(); 
-      // loginButton.disable = true;
-      // loginButton.value = 'Cargando';
-      // loginButton.value.classList.add('iconLoader');
   } else {
     validInputs2.innerHTML = 'email y/o password incorrecto';
   }

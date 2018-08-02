@@ -132,3 +132,7 @@ En este proyecto trabajaremos en 3 sprint, para el primero hemos organizado el f
 En el test de HTML, los usuarios manifestaron afinidad por el diseño, les pareció sencillo y fácil de usar, indicaron malestar por la demora del tiempo de carga, indicaron mejorar el tamaño de los botones, tener imágenes que identifiquen el fin de la red social.
 
 
+
+
+
+

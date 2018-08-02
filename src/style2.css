@@ -16,6 +16,7 @@ body {
   border: solid #aed86f 1px;
   margin: 20px auto;
   margin-top: 50px;
+  resize: none;
 }
 
 .send-post {
