@@ -112,14 +112,10 @@ La Entrevista manifestó conocimiento amplio del tema, indicó seguir cuentas de
 
 * Primer Prototipo diseñado en Figma - modo Movil:
 <br>
-[Figma-Prototipo-Movil1](https://www.figma.com/file/Sb9wO51ybEahrY2n2OppQGZ3/SocialN--QNutrition?node-id=0%3A1).
-<br>
 <img src="src/img/2_democel.gif" alt="Drawing" style="width: 500px;"/>
 <br>
 
 * Primer Prototipo diseñado en Figma - modo Desktop:
-<br>
-[Figma-Prototipo-Desktop1](https://www.figma.com/file/F4yihj2QmsMWrNbcQ5jmr1ja/Desktop_Q-Nutrition?node-id=0%3A1).
 <br>
 <img src="src/img/img/1_qnutrition.gif" alt="Drawing" style="width: 500px;"/>
 
@@ -143,7 +139,17 @@ En este proyecto trabajaremos en 3 sprint, para el primero hemos organizado el f
 
 En el test de HTML, los usuarios manifestaron afinidad por el diseño, les pareció sencillo y fácil de usar, indicaron malestar por la demora del tiempo de carga, indicaron mejorar el tamaño de los botones, tener imágenes que identifiquen el fin de la red social.
 
+**Login: Desktop**
+![Vista final cellphone](https://github.com/Grecia2727/lim-2018-05-bc-core-am-socialnetwork/blob/master/src/img/vista-final-desktop-1.jpg)
 
+**Registro: Desktop**
+![Vista final cellphone](https://github.com/Grecia2727/lim-2018-05-bc-core-am-socialnetwork/blob/master/src/img/vista-final-desktop-2.jpg)
+
+**Muro: Desktop**
+![Vista final Desktop](https://github.com/Grecia2727/lim-2018-05-bc-core-am-socialnetwork/blob/master/src/img/vista-final-desktop-3.jpg)
+
+**Vista final Modo Responsive:**
+![Vista final cellphone](https://github.com/Grecia2727/lim-2018-05-bc-core-am-socialnetwork/blob/master/src/img/vista-final-q-nutrition.jpg)
 
 ## Porcentaje del Test alcanzado
 
