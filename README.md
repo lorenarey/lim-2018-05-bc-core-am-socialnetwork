@@ -112,10 +112,16 @@ La Entrevista manifestó conocimiento amplio del tema, indicó seguir cuentas de
 
 * Primer Prototipo diseñado en Figma - modo Movil:
 <br>
-[`Figma- Prototipo Movil1`](https://www.figma.com/file/Sb9wO51ybEahrY2n2OppQGZ3/SocialN--QNutrition?node-id=0%3A1).
+[Figma-Prototipo-Movil1](https://www.figma.com/file/Sb9wO51ybEahrY2n2OppQGZ3/SocialN--QNutrition?node-id=0%3A1).
 <br>
+<img src="src/img/2_democel.gif" alt="Drawing" style="width: 500px;"/>
+<br>
+
 * Primer Prototipo diseñado en Figma - modo Desktop:
-[`Figma- Prototipo Desktop1`](https://www.figma.com/file/F4yihj2QmsMWrNbcQ5jmr1ja/Desktop_Q-Nutrition?node-id=0%3A1).
+<br>
+[Figma-Prototipo-Desktop1](https://www.figma.com/file/F4yihj2QmsMWrNbcQ5jmr1ja/Desktop_Q-Nutrition?node-id=0%3A1).
+<br>
+<img src="src/img/img/1_qnutrition.gif" alt="Drawing" style="width: 500px;"/>
 
 
 
