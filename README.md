@@ -9,9 +9,9 @@
 
 ### UX
 
-La comida es esencial para nuestra supervivencia y ¿A quién no le gusta la comida?, muchos solemos compartir cada día  videos y fotos en redes sociales de recetas, lo que comemos a diario o si vamos a un restaurant es típico tomar foto del plato y subirla en Facebook o Instagram  ¡Es la Moda!.
+La comida es esencial para el bienestar de nuestro organismo y ¿A quién no le gusta la comida?, muchos solemos compartir cada día  videos y fotos en redes sociales de recetas, lo que comemos a diario o si vamos a un restaurant es típico tomar foto del plato y subirla en Facebook o Instagram  ¡Es la Moda!.
 
-La comida actúa como lenguaje universal y la búsqueda por comidas y alimentos cada vez más saludables han derivado en una tendencia que apuesta por lo natural y consciente
+La comida actúa como lenguaje universal y la búsqueda por comidas y alimentos cada vez más saludables han derivado en una tendencia que apuesta por lo natural y consciente.
 
 
 ### Entregables
@@ -20,9 +20,9 @@ La comida actúa como lenguaje universal y la búsqueda por comidas y alimentos 
 
 Q- Nutrition apunta a ser una red social sumamente visitada con usuarios activos y con contenido dinámico
 
-Entre las características de nuestro producto están:
+**Entre las características de nuestro producto están:**
 
-Registrarse, loguearse con correo y con botones de facebook y google, el tener un muro donde postear poder publicar contenido que se pueda editar, borrar, seleccionar la privacidad de esto y poder llevar con conteo de likes de publicación  y en un futuro poder seguir a otros usuarios, crear colecciones de fotos, tener un perfil y chatear con otros usuarios.
+Registrarse, loguearse con correo, facebook y google, el tener un muro donde postear poder publicar contenido que se pueda editar, borrar, seleccionar la privacidad de esto y poder llevar con conteo de likes de publicación  y en un futuro poder seguir a otros usuarios, crear colecciones de fotos, tener un perfil y chatear con otros usuarios.
 
 **¿Cuáles son los elementos básicos que tiene una red social?**
 
@@ -42,17 +42,30 @@ Búsqueda: su sitio debe tener la opción de buscar a través de usuarios, comun
 
 Entre otras se debe considerar poder dar likes, compartir y comentar, en cuanto al funcionamiento interno se debe poder llevar los datos cualitativos y cuantitativos de los usuarios registrado, interacciones etc..
 
+`En nuestra Red social Q-Nutrition mostramos estas funcionalidades básicas:`
+
+*Registro de nuevo usuario.
+*Login de usuario con correo electrónico.
+*Login de usuario con Google y facebook. 
+*Reseteo de contraseña.
+*Acceso al muro.
+*Capacidad de publicar un post de forma privada o pública. 
+*Capacidad de editar y eliminar un post.
+*Capacidad de dar `likes` y `dislikes` a los posts.
+*Capacidad de ir a una sección: mis publicaciones.
+
+
 **¿Quiénes son los principales usuarios de producto?**
 
-Según los resultados de nuestras entrevistas y el sondeo con encuesta, nuestros User Persons  ideales son personas en su mayoria de 20 a 30 años, amantes de la vida sana y los deportes, entre ellos estudiantes, atletas, personas aficionadas al gimnasio, este usuario tiene constante acceso a internet, gustan mucho de participar en comunidades y publicar  constantemente sobre sus alimentos y la importancia de estos en su día a día, en un segundo tipo de usuario están personas entre 30 a 45 años entre ellas madres de familia que quieren mejorar  su alimentación y la de su familia.
+Según los resultados de nuestras entrevistas y el sondeo con encuesta, nuestros `User Persons` ideales son jóvenes en su mayoria de 20 a 30 años, amantes de la vida sana y los deportes, entre ellos estudiantes, atletas, personas que asisten frecuentemente al gimnasio, este usuario tiene constante acceso a internet, gustan mucho de participar en comunidades y publicar  constantemente sobre sus alimentos y la importancia de estos en su día a día, en un segundo tipo de usuario están personas entre 30 a 45 años entre ellas madres de familia que quieren mejorar  su alimentación y la de su familia.
 
 **¿Cómo descubriste las necesidades de los usuarios?**
 
-En la búsqueda de información sobre alimentación sana, encontramos diversos artículos, estudios de mercado, sondeos  sobre alimentación y de cuán preocupada está la población por mejorar sus hábitos alimenticios, en la búsqueda de redes sociales que se enfoquen únicamente en un tipo de alimentación saludable y consciente vimos que muchas de estas no cumplian con lo requerido por los usuarios, entre los cuales están el tener un lugar donde aprender sobre comida consciente  y de cómo ésta  beneficia su salud, compartir dudas, postear sobre menús, consejos, recetas en un panel  que muestre de manera amigable y responsive estos datos, por lo general las aplicaciones utilizadas por estos usuarios no tenían la posibilidad de realizar post, solo podían comentar en redes y muchas veces sus preguntas o dudas se perdían entre otros comentarios .
+A traves del Benchmarking, en la búsqueda de información sobre alimentación sana, encontramos diversos artículos, estudios de mercado, sondeos  sobre alimentación y de cuán preocupada está la población por mejorar sus hábitos alimenticios, en la búsqueda de redes sociales que se enfoquen únicamente en un tipo de alimentación saludable y consciente vimos que muchas de estas no cumplian con lo requerido por los usuarios, entre los cuales están el tener un lugar donde aprender sobre comida consciente  y de cómo ésta  beneficia su salud, compartir dudas, postear sobre menús, consejos, recetas en un panel  que muestre de manera amigable y responsive estos datos, por lo general las aplicaciones utilizadas por estos usuarios no tenían la posibilidad de realizar post, solo podían comentar en redes y muchas veces sus preguntas o dudas se perdían entre otros comentarios .
 
 **¿Qué problema resuelve el producto para estos usuarios?**
 
-En nuestra web encontrarán personas interesadas  específicamente en el tema propuesto “Alimentación consciente”,  en otro aspecto la plataforma resuelve el problema visual que fue claramente detectado en las entrevistas, los usuarios querían encontrar un diseño armonioso con tonalidades naturales, una web que sea responsive y amigable, de fácil navegación, el poder postear y seleccionar la privacidad  fueron requerimientos importantes expresados por nuestros futuros usuarios, que logramos implementar.
+En nuestra web encontrarán personas interesadas  específicamente en el tema propuesto `Alimentación consciente`,  en otro aspecto la plataforma resuelve el problema visual que fue claramente detectado en las entrevistas, los usuarios querían encontrar un diseño armonioso con tonalidades naturales, una web que sea responsive y amigable, de fácil navegación, el poder postear y seleccionar la privacidad  fueron requerimientos importantes expresados por nuestros futuros usuarios, que logramos implementar.
 
 
 **¿Cuáles son los objetivos de estos usuarios en relación con el producto?**
@@ -61,7 +74,7 @@ Lograr un beneficio, en este caso el mejorar su salud aprender sobre  alimentaci
 
 **¿Cuáles son las principales funcionalidades del producto y cuál es su prioridad?**
 
-La función principal es la de postear texto (comentarios, preguntas, frases, etc), que se puedan editar, eliminar, seleccionar la privacidad y puedan filtrarse.
+La función principal es la de postear texto (comentarios, preguntas, frases, etc), que se puedan editar, eliminar, seleccionar la privacidad, dar likes y puedan ver su muro con las publicaciones realizadas.
 
 **¿Cómo verificaste que el producto les está resolviendo sus problemas?**
 
@@ -79,18 +92,14 @@ Como guía para el diseño de nuestro producto tomamos en cuenta a las grandes r
 
 *Choosemyplate: una iniciativa del gobierno norteamericano contiene información de alimentos y comida saludable, así como porciones en los platos, el contenido en inglés y español te permite suscribirte para recibir boletines, la interacción de usuarios de la red se da solo por otros canales como facebook etc.
 
-*RESUMEN ENTREVISTAS CON USUARIOS:
+**RESUMEN ENTREVISTAS CON USUARIOS:**
 
-Llevamos a cabo 4 entrevistas 2 de ellas grabadas en la que dejamos a los entrevistados expandirse en el tema, para guiar las mismas y tener resultados que nos ayudacen a planificar el producto llevamos esta guía de preguntas clave
+Llevamos a cabo 5 entrevistas 2 de ellas grabadas en la que dejamos a los entrevistados expandirse en el tema, para guiar las mismas y tener resultados que nos ayudacen a planificar el producto llevamos esta guía de preguntas clave
 
-¿Cuál fue tu última experiencia usando una red social sobre comida consciente?
-
-**¿ Qué te gusta de ellas?**
-
+**¿Cuál fue tu última experiencia usando una red social sobre comida consciente?**
+**¿Qué te gusta de ellas?**
 **¿Qué les hace falta?**
-
 **¿Con qué frecuencia usas esta aplicación?**
-
 **¿Lograste algún beneficio siguiendo o usando estas redes?**
 
 **Entrevista 1 : Alexis Reyes / 23 años / estudiante / deportista**
@@ -123,7 +132,7 @@ La Entrevista manifestó conocimiento amplio del tema, indicó seguir cuentas de
 
 #### 3) Implementación de la Interfaz de Usuario
 
-En este proyecto trabajaremos en 3 sprint, para el primero hemos organizado el flujo de trabajo con la herramienta de organización trello y con el método de kanba. Trabajamos con la herramienta de diseño Figma para hacer el prototipo, se utilizó photoshop para el retoque de imágenes e íconos, para la implementación de la interfaz se utilizó el Framework `Materialize` junto con ajusten de `CSS`, respecto al almacenamiento de la Base de Datos se utilizó `Firebase`.
+En este proyecto trabajamos en 3 sprint, se organizó el flujo de trabajo con la herramienta de organización trello y con el método de kanba. Trabajamos con la herramienta de diseño Figma para hacer el prototipo, se utilizó photoshop para el retoque de imágenes e íconos, la implementación de la interfaz se utilizó el Framework `Materialize` junto con ajusten de `CSS`, respecto al almacenamiento de la Base de Datos se utilizó `Firebase`, la programación la realizamos con `JavaScript`.
 
 **Login: Desktop**
 ![Vista final cellphone](https://github.com/Grecia2727/lim-2018-05-bc-core-am-socialnetwork/blob/master/src/img/vista-final-desktop-1.jpg)
