@@ -117,27 +117,13 @@ La Entrevista manifestó conocimiento amplio del tema, indicó seguir cuentas de
 
 * Primer Prototipo diseñado en Figma - modo Desktop:
 <br>
-<img src="src/img/img/1_qnutrition.gif" alt="Drawing" style="width: 500px;"/>
-
+<img src="src/img/1_qnutrition.gif" alt="Drawing" style="width: 500px;"/>
 
 
 
 #### 3) Implementación de la Interfaz de Usuario
 
-En este proyecto trabajaremos en 3 sprint, para el primero hemos organizado el flujo de trabajo con la herramienta de organización trello y con el método de kanba
-
-*Backlog de manera grupal a continuación mostramos las imágenes
-
-![Backlog Q-nutrition red social sobre alimentación saludable](https://github.com/lorenarey/lim-2018-05-bc-core-am-socialnetwork/blob/dev/img/backlog-q-nutrition-social-network-1.jpg)
-
-*Asignando tareas más detalladas con Trello:
-
-![Trello Q-nutrition red social sobre alimentación saludable](https://github.com/lorenarey/lim-2018-05-bc-core-am-socialnetwork/blob/dev/img/trello-social-comida-nutritiva.jpg)
-
-
-####  CONCLUSIONES  TEST ALTA FIDELIDAD Y HTML
-
-En el test de HTML, los usuarios manifestaron afinidad por el diseño, les pareció sencillo y fácil de usar, indicaron malestar por la demora del tiempo de carga, indicaron mejorar el tamaño de los botones, tener imágenes que identifiquen el fin de la red social.
+En este proyecto trabajaremos en 3 sprint, para el primero hemos organizado el flujo de trabajo con la herramienta de organización trello y con el método de kanba. Trabajamos con la herramienta de diseño Figma para hacer el prototipo, se utilizó photoshop para el retoque de imágenes e íconos, para la implementación de la interfaz se utilizó el Framework `Materialize` junto con ajusten de `CSS`, respecto al almacenamiento de la Base de Datos se utilizó `Firebase`.
 
 **Login: Desktop**
 ![Vista final cellphone](https://github.com/Grecia2727/lim-2018-05-bc-core-am-socialnetwork/blob/master/src/img/vista-final-desktop-1.jpg)
@@ -150,6 +136,13 @@ En el test de HTML, los usuarios manifestaron afinidad por el diseño, les parec
 
 **Vista final Modo Responsive:**
 ![Vista final cellphone](https://github.com/Grecia2727/lim-2018-05-bc-core-am-socialnetwork/blob/master/src/img/vista-final-q-nutrition.jpg)
+
+<br>
+
+####  CONCLUSIONES  TEST ALTA FIDELIDAD Y HTML
+
+En el test de HTML, los usuarios manifestaron afinidad por el diseño, les pareció sencillo y fácil de usar, indicaron malestar por la demora del tiempo de carga, indicaron mejorar el tamaño de los botones, tener imágenes que identifiquen el fin de la red social.
+
 
 ## Porcentaje del Test alcanzado
 
