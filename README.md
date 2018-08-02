@@ -136,3 +136,6 @@ En el test de HTML, los usuarios manifestaron afinidad por el diseño, les parec
 
 
 
+![Figma- Prototipo Desktop1](https://github.com/Grecia2727/lim-2018-05-bc-core-am-socialnetwork/blob/master/src/img/1_qnutrition.gif)
+
+![Figma- Prototipo Movil1](https://github.com/Grecia2727/lim-2018-05-bc-core-am-socialnetwork/blob/master/src/img/2_democel.gif)
