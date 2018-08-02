@@ -15,20 +15,9 @@ const saveData = (userId, name, email, imageUrl) => {
   set({
     username: name,
     email: email,
-
     picture: imageUrl,
     id: userId,
   });
-}
-
-// Mostrar usuario logueado en consola
-const welcome = () => {
-  const messageWelcome = document.getElementById('welcome-post');
-  let userLogin = firebase.currentUser;
-  firebase.database().ref('users/')
-    .on('value', (userRef) => {
-      const users = usersRef.val();
-    })
 }
 
 // Registro de Usuarios Nuevos
@@ -235,7 +224,6 @@ window.savePostEdit = (id) => {
 window.like = (id) => {
   let userId = firebase.auth().currentUser.uid;
   const currentPost = document.getElementById(id);
-  // const likeButton = currentPost.querySelector('.like-button');
 
   firebase.database().ref('posts/')
   .once('value', (postsRef) => {
@@ -289,24 +277,24 @@ window.printPost = () => {
     }
                
     postsOrder.forEach((id) => {
-      const listPost = posts[id];
+      const post = posts[id];
       publications.innerHTML += `
         <div class="show-post" id=${id}>
           <div class="card post2">
             <div class="col s12 m12"> 
               <div class="card-stacked">
-                <span class="card-title">${listPost.author}</span>
-                <div class="actions">${listPost.privacy}</div>
+                <span class="card-title">${post.author}</span>
+                <div class="actions"><img src="${post.privacy === 'Amigos' ? 'img/keyhole.png' : 'img/worldwide.png'}"></div>
               </div class="card-content">
-              <textarea class="textarea-post" cols="80" rows="30" disabled>${listPost.newPost}</textarea>
+              <textarea class="textarea-post" cols="80" rows="30" disabled>${post.newPost}</textarea>
               <div>
                 <div class="icon-like">
                   <a class="like-button">
                     <img onclick="like('${id}')" src="img/icon-like1.png" alt="icono de like" width="20px">
                   </a>
-                  <p class="count-like" id="show-count">${listPost.likeCount}</p>
+                  <p class="count-like" id="show-count">${post.likeCount}</p>
                 </div>
-                <div class="actions">${userId === listPost.id ? postActions(id) : ''}</div>
+                <div class="actions">${userId === post.id ? postActions(id) : ''}</div>
               </div>
             </div>
           </div>
@@ -335,13 +323,13 @@ const showMyPost = () => {
             <div class="col s12 m12"> 
               <div class="card-stacked">
                 <span class="card-title">${userPostId.author}</span>
-                <div class="actions">${userPostId.privacy}</div>
+                <div class="actions"><img src="${userPostId.privacy === 'Amigos' ? 'img/keyhole.png' : 'img/worldwide.png'}"></div>
               </div>
               <textarea class="textarea-post" cols="80" rows="7" disabled>${userPostId.newPost}</textarea>
               <div>
                 <div class="icon-like">
                   <a class="like-button">
-                    <img onclick="like('${id}')" src="img/heart-solid.svg" alt="icono de like" width="20px">
+                    <img onclick="like('${id}')" src="img/icon-like1.png" alt="icono de like" width="20px">
                   </a>
                   <p class="count-like" id="show-count">${userPostId.likeCount}</p>
                 </div>
