@@ -20,16 +20,6 @@ const saveData = (userId, name, email, imageUrl) => {
   });
 }
 
-// Mostrar usuario logueado en consola
-const welcome = () => {
-  const messageWelcome = document.getElementById('welcome-post');
-  let userLogin = firebase.currentUser;
-  firebase.database().ref('users/')
-    .on('value', (userRef) => {
-      const users = usersRef.val();
-    })
-}
-
 // Registro de Usuarios Nuevos
 const registerNew = (email, password) => {
   firebase.auth().createUserWithEmailAndPassword(email, password)
@@ -234,7 +224,6 @@ window.savePostEdit = (id) => {
 window.like = (id) => {
   let userId = firebase.auth().currentUser.uid;
   const currentPost = document.getElementById(id);
-  // const likeButton = currentPost.querySelector('.like-button');
 
   firebase.database().ref('posts/')
   .once('value', (postsRef) => {
@@ -305,7 +294,7 @@ window.printPost = () => {
                   </a>
                   <p class="count-like" id="show-count">${post.likeCount}</p>
                 </div>
-                <div>${userId === post.id ? postActions(id) : ''}</div>
+                <div class="actions">${userId === post.id ? postActions(id) : ''}</div>
               </div>
             </div>
           </div>
@@ -340,7 +329,7 @@ const showMyPost = () => {
               <div>
                 <div class="icon-like">
                   <a class="like-button">
-                    <img onclick="like('${id}')" src="img/heart-solid.svg" alt="icono de like" width="20px">
+                    <img onclick="like('${id}')" src="img/icon-like1.png" alt="icono de like" width="20px">
                   </a>
                   <p class="count-like" id="show-count">${userPostId.likeCount}</p>
                 </div>
