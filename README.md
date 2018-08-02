@@ -112,12 +112,13 @@ La Entrevista manifestó conocimiento amplio del tema, indicó seguir cuentas de
 
 * Primer Prototipo diseñado en Figma - modo Movil:
 <br>
-![Figma- Prototipo Movil1](src/img/2_democel.gif)
+[`Figma- Prototipo Movil1`](https://www.figma.com/file/Sb9wO51ybEahrY2n2OppQGZ3/SocialN--QNutrition?node-id=0%3A1).
 <br>
 * Primer Prototipo diseñado en Figma - modo Desktop:
-<br>
-![Figma- Prototipo Desktop1](src/img/1_qnutrition.gif)
-<br>
+[`Figma- Prototipo Desktop1`](https://www.figma.com/file/F4yihj2QmsMWrNbcQ5jmr1ja/Desktop_Q-Nutrition?node-id=0%3A1).
+
+
+
 
 #### 3) Implementación de la Interfaz de Usuario
 

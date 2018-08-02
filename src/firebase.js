@@ -329,7 +329,7 @@ const showMyPost = () => {
               <div>
                 <div class="icon-like">
                   <a class="like-button">
-                    <img onclick="like('${id}')" src="img/heart-solid.svg" alt="icono de like" width="20px">
+                    <img onclick="like('${id}')" src="img/icon-like1.png" alt="icono de like" width="20px">
                   </a>
                   <p class="count-like" id="show-count">${userPostId.likeCount}</p>
                 </div>
