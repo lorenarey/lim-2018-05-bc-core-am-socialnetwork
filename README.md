@@ -112,11 +112,11 @@ La Entrevista manifestó conocimiento amplio del tema, indicó seguir cuentas de
 
 * Primer Prototipo diseñado en Figma - modo Movil:
 <br>
-![Figma- Prototipo Movil1](https://github.com/Grecia2727/lim-2018-05-bc-core-am-socialnetwork/blob/master/src/img/2_democel.gif)
+![Figma- Prototipo Movil1](src/img/2_democel.gif)
 <br>
 * Primer Prototipo diseñado en Figma - modo Desktop:
 <br>
-![Figma- Prototipo Desktop1](https://github.com/Grecia2727/lim-2018-05-bc-core-am-socialnetwork/blob/master/src/img/1_qnutrition.gif)
+![Figma- Prototipo Desktop1](src/img/1_qnutrition.gif)
 <br>
 
 #### 3) Implementación de la Interfaz de Usuario
