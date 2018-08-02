@@ -1,6 +1,4 @@
-Social Network:
-Q-Nutrition
-comida Saludable
+
 
 # Q-Nutrition Social Network
 
@@ -26,7 +24,7 @@ Entre las características de nuestro producto están:
 
 Registrarse, loguearse con correo y con botones de facebook y google, el tener un muro donde postear poder publicar contenido que se pueda editar, borrar, seleccionar la privacidad de esto y poder llevar con conteo de likes de publicación  y en un futuro poder seguir a otros usuarios, crear colecciones de fotos, tener un perfil y chatear con otros usuarios.
 
-¿Cuáles son los elementos básicos que tiene una red social?
+**¿Cuáles son los elementos básicos que tiene una red social?**
 
 El elemento que se destaca y gracias a ello el éxito de las principales Redes Sociales como Facebook, Instagram, Twitter, etc., es el de crear comunidad, la interacción entre los miembros de la red  es muy importante para el éxito de estas, más técnicamente se deben tener en cuenta los siguientes elementos:
 
@@ -36,7 +34,7 @@ Perfil y feed: El poder ser visible es muy importante en las redes, personalizar
 
 Fácil interacción entre usuarios: el éxito de una red social  se basa en la conversación entre sus usuarios, se debe permitir el acceso rápido a esta parte de la plataforma.
 
-Tener una interfaz de usuario simple pero atractiva e interactiva es una necesidad para una experiencia de usuario exitosa, para esto es necesario acceder fácilmente al menú de navegación, el diseño debe ser responsivo adaptable a los diversos tamaños de visualización, el logotipo debe estar perenne en la visualización de la página .
+Tener una interfaz de usuario simple pero atractiva e interactiva es una necesidad para una experiencia de usuario exitosa, para esto es necesario acceder fácilmente al menú de navegación, el diseño debe ser responsivo adaptable a los diversos tamaños de visualización, el logotipo debe estar perenne en la visualización de la página.
 
 Posibilidad de importar usuarios de otros sitios, gracias a ello el éxito de Facebook ante sus competidores.
 .
@@ -44,32 +42,32 @@ Búsqueda: su sitio debe tener la opción de buscar a través de usuarios, comun
 
 Entre otras se debe considerar poder dar likes, compartir y comentar, en cuanto al funcionamiento interno se debe poder llevar los datos cualitativos y cuantitativos de los usuarios registrado, interacciones etc..
 
-¿Quiénes son los principales usuarios de producto?
+**¿Quiénes son los principales usuarios de producto?**
 
 Según los resultados de nuestras entrevistas y el sondeo con encuesta, nuestros User Persons  ideales son personas en su mayoria de 20 a 30 años, amantes de la vida sana y los deportes, entre ellos estudiantes, atletas, personas aficionadas al gimnasio, este usuario tiene constante acceso a internet, gustan mucho de participar en comunidades y publicar  constantemente sobre sus alimentos y la importancia de estos en su día a día, en un segundo tipo de usuario están personas entre 30 a 45 años entre ellas madres de familia que quieren mejorar  su alimentación y la de su familia.
 
-¿Cómo descubriste las necesidades de los usuarios?
+**¿Cómo descubriste las necesidades de los usuarios?**
 
 En la búsqueda de información sobre alimentación sana, encontramos diversos artículos, estudios de mercado, sondeos  sobre alimentación y de cuán preocupada está la población por mejorar sus hábitos alimenticios, en la búsqueda de redes sociales que se enfoquen únicamente en un tipo de alimentación saludable y consciente vimos que muchas de estas no cumplian con lo requerido por los usuarios, entre los cuales están el tener un lugar donde aprender sobre comida consciente  y de cómo ésta  beneficia su salud, compartir dudas, postear sobre menús, consejos, recetas en un panel  que muestre de manera amigable y responsive estos datos, por lo general las aplicaciones utilizadas por estos usuarios no tenían la posibilidad de realizar post, solo podían comentar en redes y muchas veces sus preguntas o dudas se perdían entre otros comentarios .
 
-¿Qué problema resuelve el producto para estos usuarios?
+**¿Qué problema resuelve el producto para estos usuarios?**
 
 En nuestra web encontrarán personas interesadas  específicamente en el tema propuesto “Alimentación consciente”,  en otro aspecto la plataforma resuelve el problema visual que fue claramente detectado en las entrevistas, los usuarios querían encontrar un diseño armonioso con tonalidades naturales, una web que sea responsive y amigable, de fácil navegación, el poder postear y seleccionar la privacidad  fueron requerimientos importantes expresados por nuestros futuros usuarios, que logramos implementar.
 
 
-¿Cuáles son los objetivos de estos usuarios en relación con el producto?
+**¿Cuáles son los objetivos de estos usuarios en relación con el producto?**
 
 Lograr un beneficio, en este caso el mejorar su salud aprender sobre  alimentación consciente y conocer a otras personas y su forma en que viven esta nueva corriente.
 
-¿Cuáles son las principales funcionalidades del producto y cuál es su prioridad?
+**¿Cuáles son las principales funcionalidades del producto y cuál es su prioridad?**
 
 La función principal es la de postear texto (comentarios, preguntas, frases, etc), que se puedan editar, eliminar, seleccionar la privacidad y puedan filtrarse.
 
-¿Cómo verificaste que el producto les está resolviendo sus problemas?
+**¿Cómo verificaste que el producto les está resolviendo sus problemas?**
 
 En las entrevistas detectamos las necesidades, y según nuestros avances testeamos constantemente el producto, desde su etapa de sketch a mano alzada a la de diseño de alta fidelidad y  en forma conjunta conforme se implementaba.
 
-¿Cómo te asegurarás que estos usuarios usen este producto?
+**¿Cómo te asegurarás que estos usuarios usen este producto?**
 
 Creando campañas digitales en otras redes sociales, compartiendo enlaces con otras webs, utilizando en un futuro google AdWords  :)
 
@@ -87,19 +85,19 @@ Llevamos a cabo 4 entrevistas 2 de ellas grabadas en la que dejamos a los entrev
 
 ¿Cuál fue tu última experiencia usando una red social sobre comida consciente?
 
-¿ Qué te gusta de ellas?
+**¿ Qué te gusta de ellas?**
 
-¿Qué les hace falta?
+**¿Qué les hace falta?**
 
-¿Con qué frecuencia usas esta aplicación ?
+**¿Con qué frecuencia usas esta aplicación?**
 
-¿Lograste algún beneficio siguiendo o usando estas redes?
+**¿Lograste algún beneficio siguiendo o usando estas redes?**
 
-Entrevista 1 : Alexis Reyes / 23 años / estudiante / deportista
+**Entrevista 1 : Alexis Reyes / 23 años / estudiante / deportista**
 
 El entrevistado manifestó que no conocía una red social o fan page  sobre nuestro tema de “comida consciente”, si tenía conocimiento de esta nueva práctica de alimentación. En las webs  que normalmente usa encuentra  dietas, más no podía interactuar con otros usuarios como el.
 
-Entrevista 2 : Beatriz Castiglia  / psicóloga/ training manager/ deportista
+**Entrevista 2 : Beatriz Castiglia  / psicóloga/ training manager/ deportista**
 
 La Entrevista manifestó conocimiento amplio del tema, indicó seguir cuentas de personas que viven esta práctica de alimentación, estas cuentan con webs abiertas, más no tienen un registro con un perfil que se  pudiera modificar, usa con frecuencia estas cuentas para seguir consejos, tips, gusta mucho de la fotografía de estas webs, ha conseguido ampliar su conocimiento en cuanto a esta práctica.
 
@@ -112,7 +110,14 @@ La Entrevista manifestó conocimiento amplio del tema, indicó seguir cuentas de
 ![altafidelidad1](https://github.com/Grecia2727/lim-2018-05-bc-core-am-socialnetwork/blob/master/img/alta%20fidelidad1.jpg)
 
 
-
+* Primer Prototipo diseñado en Figma - modo Movil:
+<br>
+![Figma- Prototipo Movil1](https://github.com/Grecia2727/lim-2018-05-bc-core-am-socialnetwork/blob/master/src/img/2_democel.gif)
+<br>
+* Primer Prototipo diseñado en Figma - modo Desktop:
+<br>
+![Figma- Prototipo Desktop1](https://github.com/Grecia2727/lim-2018-05-bc-core-am-socialnetwork/blob/master/src/img/1_qnutrition.gif)
+<br>
 
 #### 3) Implementación de la Interfaz de Usuario
 
@@ -133,9 +138,10 @@ En el test de HTML, los usuarios manifestaron afinidad por el diseño, les parec
 
 
 
+## Porcentaje del Test alcanzado
 
-
-
-![Figma- Prototipo Desktop1](https://github.com/Grecia2727/lim-2018-05-bc-core-am-socialnetwork/blob/master/src/img/1_qnutrition.gif)
-
-![Figma- Prototipo Movil1](https://github.com/Grecia2727/lim-2018-05-bc-core-am-socialnetwork/blob/master/src/img/2_democel.gif)
+Los Tests unitarios pasan el 70% de statements mínimos requeridos.
+<br>
+![Test index.html](https://github.com/Grecia2727/lim-2018-05-bc-core-am-socialnetwork/blob/master/src/img/test/test1.PNG)
+<br>
+![Porcentaje de Test alcanzado](https://github.com/Grecia2727/lim-2018-05-bc-core-am-socialnetwork/blob/master/src/img/test/test2.PNG)
