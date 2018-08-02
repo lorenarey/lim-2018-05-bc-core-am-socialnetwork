@@ -13,6 +13,8 @@
 </head>
 
 <body>
+
+
   <!-- ***Formulario de Login*** -->
   <main>
   <div id="main-container">
@@ -87,17 +89,23 @@
               <label for="confirPassword">Confirmar contraseña</label>
             </div>
           </div>         
-          <button id="registerButton" type="button" class="bot btn-large light-green darken-2">Registrar</button>
+          <!-- <button id="registerButton" type="button" class="bot btn-large light-green darken-2">Registrar</button> -->
+          <a href="#terms" id="registerButton" class="btn modal-trigger light-green darken-2"> Registrar</a>
         </form>
       </div>
     </section>
   </div>
   </main>
 
+
+  <div id="confirm"></div>
+
   <!-- ******* Pie de Página ****** -->
   <footer>
     <p class="section-footer"><img src="img/icono-copy.png" class="img-foot" alt="icono de Copyright">Copyright - Todos los derechos reservados - Autores: Lorena Reyes - Geraldine Saco - Grecia Anicama</p>
   </footer>
+
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
   <script src="https://www.gstatic.com/firebasejs/5.3.0/firebase.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js"></script>
   <script src="https://apis.google.com/js/platform.js" async defer></script>
@@ -105,5 +113,6 @@
   <script src="social_network.js"></script>
   <script src="validations.js"></script>
   <script src="main.js"></script>
+
 </body>
 </html>
