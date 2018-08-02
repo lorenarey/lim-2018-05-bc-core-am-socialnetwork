@@ -1,9 +1,6 @@
-
-
-# Q-Nutrition Social Network
-
+<div style="text-align:center">
 ![Logo Q-nutrition red social sobre alimentación saludable](https://github.com/Grecia2727/lim-2018-05-bc-core-am-socialnetwork/blob/master/img/loguitop1.png)
-
+</div>
 
 ## INTRODUCCIÓN
 
@@ -121,7 +118,8 @@ La Entrevista manifestó conocimiento amplio del tema, indicó seguir cuentas de
 
 * Primer Prototipo diseñado en Figma - modo Movil:
 <br>
-<img src="src/img/2_democel.gif" alt="Drawing" style="width: 500px;"/>
+<div style="text-align:center">
+<img src="src/img/2_democel.gif" alt="Drawing" style="width: 500px;"/></div>
 <br>
 
 * Primer Prototipo diseñado en Figma - modo Desktop:
